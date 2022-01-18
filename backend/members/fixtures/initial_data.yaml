@@ -1,0 +1,28 @@
+- model: members.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$260000$MSCDbplZNaxCE9mMoy5hb9$jROtyfFvqopDmhTdOLXBitjkoWsDy9jqiCIkoTLzrTY=
+    last_login: 2021-09-24 10:45:25.913433+00:00
+    is_superuser: true
+    username: admin
+    email: "admin@admin.com"
+    is_staff: true
+    is_active: true
+    date_joined: 2021-09-24 10:45:22.413818+00:00
+    user_permissions: []
+- model: members.university
+  pk: 2
+  fields:
+    name: NTNU
+- model: members.university
+  pk: 3
+  fields:
+    name: BI
+- model: members.study
+  pk: 4
+  fields:
+    name: Bygg
+- model: members.study
+  pk: 5
+  fields:
+    name: Data
