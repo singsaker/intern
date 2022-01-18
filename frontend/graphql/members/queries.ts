@@ -10,16 +10,7 @@ export const GET_MEMBERS = gql`
   }
 `;
 
-export const loginMutation = gql`
-  mutation tokenAuth($username: String!, $password: String!) {
-    tokenAuth(username: $username, password: $password) {
-      token
-      payload
-    }
-  }
-`;
-
-export const userDetails = gql`
+export const GET_USER = gql`
   query {
     userDetails {
       id

@@ -6,6 +6,10 @@ class ProjectCategory(models.Model):
 
   def __str__(self) -> str:
     return self.name
+  
+  class Meta:
+    verbose_name_plural = "Project Categories"
+
 
 class Project(models.Model):
   name = models.CharField(max_length=30)
@@ -50,6 +54,9 @@ class Work(models.Model):
 
   def __str__(self) -> str:
     return str(self.member) + ": " + str(self.task_category)
+
+  class Meta:
+    verbose_name_plural = "Work"
 
 
 # class Task(models.Model): -> Dersom det blir aktuelt å lyse ut oppgaver på internsiden

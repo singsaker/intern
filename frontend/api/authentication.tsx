@@ -1,6 +1,7 @@
 import { client } from "@api/apolloClient";
 import { useQuery } from "@apollo/client";
-import { loginMutation, userDetails } from "@graphql/members/queries";
+import { AUTHENTICATE, DELETE_TOKEN_COOKIE } from "@graphql/members/mutations";
+import { GET_USER } from "@graphql/members/queries";
 import Router from "next/router";
 import { createContext, useContext } from "react";
 
@@ -17,7 +18,7 @@ interface UserProps {
 
 export function AuthProvider({ children }: Props) {
   const useData = () => {
-    const { loading, error, data } = useQuery(userDetails)
+    const { loading, error, data } = useQuery(GET_USER)
 
     if (!error && !loading) {
       return { ...data.userDetails }
@@ -28,13 +29,19 @@ export function AuthProvider({ children }: Props) {
 
   const signIn = async ({ username, password }: UserProps) => {
     await client.mutate({
-      mutation: loginMutation,
+      mutation: AUTHENTICATE,
       variables: { username, password },
     }).then(() => Router.push("/dashboard"))
   };
 
+  const signOut = async () => {
+    await client.mutate({
+      mutation: DELETE_TOKEN_COOKIE,
+    }).then(() => Router.reload())
+  };
+
   return (
-    <AuthContext.Provider value={{ signIn, useData }}>
+    <AuthContext.Provider value={{ signIn, signOut, useData }}>
       {children}
     </AuthContext.Provider>
   );

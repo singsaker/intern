@@ -51,10 +51,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 INSTALLED_APPS = [
-    'rooms.apps.RoomsConfig',
-    'members.apps.MembersConfig',
-    'projects.apps.ProjectsConfig',
-    'shops.apps.ShopsConfig',
+
     "graphene_django",
     "corsheaders",
     
@@ -64,6 +61,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rooms.apps.RoomsConfig',
+    'members.apps.MembersConfig',
+    'projects.apps.ProjectsConfig',
+    'shops.apps.ShopsConfig',
 ]
 
 MIDDLEWARE = [

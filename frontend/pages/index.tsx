@@ -27,7 +27,6 @@ const SignIn = () => {
         <input
           required
           name="password"
-          type="password"
           id="password"
           style={{ width: "100%", marginBottom: 10 }}
           autoComplete="current-password"

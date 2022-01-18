@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 class University(models.Model):
@@ -8,12 +7,18 @@ class University(models.Model):
 
   def __str__(self):
         return self.name
+  
+  class Meta:
+    verbose_name_plural = "Universities"
 
 class Study(models.Model):
   name = models.CharField(max_length=30, default="")
 
   def __str__(self):
         return self.name
+
+  class Meta:
+    verbose_name_plural = "Studies"
 
 class User(AbstractUser):
   first_name = None
@@ -25,7 +30,7 @@ class Member(models.Model):
         ('F', 'Female'),
   )
 
-  user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+  user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
   first_name = models.CharField(max_length=50)
   last_name = models.CharField(max_length=50)
   gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default="")
@@ -44,4 +49,4 @@ class Member(models.Model):
   grade = models.IntegerField(default=1, validators=[MaxValueValidator(6), MinValueValidator(1)])
 
   def __str__(self):
-        return str(self.first_name) + " " + str(self.last_name)
+        return f"{self.first_name} {self.last_name}"
