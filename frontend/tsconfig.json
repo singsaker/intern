@@ -2,6 +2,9 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,12 +16,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"],
       "@graphql/*": ["graphql/*"],
-      "@api/*": ["api/*"]
+      "@api/*": ["api/*"],
+      "@theme/*": ["theme/*"],
+      "@layouts/*": ["layouts/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

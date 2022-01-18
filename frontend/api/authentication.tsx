@@ -31,13 +31,16 @@ export function AuthProvider({ children }: Props) {
     await client.mutate({
       mutation: AUTHENTICATE,
       variables: { username, password },
-    }).then(() => Router.push("/dashboard"))
+    }).then(() => Router.reload())
   };
 
   const signOut = async () => {
     await client.mutate({
       mutation: DELETE_TOKEN_COOKIE,
-    }).then(() => Router.reload())
+    }).then(() => {
+      Router.push("/")
+      Router.reload()
+    })
   };
 
   return (

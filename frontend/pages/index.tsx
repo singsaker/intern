@@ -1,51 +1,9 @@
 import { useAuthentication } from '@api/authentication';
+import LoginForm from '@components/authentication/login/LoginForm';
 import Layout from '@components/Layout';
-import React, { useState } from 'react';
-
-const SignIn = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const { signIn } = useAuthentication()
-
-
-  function onSubmit(e: { preventDefault: () => void; }) {
-    e.preventDefault()
-    signIn({ username, password })
-  }
-
-  return (
-    <>
-      <h1>Logg inn</h1>
-      <form noValidate onSubmit={onSubmit} style={{ width: 300 }}>
-        <input
-          required
-          id="username"
-          name="username"
-          autoComplete="username"
-          style={{ width: "100%", marginBottom: 10 }}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <br />
-        <input
-          required
-          name="password"
-          id="password"
-          style={{ width: "100%", marginBottom: 10 }}
-          autoComplete="current-password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <button
-          style={{ width: "100%" }}
-          type="submit"
-        >
-          Sign In
-        </button>
-        <br />
-      </form>
-    </>
-  )
-}
+import Logo from '@components/Logo';
+import { Stack, Typography } from '@mui/material';
+import React from 'react';
 
 export default function Home() {
   const { useData } = useAuthentication()
@@ -54,7 +12,18 @@ export default function Home() {
   return (
     <Layout>
       <main>
-        {username ? <h1>Du er allerede logget inn!!</h1> : <SignIn />}
+        {username ? (<h1>Velkommen {username}</h1>) : (
+          <>
+            <Logo sx={{ mb: 2 }} />
+            <Stack sx={{ mb: 5 }}>
+              <Typography variant="h4" gutterBottom>
+                Logg inn
+              </Typography>
+              <Typography sx={{ color: 'text.secondary' }}>Singsaker Studenterhjem internside.</Typography>
+            </Stack>
+            <LoginForm />
+          </>
+        )}
       </main>
     </Layout>
   )
