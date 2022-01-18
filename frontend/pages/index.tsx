@@ -7,13 +7,15 @@ const SignIn = () => {
   const [password, setPassword] = useState('')
   const { signIn } = useAuthentication()
 
+
   function onSubmit(e: { preventDefault: () => void; }) {
     e.preventDefault()
     signIn({ username, password })
   }
 
   return (
-    <Layout>
+    <>
+      <h1>Logg inn</h1>
       <form noValidate onSubmit={onSubmit} style={{ width: 300 }}>
         <input
           required
@@ -40,18 +42,20 @@ const SignIn = () => {
           Sign In
         </button>
         <br />
-
       </form>
-    </Layout>
+    </>
   )
 }
 
 export default function Home() {
+  const { useData } = useAuthentication()
+  const { username } = useData();
+
   return (
-    <div>
+    <Layout>
       <main>
-        <SignIn />
+        {username ? <h1>Du er allerede logget inn!!</h1> : <SignIn />}
       </main>
-    </div>
+    </Layout>
   )
 }
