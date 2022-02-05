@@ -1,30 +1,36 @@
 import { useAuthentication } from '@api/authentication';
-import LoginForm from '@components/authentication/login/LoginForm';
-import Layout from '@components/Layout';
-import Logo from '@components/Logo';
-import { Stack, Typography } from '@mui/material';
+import { useQuery } from "@apollo/client";
+import Loading from '@components/Loading';
+import { GET_MEMBERS } from "@graphql/members/queries";
+import { Divider, Paper, Typography } from '@mui/material';
 import React from 'react';
+import DashboardLayout from "src/layouts/dashboard";
 
 export default function Home() {
   const { useData } = useAuthentication()
+  const { data, loading, error } = useQuery(GET_MEMBERS)
   const { username } = useData();
 
+  if (loading || !username) {
+    return <Loading />
+  }
+
   return (
-    <Layout>
-      <main>
-        {username ? (<h1>Velkommen {username}</h1>) : (
-          <>
-            <Logo sx={{ mb: 2 }} />
-            <Stack sx={{ mb: 5 }}>
-              <Typography variant="h4" gutterBottom>
-                Logg inn
-              </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>Singsaker Studenterhjem internside.</Typography>
-            </Stack>
-            <LoginForm />
-          </>
-        )}
-      </main>
-    </Layout>
+    <main>
+      <DashboardLayout>
+        <Typography variant="h2" component="h1" gutterBottom>Internsida</Typography>
+        <Typography variant="h4">Kunngjøringer</Typography>
+        <Paper sx={{ my: 2 }}>
+          <Typography variant="body3">Du har mottatt en faktura fra Singsaker Studenterhjem. Spørsmål vedrørende fakturaen rettes til Singsaker Studenterhjem. Fakturaen kan hentes fram med nettleseren din via denne lenken:</Typography>
+        </Paper>
+        <Divider sx={{ my: 2 }} />
+        <Typography variant="h4">Kalender</Typography>
+        <ul>
+          {data.allMembers.map((member: { id: number, firstName?: string, lastName?: string }) => {
+            return <li key={member.id}>{member.firstName + " " + member.lastName}</li>
+          })}
+        </ul>
+      </DashboardLayout>
+    </main>
   )
 }

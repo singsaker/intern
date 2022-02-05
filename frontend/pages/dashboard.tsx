@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
-import Layout from "@components/Layout";
+import Layout from "src/components/Layout";
 import { GET_MEMBERS } from "@graphql/members/queries";
+import DashboardLayout from "src/layouts/dashboard"
 
 function Dashboard() {
   const { data, loading, error } = useQuery(GET_MEMBERS)
@@ -8,7 +9,7 @@ function Dashboard() {
   console.log(data?.allMembers)
 
   return (
-    <Layout>
+    <DashboardLayout>
       <h1>Dette er en side med alle folkene</h1>
       {(loading || error) ? (
         <p>laster...</p>
@@ -22,7 +23,7 @@ function Dashboard() {
           </ul>
         </>
       )}
-    </Layout>
+    </DashboardLayout>
   )
 }
 

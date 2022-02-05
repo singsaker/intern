@@ -11,4 +11,6 @@ def create_member(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=models.User)
 def save_member(sender, instance, **kwargs):
+    instance.member.first_name = instance.first_name
+    instance.member.last_name = instance.last_name
     instance.member.save()

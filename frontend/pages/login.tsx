@@ -1,5 +1,5 @@
-import LoginForm from "@components/authentication/login/LoginForm";
-import Logo from "@components/Logo";
+import LoginForm from "src/components/authentication/login/LoginForm";
+import Logo from "src/components/Logo";
 import { Container, Stack, styled, Typography } from "@mui/material";
 
 const ContentStyle = styled('div')(({ theme }) => ({

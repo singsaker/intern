@@ -18,14 +18,15 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
+      "@components/*": ["src/components/*"],
       "@graphql/*": ["graphql/*"],
       "@api/*": ["api/*"],
       "@theme/*": ["theme/*"],
-      "@layouts/*": ["layouts/*"],
+      "@layouts/*": ["src/layouts/*"],
       "@utils/*": ["utils/*"]
-    }
+    },
+    "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "theme/index.js"],
   "exclude": ["node_modules"]
 }

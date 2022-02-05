@@ -24,7 +24,7 @@ export default class MyDocument extends Document {
 
           {/* Fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
