@@ -1,7 +1,6 @@
 import { AppBar, Box, Stack, Toolbar } from '@mui/material';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import PropTypes from 'prop-types';
 import AccountPopover from './AccountPopover';
 
 
@@ -30,10 +29,6 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
-
-DashboardNavbar.propTypes = {
-  onOpenSidebar: PropTypes.func,
-};
 
 export default function DashboardNavbar() {
   return (

@@ -5,8 +5,7 @@ import Typography from "@mui/material/Typography";
 const ShiftModule = () => {
   return (
     <>
-    <Typography variant="h5">Vakt</Typography>
-
+      <Typography variant="h3" sx={{ mb: 3 }}>Vakt</Typography>
     </>
   )
 }

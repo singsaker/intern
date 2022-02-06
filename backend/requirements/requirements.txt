@@ -11,3 +11,4 @@ psycopg2>=2.8
 pyJWT==1.7.1
 PyYAML==5.4.1
 django-environ==0.8.1
+postgres==4.0

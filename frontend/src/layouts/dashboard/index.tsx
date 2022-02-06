@@ -1,4 +1,6 @@
 // material
+import { useAuthentication } from '@api/authentication';
+import Loading from '@components/Loading';
 import { styled } from '@mui/material/styles';
 import useResponsive from '@utils/useResponsive';
 import { useState } from 'react';
@@ -9,11 +11,10 @@ import DashboardSidebar from './DashboardSidebar';
 
 // ----------------------------------------------------------------------
 
-const APP_BAR_MOBILE = 58;
+const APP_BAR_MOBILE = 48;
 const APP_BAR_DESKTOP = 92;
 
 const RootStyle = styled('div')({
-  display: 'flex',
   minHeight: '100%',
   overflow: 'hidden'
 });
@@ -43,10 +44,15 @@ interface Props {
 export default function DashboardLayout({ children }: Props) {
   const [open, setOpen] = useState(false);
   const isDesktop = useResponsive("up", "lg")
+  const { userDetails } = useAuthentication();
+
+  if (!userDetails) {
+    return <Loading />
+  }
 
   return (
     <RootStyle>
-      <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
+      <DashboardNavbar />
       {isDesktop ? <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} /> : <DashboardAppbar />}
       <MainStyle>
         {children}

@@ -7,18 +7,17 @@ import React from 'react';
 import DashboardLayout from "src/layouts/dashboard";
 
 export default function Home() {
-  const { useData } = useAuthentication()
   const { data, loading, error } = useQuery(GET_MEMBERS)
-  const { username } = useData();
+  const { userDetails } = useAuthentication();
 
-  if (loading || !username) {
+  if (loading) {
     return <Loading />
   }
 
   return (
     <main>
       <DashboardLayout>
-        <Typography variant="h2" component="h1" gutterBottom>Internsida</Typography>
+        <Typography variant="h2" component="h1" gutterBottom>Hei {userDetails?.username}</Typography>
         <Typography variant="h4">Kunngjøringer</Typography>
         <Paper sx={{ my: 2 }}>
           <Typography variant="body3">Du har mottatt en faktura fra Singsaker Studenterhjem. Spørsmål vedrørende fakturaen rettes til Singsaker Studenterhjem. Fakturaen kan hentes fram med nettleseren din via denne lenken:</Typography>

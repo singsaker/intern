@@ -1,12 +1,12 @@
 import { useAuthentication } from "@api/authentication";
-// components
-import MenuPopover from 'src/components/MenuPopover';
 import { Avatar, Box, Button, Divider, IconButton, MenuItem, Typography } from '@mui/material';
 // material
 import { alpha } from '@mui/material/styles';
 //
 import { Gear, House, User } from 'phosphor-react';
 import { useRef, useState } from 'react';
+// components
+import MenuPopover from 'src/components/MenuPopover';
 
 // ----------------------------------------------------------------------
 
@@ -33,8 +33,7 @@ const MENU_OPTIONS = [
 export default function AccountPopover() {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
-  const { useData, signOut } = useAuthentication();
-  const { username } = useData();
+  const { signOut, userDetails } = useAuthentication();
 
   const handleOpen = () => {
     setOpen(true);
@@ -50,8 +49,8 @@ export default function AccountPopover() {
         onClick={handleOpen}
         sx={{
           padding: 0,
-          width: 44,
-          height: 44,
+          width: 32,
+          height: 32,
           ...(open && {
             '&:before': {
               zIndex: 1,
@@ -65,7 +64,7 @@ export default function AccountPopover() {
           }),
         }}
       >
-        <Avatar alt="photoURL" />
+        <Avatar sx={{ width: 32, height: 32 }} alt="photoURL" />
       </IconButton>
 
       <MenuPopover
@@ -76,7 +75,7 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle1" noWrap>
-            {username}
+            {userDetails?.username}
           </Typography>
         </Box>
 

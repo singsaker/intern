@@ -1,9 +1,9 @@
 import { useAuthentication } from "@api/authentication";
-// components
-import Logo from 'src/components/Logo';
 import { Avatar, Box, Drawer, Link, Typography } from '@mui/material';
 // material
 import { styled } from '@mui/material/styles';
+// components
+import Logo from 'src/components/Logo';
 
 // ----------------------------------------------------------------------
 
@@ -32,8 +32,7 @@ interface DashboardSidebarProps {
 }
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: DashboardSidebarProps) {
-  const { useData } = useAuthentication();
-  const { username } = useData();
+  const { userDetails } = useAuthentication();
 
   const renderContent = (
     <Box
@@ -53,7 +52,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
             <Avatar alt="photoURL" />
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                {username}
+                {userDetails?.username}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 logget inn

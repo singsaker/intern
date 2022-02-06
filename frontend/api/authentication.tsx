@@ -3,9 +3,19 @@ import { useQuery } from "@apollo/client";
 import { AUTHENTICATE, DELETE_TOKEN_COOKIE } from "@graphql/members/mutations";
 import { GET_USER } from "@graphql/members/queries";
 import Router from "next/router";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-const AuthContext = createContext<any>({});
+const AuthContext = createContext<{
+  userDetails?: UserProps;
+  setUser: (u: UserProps | undefined) => void;
+  signIn: any;
+  signOut: any;
+}>({
+  userDetails: undefined,
+  setUser: () => { },
+  signIn: undefined,
+  signOut: undefined
+});
 
 interface Props {
   children: JSX.Element[] | JSX.Element;
@@ -14,42 +24,44 @@ interface Props {
 interface UserProps {
   username: string;
   password: string;
+  member: {
+    id: number;
+    firstName?: string;
+    lastName?: string;
+  }
 }
 
 export function AuthProvider({ children }: Props) {
-  const useData = () => {
-    const { loading, error, data } = useQuery(GET_USER)
+  const [user, setUser] = useState<UserProps | undefined>(undefined);
 
-    if (!error && !loading) {
-      return { ...data.userDetails }
-    } else {
-      return {}
-    }
-  }
+  const { data, loading, error } = useQuery(GET_USER);
+
+  useEffect(() => {
+    setUser(data);
+  }, [data]);
 
   const signIn = async ({ username, password }: UserProps) => {
     await client.mutate({
       mutation: AUTHENTICATE,
       variables: { username, password },
-    }).then(() => Router.reload())
+    }).then(() => {
+      Router.push("/")
+    })
   };
 
   const signOut = async () => {
     await client.mutate({
       mutation: DELETE_TOKEN_COOKIE,
     }).then(() => {
-      Router.push("/")
-      Router.reload()
+      Router.push("/login")
     })
   };
 
   return (
-    <AuthContext.Provider value={{ signIn, signOut, useData }}>
+    <AuthContext.Provider value={{ signIn, signOut, ...user, setUser: setUser }}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-export const useAuthentication = () => {
-  return useContext(AuthContext);
-};
+export const useAuthentication = () => useContext(AuthContext);

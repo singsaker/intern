@@ -1,6 +1,6 @@
+import { Container, Stack, styled, Typography } from "@mui/material";
 import LoginForm from "src/components/authentication/login/LoginForm";
 import Logo from "src/components/Logo";
-import { Container, Stack, styled, Typography } from "@mui/material";
 
 const ContentStyle = styled('div')(({ theme }) => ({
   maxWidth: 480,
@@ -11,6 +11,8 @@ const ContentStyle = styled('div')(({ theme }) => ({
   justifyContent: 'center',
   padding: theme.spacing(12, 0)
 }));
+
+
 
 const LogInPage = () => {
   return (

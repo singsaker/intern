@@ -24,7 +24,6 @@ class User(AbstractUser):
   first_name = None
   last_name = None
 
-
 class Member(models.Model):
   GENDER_CHOICES = (
         ('M', 'Male'),
@@ -34,7 +33,7 @@ class Member(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True, related_name="member")
   first_name = models.CharField(max_length=50, blank=True, null=True)
   last_name = models.CharField(max_length=50, blank=True, null=True)
-  gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default="")
+  gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default="M")
   birth_date = models.DateField(blank=True, null=True)
   phone = models.IntegerField(blank=True, null=True)
 

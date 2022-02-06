@@ -1,5 +1,6 @@
 import { client } from '@api/apolloClient';
 import { AuthProvider } from '@api/authentication';
+import { UserProvider } from '@api/UserProvider';
 import { ApolloProvider } from '@apollo/client';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import ThemeConfig from "@theme/index";
@@ -26,11 +27,13 @@ export default function MyApp(props: MyAppProps) {
       </Head>
       <ApolloProvider client={client}>
         <AuthProvider>
-          <CacheProvider value={emotionCache}>
-            <ThemeConfig>
-              <Component {...pageProps} />
-            </ThemeConfig>
-          </CacheProvider>
+          <UserProvider>
+            <CacheProvider value={emotionCache}>
+              <ThemeConfig>
+                <Component {...pageProps} />
+              </ThemeConfig>
+            </CacheProvider>
+          </UserProvider>
         </AuthProvider>
       </ApolloProvider>
     </>

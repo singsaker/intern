@@ -1,7 +1,5 @@
 import { useAuthentication } from '@api/authentication';
-import { useQuery } from "@apollo/client";
-import Loading from '@components/Loading';
-import { GET_MEMBERS } from "@graphql/members/queries";
+import { Divider } from '@mui/material';
 import React from 'react';
 import DashboardLayout from "src/layouts/dashboard";
 import ShiftModule from "src/views/work/ShiftModule";
@@ -9,18 +7,13 @@ import WorkModule from "src/views/work/WorkModule";
 
 
 export default function Work() {
-  const { useData } = useAuthentication()
-  const { data, loading, error } = useQuery(GET_MEMBERS)
-  const { username } = useData();
-
-  if (loading || !username) {
-    return <Loading />
-  }
+  const { userDetails } = useAuthentication()
 
   return (
     <main>
       <DashboardLayout>
         <WorkModule />
+        <Divider sx={{ my: 2 }} />
         <ShiftModule />
       </DashboardLayout>
     </main>
