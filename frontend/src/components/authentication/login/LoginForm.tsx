@@ -11,7 +11,7 @@ import { useState } from 'react';
 export default function LoginForm() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { signIn } = useAuthentication()
+  const { signIn, error } = useAuthentication()
 
   function onSubmit(e: { preventDefault: () => void; }) {
     e.preventDefault()

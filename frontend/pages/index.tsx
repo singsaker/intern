@@ -3,12 +3,18 @@ import { useQuery } from "@apollo/client";
 import Loading from '@components/Loading';
 import { GET_MEMBERS } from "@graphql/members/queries";
 import { Divider, Paper, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
 import React from 'react';
 import DashboardLayout from "src/layouts/dashboard";
 
 export default function Home() {
-  const { data, loading, error } = useQuery(GET_MEMBERS)
-  const { userDetails } = useAuthentication();
+  const { data, loading } = useQuery(GET_MEMBERS)
+  const { userDetails, error } = useAuthentication();
+  const router = useRouter();
+
+  if (error) {
+    router.push("/login")
+  }
 
   if (loading) {
     return <Loading />

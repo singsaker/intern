@@ -12,8 +12,6 @@ const ContentStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(12, 0)
 }));
 
-
-
 const LogInPage = () => {
   return (
     <Container maxWidth="sm">
@@ -25,7 +23,6 @@ const LogInPage = () => {
           </Typography>
           <Typography sx={{ color: 'text.secondary' }}>Singsaker Studenterhjem internside.</Typography>
         </Stack>
-
         <LoginForm />
       </ContentStyle>
     </Container>
