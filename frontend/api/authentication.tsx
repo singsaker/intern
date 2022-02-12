@@ -25,8 +25,6 @@ interface AuthProviderProps {
   children: JSX.Element[] | JSX.Element;
 }
 
-
-
 export function AuthProvider({ children }: AuthProviderProps) {
   // Brukerdata state
   const [user, setUser] = useState<UserProps | undefined>(undefined);
