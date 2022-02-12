@@ -23,7 +23,10 @@
       "@api/*": ["api/*"],
       "@theme/*": ["theme/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@src/*": ["src/*"],
+      "@views/*": ["src/views/*"],
+      "@admin/*": ["src/admin/*"]
     },
     "incremental": true
   },
