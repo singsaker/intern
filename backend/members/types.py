@@ -1,4 +1,4 @@
-from .models import  Member
+from .models import Member, Role
 from graphene_django import DjangoObjectType
 from django.contrib.auth import get_user_model
 
@@ -11,4 +11,8 @@ class UserType(DjangoObjectType):
 class MemberType(DjangoObjectType):
     class Meta:
         model = Member
-        fields = ("id", "first_name", "last_name", "gender")
+
+
+class RoleType(DjangoObjectType):
+    class Meta:
+        model = Role

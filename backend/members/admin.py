@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Member, Study, University, User
+from .models import Member, Role, Study, University, User
 from django import forms
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
@@ -9,17 +9,24 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
-    first_name = forms.CharField(label='First name', required=False)
-    last_name = forms.CharField(label='Last name', required=False)
+
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Password confirmation", widget=forms.PasswordInput
+    )
+    first_name = forms.CharField(label="First name", required=False)
+    last_name = forms.CharField(label="Last name", required=False)
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name',)
+        fields = (
+            "username",
+            "email",
+            "first_name",
+        )
 
     def clean_password2(self):
-        
+
         # Check that the two password entries match
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
@@ -44,11 +51,12 @@ class UserChangeForm(forms.ModelForm):
     the user, but replaces the password field with admin's
     password hash display field.
     """
+
     password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'is_active')
+        fields = ("username", "email", "password", "is_active")
 
     def clean_password(self):
         return self.initial["password"]
@@ -62,36 +70,73 @@ class UserAdmin(BaseUserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('username', 'member', 'email', )
+    list_display = (
+        "username",
+        "member",
+        "email",
+    )
     # fieldsets = (
     #     (None, {'fields': ('username', 'email', 'password')}),
     # )
     fieldsets = (
-        (None, {'fields': ('username', 'password')}),
-        ('Personal info', {'fields': ('email',)}),
-        ('Permissions', {
-            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups',),
-        }),
-        ('Important dates', {'fields': ('last_login', 'date_joined',)}),
+        (None, {"fields": ("username", "password")}),
+        ("Personal info", {"fields": ("email",)}),
+        (
+            "Permissions",
+            {
+                "fields": (
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                    "groups",
+                ),
+            },
+        ),
+        (
+            "Important dates",
+            {
+                "fields": (
+                    "last_login",
+                    "date_joined",
+                )
+            },
+        ),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
     add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('username', 'email', 'password1', 'password2', 'first_name', 'last_name')}
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "username",
+                    "email",
+                    "password1",
+                    "password2",
+                    "first_name",
+                    "last_name",
+                ),
+            },
         ),
     )
-    search_fields = ('username', 'email',)
-    ordering = ('username', 'email',)
+    search_fields = (
+        "username",
+        "email",
+    )
+    ordering = (
+        "username",
+        "email",
+    )
     filter_horizontal = ()
 
+
 class MemberAdmin(admin.ModelAdmin):
-    list_display = ('user', 'first_name', 'last_name', 'phone')
+    list_display = ("user", "first_name", "last_name", "phone")
+
 
 admin.site.register(User, UserAdmin)
 admin.site.register(Member, MemberAdmin)
 admin.site.register(University)
 admin.site.register(Study)
-
-
+admin.site.register(Role)

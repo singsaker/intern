@@ -10,6 +10,7 @@ from .resolvers import MemberResolvers
 class MemberQueries(graphene.ObjectType, MemberResolvers):
     all_users = graphene.List(UserType)
     all_members = graphene.List(MemberType)
+    all_active_members = graphene.List(MemberType)
     user = graphene.Field(UserType)
     user_details = graphene.Field(UserType)
 

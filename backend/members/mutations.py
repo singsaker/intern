@@ -29,7 +29,9 @@ class CreateUser(graphene.Mutation):
         last_name = graphene.String(required=False)
         gender = graphene.String(required=False)
 
-    def mutate(self, info, username, password, email, first_name, last_name, gender="M"):
+    def mutate(
+        self, info, username, password, email, first_name, last_name, gender="M"
+    ):
         token = ""
 
         # Return token
