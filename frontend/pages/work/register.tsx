@@ -1,13 +1,15 @@
 import { useAuthentication } from '@api/authentication';
 import { useQuery } from '@apollo/client';
 import { GET_PROJECT } from "@graphql/projects/queries";
-import { Box, Button, Divider, FormControl, InputLabel, MenuItem, Select, Stack, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
+import { ArrowLeft } from 'phosphor-react';
 import React from 'react';
 import DashboardLayout from "src/layouts/dashboard";
+import WorkRegisterForm from 'src/views/work/WorkRegisterForm';
 
 
-export default function Work() {
+export default function RegisterWork() {
   const { userDetails } = useAuthentication()
   const router = useRouter()
   const { project } = router.query
@@ -18,31 +20,11 @@ export default function Work() {
 
   return (
     <DashboardLayout>
-      <Button onClick={() => router.back()} color="inherit" variant="outlined">Returner</Button>
+      <Button startIcon={<ArrowLeft />} onClick={() => router.back()} color="inherit" variant="outlined">Returner</Button>
       <Typography variant="h3" sx={{ my: 2 }}>Registrer regi</Typography>
-      <Typography>Regiprosjekt: <b>{!loading && projectData.project.name}</b></Typography>
-      <Box component="form" my={2}>
-        <InputLabel>Kategori</InputLabel>
-        <FormControl variant="standard" fullWidth size="small">
-          <Select
-            value={1}
-            label="Kategori"
-          >
-            <MenuItem value={1}>Generelt</MenuItem>
-          </Select>
-        </FormControl>
+      <Typography>Regiprosjekt: <b>{!loading && projectData?.project.name}</b></Typography>
+      <WorkRegisterForm project={project} />
 
-        <Typography variant="body3" sx={{ my: 2 }}>Dato</Typography>
-        <br />
-        <Typography variant="body3" sx={{ my: 2 }}>Tid</Typography>
-        <br />
-        <Typography variant="body3" sx={{ my: 2 }}>Kommentar</Typography>
-      </Box>
-      <Divider />
-      <Stack sx={{ my: 2 }} direction="row" spacing={2}>
-        <Button variant="contained">Send inn</Button>
-        <Button variant="outlined" disabled color="inherit">Lagre som kladd</Button>
-      </Stack>
     </DashboardLayout>
   )
 }

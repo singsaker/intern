@@ -17,7 +17,7 @@ export default function DashboardAppbar() {
         <BottomNavigationAction onClick={() => router.push(Routes.work)} value={Routes.work} label="Arbeid" icon={<Timer weight="duotone" />} />
         <BottomNavigationAction label="Beboere" icon={<UserList weight="duotone" />} />
         <BottomNavigationAction label="Meg" icon={<UserSquare weight="duotone" />} />
-        <BottomNavigationAction label="Utvalget" icon={<Key weight="duotone" />} />
+        <BottomNavigationAction onClick={() => router.push(Routes.admin)} value={Routes.admin} label="Utvalget" icon={<Key weight="duotone" />} />
       </BottomNavigation>
     </Paper>
   );

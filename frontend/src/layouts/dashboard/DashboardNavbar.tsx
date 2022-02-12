@@ -1,4 +1,4 @@
-import { AppBar, Box, Stack, Toolbar } from '@mui/material';
+import { AppBar, Box, Stack, Toolbar, Typography } from '@mui/material';
 // material
 import { alpha, styled } from '@mui/material/styles';
 import AccountPopover from './AccountPopover';
@@ -15,6 +15,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
   backgroundColor: alpha(theme.palette.background.default, 0.72),
+  color: theme.palette.grey[900],
   [theme.breakpoints.up('lg')]: {
     width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
   },
@@ -34,7 +35,7 @@ export default function DashboardNavbar() {
   return (
     <RootStyle>
       <ToolbarStyle>
-
+        <Typography variant="subtitle1">Singsaker intern</Typography>
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>

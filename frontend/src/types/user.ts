@@ -7,3 +7,9 @@ export default interface UserProps {
     lastName?: string;
   };
 }
+
+export interface MemberProps {
+  id: number;
+  firstName?: string;
+  lastName?: string;
+}
