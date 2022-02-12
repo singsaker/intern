@@ -55,4 +55,7 @@ class WorkResolvers:
         if member:
             res = res.filter(member=member)
 
-        return str(res.aggregate(duration=Sum("duration"))["duration"] or timedelta(0))
+        return str(
+            res.aggregate(duration=Sum("duration"))["duration"].total_seconds()
+            or timedelta(0)
+        )

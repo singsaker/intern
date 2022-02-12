@@ -1,21 +1,12 @@
 from datetime import datetime
 import graphene
 from graphene_django import DjangoObjectType
-from .models import Project, ProjectCategory, ProjectMember, Work
+from .models import Project, ProjectCategory, ProjectMember, Work, WorkCategory
 
 
 class ProjectType(DjangoObjectType):
     class Meta:
         model = Project
-        fields = [
-            "id",
-            "name",
-            "hours",
-            "description",
-            "members",
-            "project_category",
-            "start_date",
-        ]
 
 
 class ProjectMemberType(DjangoObjectType):
@@ -38,13 +29,18 @@ class ProjectCategoryType(DjangoObjectType):
         ]
 
 
+class WorkCategoryType(DjangoObjectType):
+    class Meta:
+        model = WorkCategory
+
+
 class WorkType(DjangoObjectType):
-    # duration = graphene.String()
+    duration = graphene.String()
+    status = graphene.Int()
 
     class Meta:
         model = Work
-        fields = ["id", "project", "description", "status", "member", "duration"]
 
-    # @staticmethod
-    # def resolve_duration(parent: Work, info) -> str:
-    #     return str(parent.duration)
+    @staticmethod
+    def resolve_duration(parent: Work, info) -> str:
+        return parent.duration.total_seconds()

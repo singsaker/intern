@@ -1,7 +1,20 @@
 from importlib.metadata import requires
 import graphene
-from .types import ProjectCategoryType, ProjectType, WorkType, ProjectMemberType
-from .mutations import CreateProject, CreateWork
+from .types import (
+    ProjectCategoryType,
+    ProjectType,
+    WorkCategoryType,
+    WorkType,
+    ProjectMemberType,
+)
+from .mutations import (
+    CreateProject,
+    CreateProjectMember,
+    CreateWork,
+    DeleteWork,
+    GenerateSemesterProject,
+    UpdateWork,
+)
 from .resolvers import ProjectResolvers, WorkResolvers
 from members.types import MemberType
 
@@ -9,6 +22,10 @@ from members.types import MemberType
 class ProjectMutations(graphene.ObjectType):
     create_project = CreateProject.Field()
     create_work = CreateWork.Field()
+    update_work = UpdateWork.Field()
+    delete_work = DeleteWork.Field()
+    create_project_member = CreateProjectMember.Field()
+    generate_semester_project = GenerateSemesterProject.Field()
     # update_event
 
 
@@ -29,11 +46,12 @@ class ProjectQueries(graphene.ObjectType, ProjectResolvers):
 class WorkQueries(graphene.ObjectType, WorkResolvers):
     all_work = graphene.List(
         WorkType,
-        project=graphene.Int(required=False),
-        member=graphene.Int(required=False),
+        project=graphene.ID(required=False),
+        member=graphene.ID(required=False),
     )
+    all_work_categories = graphene.List(WorkCategoryType)
     total_time_spent = graphene.Field(
         graphene.String,
-        project=graphene.Int(required=False),
-        member=graphene.Int(required=False),
+        project=graphene.ID(required=False),
+        member=graphene.ID(required=False),
     )
