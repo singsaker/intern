@@ -1,0 +1,2426 @@
+{
+  "data": {
+    "hentBeboere": [
+      {
+        "fornavn": "Folke",
+        "mellomnavn": "",
+        "etternavn": "Kristiansen",
+        "epost": "folkek@stud.ntnu.no",
+        "telefon": "97072634",
+        "adresse": "Rogertsgate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "Arkitekt"
+        },
+        "kjonn": false,
+        "fodselsdato": "1984-09-25",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Mads",
+        "mellomnavn": "Petter",
+        "etternavn": "Røine",
+        "epost": "madsper@stud.ntnu.no",
+        "telefon": "92669934",
+        "adresse": "Gamle Kirkeplass 2a",
+        "postnummer": 3019,
+        "status": 1,
+        "studie": {
+          "navn": "Data"
+        },
+        "kjonn": false,
+        "fodselsdato": "1987-07-07",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Espen",
+        "mellomnavn": "",
+        "etternavn": "Samdal",
+        "epost": "espen.samdal@hotmail.com",
+        "telefon": "47357280",
+        "adresse": "Hausdalsvegen 461",
+        "postnummer": 5229,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": false,
+        "fodselsdato": "1991-01-24",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Andreas",
+        "mellomnavn": "",
+        "etternavn": "Gevelt",
+        "epost": "andreas.gevelt@gmail.com",
+        "telefon": "91706472",
+        "adresse": "Kristoffer Ryghsvei 1A",
+        "postnummer": 3050,
+        "status": 1,
+        "studie": {
+          "navn": "Fysikk"
+        },
+        "kjonn": false,
+        "fodselsdato": "1994-06-09",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Amalie",
+        "mellomnavn": "Vågen",
+        "etternavn": "Ystebø",
+        "epost": "amalie.ysteboe@live.no",
+        "telefon": "47391020",
+        "adresse": "Morvikveien 189",
+        "postnummer": 5124,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-08-30",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Aleksander",
+        "mellomnavn": "Havnø",
+        "etternavn": "Ousdal",
+        "epost": "aleksander.ousdal@gmail.com",
+        "telefon": "95799232",
+        "adresse": "Bjørnstjerne Bjørnsons Vei 51A",
+        "postnummer": 1412,
+        "status": 1,
+        "studie": {
+          "navn": "Medisin"
+        },
+        "kjonn": false,
+        "fodselsdato": "1994-03-29",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Eivind",
+        "mellomnavn": "Mbugua",
+        "etternavn": "Brønstad",
+        "epost": "e-m-b-@hotmail.com",
+        "telefon": "98028334",
+        "adresse": "Ranheimsvegen 219",
+        "postnummer": 7054,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": false,
+        "fodselsdato": "1994-02-03",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Selma",
+        "mellomnavn": "Brandanger",
+        "etternavn": "Haga",
+        "epost": "selma.haga@gmail.com",
+        "telefon": "95048161",
+        "adresse": "Søvikneset 92",
+        "postnummer": 5251,
+        "status": 1,
+        "studie": {
+          "navn": "RAMS"
+        },
+        "kjonn": true,
+        "fodselsdato": "1997-09-11",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Fredrik",
+        "mellomnavn": "",
+        "etternavn": "Gran-Jansen",
+        "epost": "fredrik.granjansen@gmail.com",
+        "telefon": "94178799",
+        "adresse": "Skådalsveien 21 F",
+        "postnummer": 781,
+        "status": 1,
+        "studie": {
+          "navn": "Kyb"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-03-29",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Øyvind",
+        "mellomnavn": "",
+        "etternavn": "Strand",
+        "epost": "mathias_s1996@hotmail.com",
+        "telefon": "95854658",
+        "adresse": "Haakon Sæthres veg 12",
+        "postnummer": 5232,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Des"
+        },
+        "kjonn": false,
+        "fodselsdato": "1996-07-01",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Mathias",
+        "mellomnavn": "",
+        "etternavn": "Hoel",
+        "epost": "mathias_hoel@hotmail.no",
+        "telefon": "95450103",
+        "adresse": "Heimenveien 20",
+        "postnummer": 1410,
+        "status": 1,
+        "studie": {
+          "navn": "Entrepenørskap"
+        },
+        "kjonn": false,
+        "fodselsdato": "1994-11-26",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Håvard",
+        "mellomnavn": "",
+        "etternavn": "Lystrup",
+        "epost": "hlystrup@gmail.com",
+        "telefon": "90161147",
+        "adresse": "Hogstadveien 70",
+        "postnummer": 1383,
+        "status": 1,
+        "studie": {
+          "navn": "Entrepenørskap"
+        },
+        "kjonn": false,
+        "fodselsdato": "1995-08-23",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Hans",
+        "mellomnavn": "Peter Rørholt",
+        "etternavn": "Vigerust",
+        "epost": "hprvigerust@gmail.com",
+        "telefon": "94780480",
+        "adresse": "Svensenga 100",
+        "postnummer": 882,
+        "status": 1,
+        "studie": {
+          "navn": "LUR"
+        },
+        "kjonn": false,
+        "fodselsdato": "1996-03-28",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Adrian",
+        "mellomnavn": "",
+        "etternavn": "Matic",
+        "epost": "adrian.matic@outlook.com",
+        "telefon": "91885485",
+        "adresse": "Høymyrmarka 211",
+        "postnummer": 1391,
+        "status": 1,
+        "studie": {
+          "navn": "GMM"
+        },
+        "kjonn": false,
+        "fodselsdato": "1998-01-05",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Hege",
+        "mellomnavn": "Akernes",
+        "etternavn": "Olsen",
+        "epost": "hege.ao89@gmail.com",
+        "telefon": "95148300",
+        "adresse": "Gaupeveien 6",
+        "postnummer": 7082,
+        "status": 1,
+        "studie": {
+          "navn": "Arkitekt"
+        },
+        "kjonn": true,
+        "fodselsdato": "1989-06-15",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Martin",
+        "mellomnavn": "",
+        "etternavn": "Grønvold",
+        "epost": "martin.groenvold@gmail.com",
+        "telefon": "95451403",
+        "adresse": "Åsveien 5",
+        "postnummer": 1463,
+        "status": 1,
+        "studie": {
+          "navn": "Kyb"
+        },
+        "kjonn": false,
+        "fodselsdato": "1995-05-16",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Johanne",
+        "mellomnavn": "Eikeland",
+        "etternavn": "Skage",
+        "epost": "johanne.e.skage@gmail.com",
+        "telefon": "93003425",
+        "adresse": "Bønesheien 234",
+        "postnummer": 5154,
+        "status": 1,
+        "studie": {
+          "navn": "Medisin"
+        },
+        "kjonn": true,
+        "fodselsdato": "1998-04-14",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Sigurd",
+        "mellomnavn": "Eikeland",
+        "etternavn": "Hougen",
+        "epost": "sighoug@gmail.com",
+        "telefon": "47905434",
+        "adresse": "Haraldskroken 18",
+        "postnummer": 4041,
+        "status": 1,
+        "studie": {
+          "navn": "MatTek"
+        },
+        "kjonn": false,
+        "fodselsdato": "1998-04-13",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Julie",
+        "mellomnavn": "Sydow",
+        "etternavn": "Mo",
+        "epost": "juliesydowmo@gmail.com",
+        "telefon": "47244915",
+        "adresse": "Østre vei 61",
+        "postnummer": 1397,
+        "status": 1,
+        "studie": {
+          "navn": "Data"
+        },
+        "kjonn": true,
+        "fodselsdato": "1995-07-19",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Enok",
+        "mellomnavn": "Sanne",
+        "etternavn": "Liland",
+        "epost": "enok.liland@gmail.com",
+        "telefon": "93626258",
+        "adresse": "somaveien 58",
+        "postnummer": 4313,
+        "status": 1,
+        "studie": {
+          "navn": "I & IKT"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-02-09",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Silje",
+        "mellomnavn": "",
+        "etternavn": "Rosøy",
+        "epost": "siljerosoy@gmail.com",
+        "telefon": "47821785",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "PSY"
+        },
+        "kjonn": true,
+        "fodselsdato": "1994-07-13",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Kristian",
+        "mellomnavn": "",
+        "etternavn": "Gendron",
+        "epost": "ktgendron@gmail.com",
+        "telefon": "41375406",
+        "adresse": "Stokkbekken 21",
+        "postnummer": 7048,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-03-13",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Pål",
+        "mellomnavn": "Høgåsen ",
+        "etternavn": "Manshaus",
+        "epost": "paal.h.m@gmail.com",
+        "telefon": "46786973",
+        "adresse": "Sykehusveien 21",
+        "postnummer": 1346,
+        "status": 1,
+        "studie": {
+          "navn": "Informatikk"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-09-19",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Alexandra",
+        "mellomnavn": "Michelsen",
+        "etternavn": "Schiøtz",
+        "epost": "alexandra.schiotz@outlook.com",
+        "telefon": "47381893",
+        "adresse": "Njårdsvei 2D",
+        "postnummer": 1412,
+        "status": 1,
+        "studie": {
+          "navn": "LEKTOR"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-03-30",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Alexandra",
+        "mellomnavn": "",
+        "etternavn": "Norbach",
+        "epost": "a.norbach@gmail.com",
+        "telefon": "41075622",
+        "adresse": "Vestsidevegen 680",
+        "postnummer": 5363,
+        "status": 1,
+        "studie": {
+          "navn": "RAMS"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-09-29",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Fredrik August",
+        "mellomnavn": "Bjærum",
+        "etternavn": "Haugstad",
+        "epost": "fredrik.a.b.haugstad@gmail.com",
+        "telefon": "92679914",
+        "adresse": "Trollstein 23A",
+        "postnummer": 1389,
+        "status": 1,
+        "studie": {
+          "navn": "Kyb"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-11-26",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Inger Juni",
+        "mellomnavn": "",
+        "etternavn": "Lærdal",
+        "epost": "ingerjuni@gmail.com",
+        "telefon": "46823257",
+        "adresse": "Rogertsgate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "Elsys"
+        },
+        "kjonn": true,
+        "fodselsdato": "1998-03-17",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Johannes",
+        "mellomnavn": "",
+        "etternavn": "Bakkelund",
+        "epost": "johs.bak@gmail.com",
+        "telefon": "92150352",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 8050,
+        "status": 1,
+        "studie": {
+          "navn": "FysMat"
+        },
+        "kjonn": false,
+        "fodselsdato": "1995-06-27",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Jørgen",
+        "mellomnavn": "Natvig",
+        "etternavn": "Løvseth",
+        "epost": "cerafinfo@gmail.com",
+        "telefon": "91733458",
+        "adresse": "Skavlans veg 7B",
+        "postnummer": 7022,
+        "status": 1,
+        "studie": {
+          "navn": "Berg"
+        },
+        "kjonn": false,
+        "fodselsdato": "1996-12-06",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Kaspar",
+        "mellomnavn": "Paus",
+        "etternavn": "Græsdal",
+        "epost": "kasparpg@gmail.com",
+        "telefon": "90227981",
+        "adresse": "Myrhaugen 31A",
+        "postnummer": 752,
+        "status": 1,
+        "studie": {
+          "navn": "Informatikk"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-10-20",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Knut",
+        "mellomnavn": "",
+        "etternavn": "Johannessen",
+        "epost": "knutjohannessen94@gmail.com",
+        "telefon": "95882461",
+        "adresse": "Godalsveien 22B, Stavanger",
+        "postnummer": 4015,
+        "status": 1,
+        "studie": {
+          "navn": "Medisin"
+        },
+        "kjonn": false,
+        "fodselsdato": "1994-12-02",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Maria",
+        "mellomnavn": "",
+        "etternavn": "Walbye",
+        "epost": "maria.walbye@gmail.com",
+        "telefon": "46840410",
+        "adresse": "Langerudsvingen 5D",
+        "postnummer": 1187,
+        "status": 1,
+        "studie": {
+          "navn": "Lærer"
+        },
+        "kjonn": true,
+        "fodselsdato": "1998-07-06",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Phillip",
+        "mellomnavn": "Lukas Rake",
+        "etternavn": "Berggren",
+        "epost": "berggrenphillip@gmail.com",
+        "telefon": "94425050",
+        "adresse": "Holmenveien 6a",
+        "postnummer": 374,
+        "status": 1,
+        "studie": {
+          "navn": "DigFor"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-02-23",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Sigrid",
+        "mellomnavn": "Lange",
+        "etternavn": "Ekerhovd",
+        "epost": "sigrid-le@hotmail.com",
+        "telefon": "97499759",
+        "adresse": "Sandbrekkeveien 15a",
+        "postnummer": 5231,
+        "status": 1,
+        "studie": {
+          "navn": "PSY"
+        },
+        "kjonn": true,
+        "fodselsdato": "1998-07-14",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Silje",
+        "mellomnavn": "Ohma",
+        "etternavn": "Dybdahl",
+        "epost": "siljedybdahl@gmail.com",
+        "telefon": "48176845",
+        "adresse": "Kongensbakken 7",
+        "postnummer": 7100,
+        "status": 1,
+        "studie": {
+          "navn": "LUR"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-02-26",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Sophie Helene",
+        "mellomnavn": "Svevnerud",
+        "etternavn": "Sandaker",
+        "epost": "sophie.sandaker@hotmail.com",
+        "telefon": "99334636",
+        "adresse": "Bleikeråsen 146",
+        "postnummer": 1387,
+        "status": 1,
+        "studie": {
+          "navn": "Arkitekt"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-02-11",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Ingeborg",
+        "mellomnavn": "",
+        "etternavn": "Saatvedt",
+        "epost": "ingeborgsaa@gmail.com",
+        "telefon": "91573900",
+        "adresse": "Mellemveien 11",
+        "postnummer": 1363,
+        "status": 1,
+        "studie": {
+          "navn": "PSY"
+        },
+        "kjonn": true,
+        "fodselsdato": "1997-04-17",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Simon",
+        "mellomnavn": "",
+        "etternavn": "Jensen",
+        "epost": "simon.jensen.lg@gmail.com",
+        "telefon": "46791999",
+        "adresse": "Midtunhaugen 128",
+        "postnummer": 5224,
+        "status": 1,
+        "studie": {
+          "navn": "Data"
+        },
+        "kjonn": false,
+        "fodselsdato": "1999-10-02",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Iselin",
+        "mellomnavn": "Torkveen",
+        "etternavn": "Skjølås",
+        "epost": "iselin.skjolas@gmail.com",
+        "telefon": "48172896",
+        "adresse": "Sognsveien 112B",
+        "postnummer": 860,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": true,
+        "fodselsdato": "1999-01-07",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Hans",
+        "mellomnavn": "",
+        "etternavn": "Strand",
+        "epost": "hansstr@live.no",
+        "telefon": "95016543",
+        "adresse": "Nordengkollen 15a",
+        "postnummer": 1396,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": false,
+        "fodselsdato": "1999-01-22",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Nora",
+        "mellomnavn": "",
+        "etternavn": "Wist",
+        "epost": "nora.vw@hotmail.com",
+        "telefon": "40381082",
+        "adresse": "Bjørnebyvegen 11",
+        "postnummer": 7025,
+        "status": 1,
+        "studie": {
+          "navn": "FysMat"
+        },
+        "kjonn": true,
+        "fodselsdato": "1999-05-06",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Kevin",
+        "mellomnavn": "",
+        "etternavn": "Nordnes",
+        "epost": "kevinnor1997@gmail.com",
+        "telefon": "41075088",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "Informatikk"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-09-02",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Marte",
+        "mellomnavn": "",
+        "etternavn": "Løberg",
+        "epost": "martekalvo@gmail.com",
+        "telefon": "94281806",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "Sosiologi"
+        },
+        "kjonn": true,
+        "fodselsdato": "1997-11-27",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Ida",
+        "mellomnavn": "",
+        "etternavn": "Gavlen",
+        "epost": "idagavlen@hotmail.com",
+        "telefon": "98643205",
+        "adresse": "Johan Blyttsvei 68a",
+        "postnummer": 5096,
+        "status": 1,
+        "studie": {
+          "navn": "DigFor"
+        },
+        "kjonn": true,
+        "fodselsdato": "1998-04-01",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Sandra",
+        "mellomnavn": "",
+        "etternavn": "Andersen",
+        "epost": "sandralund98@gmail.com",
+        "telefon": "93813022",
+        "adresse": "Gurannsvingen 5",
+        "postnummer": 3089,
+        "status": 1,
+        "studie": {
+          "navn": "FysMat"
+        },
+        "kjonn": true,
+        "fodselsdato": "1998-10-27",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Heidi",
+        "mellomnavn": "Marie",
+        "etternavn": "Fjordvang",
+        "epost": "heidimarief@gmail.com",
+        "telefon": "90599548",
+        "adresse": "Jondalsveien 760",
+        "postnummer": 3614,
+        "status": 1,
+        "studie": {
+          "navn": "PARMED"
+        },
+        "kjonn": true,
+        "fodselsdato": "1997-09-30",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Jørgen",
+        "mellomnavn": "",
+        "etternavn": "Halse",
+        "epost": "jrgenhalse@gmail.com",
+        "telefon": "92428244",
+        "adresse": "Halsevegen 117",
+        "postnummer": 6152,
+        "status": 1,
+        "studie": {
+          "navn": "Data"
+        },
+        "kjonn": false,
+        "fodselsdato": "1999-07-16",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Sigurd",
+        "mellomnavn": "",
+        "etternavn": "Akersveen",
+        "epost": "Sigurd.akersveen@gmail.com",
+        "telefon": "48602866",
+        "adresse": "Steingrimsvei 7c",
+        "postnummer": 1185,
+        "status": 1,
+        "studie": {
+          "navn": "Lærer"
+        },
+        "kjonn": false,
+        "fodselsdato": "1998-07-09",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Ludvig",
+        "mellomnavn": "",
+        "etternavn": "Helsing",
+        "epost": "ludvig.helsing@gmail.com",
+        "telefon": "41298693",
+        "adresse": "Tanumveien 91",
+        "postnummer": 1341,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-10-02",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Sofie ",
+        "mellomnavn": "",
+        "etternavn": "Belbo",
+        "epost": "sofie.belboo@gmail.com",
+        "telefon": "94161580",
+        "adresse": "Fuglevikkleiva 12",
+        "postnummer": 4637,
+        "status": 1,
+        "studie": {
+          "navn": "Emil"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-08-21",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Eivind ",
+        "mellomnavn": "",
+        "etternavn": "Birkeland",
+        "epost": "eivind2812@gmail.com",
+        "telefon": "91816121",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-12-28",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Synne",
+        "mellomnavn": "",
+        "etternavn": "Rødal",
+        "epost": "synnerod@online.no",
+        "telefon": "91573766",
+        "adresse": "Vavikbakken 10",
+        "postnummer": 4639,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-07-02",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Marte ",
+        "mellomnavn": "",
+        "etternavn": "Tostrup",
+        "epost": "tostrup.m@gmail.com",
+        "telefon": "93405588",
+        "adresse": "Skavlisletta 73",
+        "postnummer": 3189,
+        "status": 1,
+        "studie": {
+          "navn": "TekLed"
+        },
+        "kjonn": true,
+        "fodselsdato": "1995-02-15",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Thomas ",
+        "mellomnavn": "",
+        "etternavn": "Hille",
+        "epost": "thhille2@gmail.com",
+        "telefon": "41511514",
+        "adresse": "Hamreheia 66a",
+        "postnummer": 4631,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": false,
+        "fodselsdato": "1998-05-23",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Halvard",
+        "mellomnavn": "",
+        "etternavn": "Netland",
+        "epost": "halvard17@gmail.com",
+        "telefon": "97148504",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7016,
+        "status": 1,
+        "studie": {
+          "navn": "MrkLed"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-12-03",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Maja",
+        "mellomnavn": "",
+        "etternavn": "Rygge",
+        "epost": "maja.rygge@icloud.com",
+        "telefon": "98057507",
+        "adresse": "Festeveien 60",
+        "postnummer": 1525,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-06-04",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Pia",
+        "mellomnavn": "",
+        "etternavn": "Riksheim",
+        "epost": "riktjopia@gmail.com",
+        "telefon": "46817969",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "LEKTOR"
+        },
+        "kjonn": true,
+        "fodselsdato": "1999-10-08",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Anne",
+        "mellomnavn": "Marie ",
+        "etternavn": "Aronsen",
+        "epost": "annemarie.aronsen@hotmail.no",
+        "telefon": "97471900",
+        "adresse": "Gripveien 16 ",
+        "postnummer": 6510,
+        "status": 1,
+        "studie": {
+          "navn": "Sosiologi"
+        },
+        "kjonn": true,
+        "fodselsdato": "1999-04-05",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Brita",
+        "mellomnavn": "",
+        "etternavn": "Hildal",
+        "epost": "britabergohildal@gmail.com",
+        "telefon": "95481766",
+        "adresse": "Nesjahaugen 5",
+        "postnummer": 5411,
+        "status": 1,
+        "studie": {
+          "navn": "PSY"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-10-19",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Jacob",
+        "mellomnavn": "",
+        "etternavn": "Lindberg",
+        "epost": "jancherl133@gmail.com",
+        "telefon": "91578155",
+        "adresse": "Frognerveien 2",
+        "postnummer": 3121,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": false,
+        "fodselsdato": "2000-04-02",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Kjetil",
+        "mellomnavn": "",
+        "etternavn": "Vik",
+        "epost": "Andrex0700@gmail.com",
+        "telefon": "48239262",
+        "adresse": "Rukkedalsvegen 300",
+        "postnummer": 3540,
+        "status": 1,
+        "studie": {
+          "navn": "KomTek"
+        },
+        "kjonn": false,
+        "fodselsdato": "2000-01-14",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Lars",
+        "mellomnavn": "Kristian Rørholt ",
+        "etternavn": "Vigerust",
+        "epost": "larskristian.rv@gmail.com",
+        "telefon": "46963301",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7016,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": false,
+        "fodselsdato": "2000-08-07",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Mathias",
+        "mellomnavn": "",
+        "etternavn": "Gjone",
+        "epost": "mathiasbg98@gmail.com",
+        "telefon": "45274601",
+        "adresse": "Kveldeveien 2",
+        "postnummer": 3282,
+        "status": 1,
+        "studie": {
+          "navn": "Maskin"
+        },
+        "kjonn": false,
+        "fodselsdato": "1998-07-07",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Mathias",
+        "mellomnavn": "",
+        "etternavn": "Raa",
+        "epost": "mathias.skra@hotmail.com",
+        "telefon": "95422902",
+        "adresse": "Grimseidvegen 112",
+        "postnummer": 5239,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": false,
+        "fodselsdato": "2001-01-27",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Mats",
+        "mellomnavn": "Bendik Norli",
+        "etternavn": "Kjær",
+        "epost": "mats-kjaer@outlook.com",
+        "telefon": "47666366",
+        "adresse": "Minkvegen 30",
+        "postnummer": 2030,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-09-11",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Peter",
+        "mellomnavn": "",
+        "etternavn": "Lange",
+        "epost": "peterclange99@gmail.com",
+        "telefon": "94129090",
+        "adresse": "Korsvollbråtan 5a",
+        "postnummer": 880,
+        "status": 1,
+        "studie": {
+          "navn": "Stat.vit"
+        },
+        "kjonn": false,
+        "fodselsdato": "1999-08-06",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Petter",
+        "mellomnavn": "Norsted",
+        "etternavn": "Kildebo",
+        "epost": "petter_nk@hotmail.com",
+        "telefon": "91758977",
+        "adresse": "Meiseveien 11",
+        "postnummer": 1786,
+        "status": 1,
+        "studie": {
+          "navn": "Entrepenørskap"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-09-26",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Stian",
+        "mellomnavn": "Aastveit",
+        "etternavn": "Berntsen",
+        "epost": "stianaastveit97@gmail.com",
+        "telefon": "93821480",
+        "adresse": "Gjellumstubben 8",
+        "postnummer": 1389,
+        "status": 1,
+        "studie": {
+          "navn": "Maskin"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-07-11",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Trym",
+        "mellomnavn": "",
+        "etternavn": "Gabrielsen",
+        "epost": "trym_lg@hotmail.com",
+        "telefon": "97163103",
+        "adresse": "Snekkevigveien 10",
+        "postnummer": 4770,
+        "status": 1,
+        "studie": {
+          "navn": "Kyb"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-06-28",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Elise",
+        "mellomnavn": "Arnesen",
+        "etternavn": "Baer",
+        "epost": "elisea.baer@gmail.com",
+        "telefon": "94846429",
+        "adresse": "John Colletts allé  95B",
+        "postnummer": 854,
+        "status": 1,
+        "studie": {
+          "navn": "TekGeo"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-10-27",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Julie",
+        "mellomnavn": "",
+        "etternavn": "Askeland",
+        "epost": "juliekaskeland@gmail.com",
+        "telefon": "98080841",
+        "adresse": "Gustav vigelandsvei 62",
+        "postnummer": 4023,
+        "status": 1,
+        "studie": {
+          "navn": "Emil"
+        },
+        "kjonn": true,
+        "fodselsdato": "2001-05-01",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Maiken",
+        "mellomnavn": "",
+        "etternavn": "Omtveit",
+        "epost": "maiken.omtveit@gmail.com",
+        "telefon": "90994437",
+        "adresse": "Vollsveien 183",
+        "postnummer": 1359,
+        "status": 1,
+        "studie": {
+          "navn": "Emil"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-11-20",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Nora",
+        "mellomnavn": "Bakken",
+        "etternavn": "Ommundsen",
+        "epost": "norabakkenommundsen@yahoo.no",
+        "telefon": "41480098",
+        "adresse": "Hvalstadveien 32b",
+        "postnummer": 1395,
+        "status": 1,
+        "studie": {
+          "navn": "Arkitekt"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-02-25",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Kristine",
+        "mellomnavn": "",
+        "etternavn": "Walbye",
+        "epost": "kristw2701@gmail.com",
+        "telefon": "47909983",
+        "adresse": "Langerudsvingen 5D",
+        "postnummer": 1187,
+        "status": 1,
+        "studie": {
+          "navn": "DigFor"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-01-27",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Tora",
+        "mellomnavn": "",
+        "etternavn": "Stam",
+        "epost": "Torajhstam@gmail.com",
+        "telefon": "90970107",
+        "adresse": "Leangveien 42B",
+        "postnummer": 1387,
+        "status": 1,
+        "studie": {
+          "navn": "Lærer"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-03-31",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Nancy",
+        "mellomnavn": "",
+        "etternavn": "Krone",
+        "epost": "nancykrone12@gmail.com",
+        "telefon": "47240121",
+        "adresse": "Teglhageveien 23",
+        "postnummer": 3125,
+        "status": 1,
+        "studie": {
+          "navn": "Elsys"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-01-21",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Julie",
+        "mellomnavn": "Stenhjem",
+        "etternavn": "Revheim",
+        "epost": "jsrevheim@gmail.com",
+        "telefon": "40722717",
+        "adresse": "Svartefjorden 98",
+        "postnummer": 5859,
+        "status": 1,
+        "studie": {
+          "navn": "DigFor"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-05-24",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Rebekka",
+        "mellomnavn": "Elida ",
+        "etternavn": "Bø",
+        "epost": "rebekka.bo@lyse.net",
+        "telefon": "97869022",
+        "adresse": "Sørlibakken 12",
+        "postnummer": 4073,
+        "status": 1,
+        "studie": {
+          "navn": "Marin"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-01-14",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Andreas",
+        "mellomnavn": "",
+        "etternavn": "Bernhus",
+        "epost": "andreas.bernhus@gmail.com",
+        "telefon": "90704743",
+        "adresse": "Landingsveien 38",
+        "postnummer": 767,
+        "status": 1,
+        "studie": {
+          "navn": "FysMat"
+        },
+        "kjonn": false,
+        "fodselsdato": "2000-03-12",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Yanislav",
+        "mellomnavn": "Todorov",
+        "etternavn": "Zagorov",
+        "epost": "yanislavzagorov@gmail.com",
+        "telefon": "+47     40573277",
+        "adresse": "Rogertsgate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "Entrepenørskap"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-05-18",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Bork",
+        "mellomnavn": "",
+        "etternavn": "Johnsen",
+        "epost": "borkjohnsen@gmail.com",
+        "telefon": "91617069",
+        "adresse": "Klokkarlia 13a",
+        "postnummer": 5223,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": false,
+        "fodselsdato": "2001-11-16",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Rasmus",
+        "mellomnavn": "",
+        "etternavn": "Henninen",
+        "epost": "openrasmus@gmail.com",
+        "telefon": "96724436",
+        "adresse": "",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Matte"
+        },
+        "kjonn": false,
+        "fodselsdato": "1000-01-01",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Maria",
+        "mellomnavn": "Ruiz",
+        "etternavn": "Ulltveit-Moe",
+        "epost": "mariaruizum@gmail.com",
+        "telefon": "93691913",
+        "adresse": "Bestumveien 96B",
+        "postnummer": 283,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": true,
+        "fodselsdato": "1998-01-04",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Helene",
+        "mellomnavn": "",
+        "etternavn": "Osnes",
+        "epost": "heleneosnes@gmail.com",
+        "telefon": "48505069",
+        "adresse": "Kapellveien 152a",
+        "postnummer": 493,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": true,
+        "fodselsdato": "2001-07-01",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Sofie",
+        "mellomnavn": "",
+        "etternavn": "Aasheim",
+        "epost": "sofieaaf@gmail.com",
+        "telefon": "46545355",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "I & IKT"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-11-15",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Elias",
+        "mellomnavn": "Lerheim ",
+        "etternavn": "Birkeland",
+        "epost": "eliaslb98@hotmail.com",
+        "telefon": "94164312",
+        "adresse": "Tistelvegen 1E",
+        "postnummer": 7033,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": false,
+        "fodselsdato": "1998-10-19",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Tollak",
+        "mellomnavn": "",
+        "etternavn": "Sund",
+        "epost": "tollak.sund@andeby.no",
+        "telefon": "47520330",
+        "adresse": "Johan Thorsensgate 33",
+        "postnummer": 4010,
+        "status": 1,
+        "studie": {
+          "navn": "Emil"
+        },
+        "kjonn": false,
+        "fodselsdato": "1999-09-11",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Hans",
+        "mellomnavn": "Dahle",
+        "etternavn": "Kvadsheim",
+        "epost": "hansdahle.kvadsheim@gmail.com",
+        "telefon": "98602035",
+        "adresse": "Konvallstien 9",
+        "postnummer": 4022,
+        "status": 1,
+        "studie": {
+          "navn": "Data"
+        },
+        "kjonn": false,
+        "fodselsdato": "1999-06-08",
+        "klassetrinn": 2,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Eirik",
+        "mellomnavn": "",
+        "etternavn": "Hauge",
+        "epost": "Eirik.hauge.2011@gmail.com",
+        "telefon": "45209787",
+        "adresse": "",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": false,
+        "fodselsdato": "1000-01-01",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Magnus",
+        "mellomnavn": "",
+        "etternavn": "Bautz-Holter",
+        "epost": "magnusbautzholter@gmail.com",
+        "telefon": "47708120",
+        "adresse": "Konvallveien 46",
+        "postnummer": 7051,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": false,
+        "fodselsdato": "2002-05-17",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Liv-Jorunn",
+        "mellomnavn": "Bogfjellmo ",
+        "etternavn": "Haug",
+        "epost": "liv.jorunn.haug@gmail.com",
+        "telefon": "95782251",
+        "adresse": "Hadelandsvegen 824",
+        "postnummer": 2743,
+        "status": 1,
+        "studie": {
+          "navn": "PSY"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-08-09",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Elida",
+        "mellomnavn": "Rubach",
+        "etternavn": "Kildal",
+        "epost": "elidark@live.no",
+        "telefon": "47707474",
+        "adresse": "Sofus Sørense Vei 23",
+        "postnummer": 1671,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-10-24",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Ivar",
+        "mellomnavn": "",
+        "etternavn": "Refsdal",
+        "epost": "ivaref@gmail.com",
+        "telefon": "95775349",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": false,
+        "fodselsdato": "1998-11-02",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Stine",
+        "mellomnavn": "",
+        "etternavn": "Sig",
+        "epost": "stinesig@gmail.com",
+        "telefon": "28768232",
+        "adresse": "",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "1000-01-01",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Håkon",
+        "mellomnavn": "",
+        "etternavn": "Stubø",
+        "epost": "hakonstubo@gmail.com",
+        "telefon": "96044036",
+        "adresse": "Nordsundveien 9",
+        "postnummer": 6516,
+        "status": 1,
+        "studie": {
+          "navn": "Lærer"
+        },
+        "kjonn": false,
+        "fodselsdato": "1997-12-09",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Isak",
+        "mellomnavn": "Herman",
+        "etternavn": "Vogt",
+        "epost": "isak.hsv@gmail.com",
+        "telefon": "46957717",
+        "adresse": "Nedre Silkestrå 23",
+        "postnummer": 375,
+        "status": 1,
+        "studie": {
+          "navn": "Økad"
+        },
+        "kjonn": false,
+        "fodselsdato": "2001-09-08",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Ella",
+        "mellomnavn": "Noer",
+        "etternavn": "Mølster",
+        "epost": "ella.noer.molster@gmail.com",
+        "telefon": "45917120",
+        "adresse": "Pedersgata 130",
+        "postnummer": 4014,
+        "status": 1,
+        "studie": {
+          "navn": "BioTek"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-10-22",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Andreas",
+        "mellomnavn": "",
+        "etternavn": "Bjønness",
+        "epost": "andreas.bjonness@gmail.com",
+        "telefon": "46813648",
+        "adresse": "Tangenodden 7",
+        "postnummer": 3234,
+        "status": 1,
+        "studie": {
+          "navn": "Forkurs"
+        },
+        "kjonn": false,
+        "fodselsdato": "1998-11-28",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Signe",
+        "mellomnavn": "",
+        "etternavn": "Salanson Jensen-Smid",
+        "epost": "signesalanson@outlook.com",
+        "telefon": "+45    50587865",
+        "adresse": "X",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "1998-12-22",
+        "klassetrinn": 3,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Ida",
+        "mellomnavn": "",
+        "etternavn": "Tandberg",
+        "epost": "idakt01@gmail.com",
+        "telefon": "93852756",
+        "adresse": "Lyngåsveien 13",
+        "postnummer": 491,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "2001-01-17",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Leon",
+        "mellomnavn": "",
+        "etternavn": "Hesthaug",
+        "epost": "leon.hesthaug@gmail.com",
+        "telefon": "94056869",
+        "adresse": "Bleikerhaugen 48",
+        "postnummer": 1387,
+        "status": 1,
+        "studie": {
+          "navn": "Data"
+        },
+        "kjonn": false,
+        "fodselsdato": "2000-09-10",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Ingeborg",
+        "mellomnavn": "",
+        "etternavn": "Finstad",
+        "epost": "ingeborg.finstad@gmail.com",
+        "telefon": "90272335",
+        "adresse": "",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "2018-12-01",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Ina",
+        "mellomnavn": "Marie Torp",
+        "etternavn": "Bie",
+        "epost": "ina_bie@hotmail.com",
+        "telefon": "95494216",
+        "adresse": "Maries vei 11",
+        "postnummer": 1363,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "2001-06-12",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full vakt",
+          "regitimer": 0
+        }
+      },
+      {
+        "fornavn": "Ole",
+        "mellomnavn": "",
+        "etternavn": "Eidsvig",
+        "epost": "Oleeidsvig@gmail.com",
+        "telefon": "90280937",
+        "adresse": "Storgaten 60b, Grimstad",
+        "postnummer": 4876,
+        "status": 1,
+        "studie": {
+          "navn": "Økad"
+        },
+        "kjonn": false,
+        "fodselsdato": "1995-03-16",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Ingrid",
+        "mellomnavn": "Eline",
+        "etternavn": "Øverby",
+        "epost": "ingrid.eline.oeverby@gmail.com",
+        "telefon": "90476790",
+        "adresse": "Ragnhildsgate 49",
+        "postnummer": 4044,
+        "status": 1,
+        "studie": {
+          "navn": "Arkitekt"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-01-09",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Cecilia",
+        "mellomnavn": "",
+        "etternavn": "Kinn",
+        "epost": "ceckinn@gmail.com",
+        "telefon": "97733248",
+        "adresse": "Åstadbakken 38",
+        "postnummer": 1341,
+        "status": 1,
+        "studie": {
+          "navn": "Lærer"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-01-26",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Erik",
+        "mellomnavn": "Johannes",
+        "etternavn": "Vige",
+        "epost": "evige@live.no",
+        "telefon": "40482836",
+        "adresse": "Roberts Gate 1",
+        "postnummer": 7016,
+        "status": 1,
+        "studie": {
+          "navn": "LEKTOR"
+        },
+        "kjonn": false,
+        "fodselsdato": "1995-01-28",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Åshild",
+        "mellomnavn": "",
+        "etternavn": "Krogsrud",
+        "epost": "aashild_krogsrud@hotmail.com",
+        "telefon": "91915021",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "LEKTOR"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-12-21",
+        "klassetrinn": 4,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Marius",
+        "mellomnavn": "",
+        "etternavn": "Udnæs",
+        "epost": "mariusudnaes@gmail.com",
+        "telefon": "91998698",
+        "adresse": "Hosletoppen 10",
+        "postnummer": 1362,
+        "status": 1,
+        "studie": {
+          "navn": "Kyb"
+        },
+        "kjonn": false,
+        "fodselsdato": "1996-04-17",
+        "klassetrinn": 5,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Oscar",
+        "mellomnavn": "",
+        "etternavn": "Angell",
+        "epost": "angelloscar01@gmail.com",
+        "telefon": "98621454",
+        "adresse": "Svennengveien 6",
+        "postnummer": 8010,
+        "status": 1,
+        "studie": {
+          "navn": "Data"
+        },
+        "kjonn": false,
+        "fodselsdato": "2001-10-06",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Balder",
+        "mellomnavn": "",
+        "etternavn": "Mothes",
+        "epost": "baldermothes@gmail.com",
+        "telefon": "48077207",
+        "adresse": "Elgfaret 12",
+        "postnummer": 1580,
+        "status": 1,
+        "studie": {
+          "navn": "Bygg"
+        },
+        "kjonn": false,
+        "fodselsdato": "2000-09-29",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Mats",
+        "mellomnavn": "Esperum",
+        "etternavn": "Nielsen",
+        "epost": "mats.nielsen@live.no",
+        "telefon": "94970075",
+        "adresse": "Jens Baggesensvei 14",
+        "postnummer": 1542,
+        "status": 1,
+        "studie": {
+          "navn": "Økad"
+        },
+        "kjonn": false,
+        "fodselsdato": "2000-07-25",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Sondre",
+        "mellomnavn": "",
+        "etternavn": "Siglevik",
+        "epost": "s_t_siglevik@hotmail.com",
+        "telefon": "97079145",
+        "adresse": "Nygårdslien 14b",
+        "postnummer": 5164,
+        "status": 1,
+        "studie": {
+          "navn": "Ind.Øk"
+        },
+        "kjonn": false,
+        "fodselsdato": "1996-01-03",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Magner",
+        "mellomnavn": "",
+        "etternavn": "Sæbø",
+        "epost": "magner511@live.no",
+        "telefon": "91159409",
+        "adresse": "Aspøyvegen 1085",
+        "postnummer": 6670,
+        "status": 1,
+        "studie": {
+          "navn": "Forkurs"
+        },
+        "kjonn": false,
+        "fodselsdato": "2001-05-05",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Camilla",
+        "mellomnavn": "Bay Panduro",
+        "etternavn": "Jensen",
+        "epost": "panBay1@gmail.com",
+        "telefon": "+45  27614391",
+        "adresse": "",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "1997-11-04",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Sanna",
+        "mellomnavn": "",
+        "etternavn": "Finsrud",
+        "epost": "slfinsrud@gmail.com",
+        "telefon": "40555521",
+        "adresse": "",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "1996-06-18",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Thea Marie",
+        "mellomnavn": "",
+        "etternavn": "Rubbestad",
+        "epost": "kevinno@samfundet.no",
+        "telefon": "48462373",
+        "adresse": "",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "2000-12-30",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Full regi",
+          "regitimer": 48
+        }
+      },
+      {
+        "fornavn": "Karoline",
+        "mellomnavn": "Moe",
+        "etternavn": "Pedersen",
+        "epost": "karoline.peedersen@gmail.com",
+        "telefon": "48226543",
+        "adresse": "",
+        "postnummer": 0,
+        "status": 1,
+        "studie": {
+          "navn": "Annet"
+        },
+        "kjonn": true,
+        "fodselsdato": "1999-08-14",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Daniel",
+        "mellomnavn": "Løvbrøtte",
+        "etternavn": "Olsen",
+        "epost": "daniel.olsen99@gmail.com",
+        "telefon": "90549262",
+        "adresse": "Rogerts gate 1",
+        "postnummer": 7052,
+        "status": 1,
+        "studie": {
+          "navn": "Data"
+        },
+        "kjonn": false,
+        "fodselsdato": "1999-08-06",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Olav",
+        "mellomnavn": "Rosón",
+        "etternavn": "Eide",
+        "epost": "olavreid@gmail.com",
+        "telefon": "948 47 891",
+        "adresse": "Rogerts Gate 1",
+        "postnummer": 7016,
+        "status": 1,
+        "studie": {
+          "navn": "PSY"
+        },
+        "kjonn": false,
+        "fodselsdato": "2002-09-10",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      },
+      {
+        "fornavn": "Sigrid",
+        "mellomnavn": "",
+        "etternavn": "Vig",
+        "epost": "sigridbvig@hotmail.com",
+        "telefon": "47863535",
+        "adresse": "Heiaterrassen 2C",
+        "postnummer": 3018,
+        "status": 1,
+        "studie": {
+          "navn": "PSY"
+        },
+        "kjonn": false,
+        "fodselsdato": "1999-04-17",
+        "klassetrinn": 1,
+        "rolle": {
+          "navn": "Halv vakt/regi",
+          "regitimer": 18
+        }
+      }
+    ]
+  }
+}
