@@ -1,8 +1,9 @@
 const Routes = {
   home: '/',
-  members: '/beboere',
+  members: '/members',
   work: '/work',
   admin: '/admin',
+  shops: '/shops',
 };
 
 export default Routes;

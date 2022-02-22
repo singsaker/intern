@@ -3,6 +3,7 @@ from datetime import timedelta
 from django.forms import DurationField
 from .models import Project, ProjectCategory, Work, WorkCategory, ProjectMember
 from django.db.models import Sum
+from django.db.models import Q
 
 
 class ProjectResolvers:
@@ -33,6 +34,9 @@ class ProjectResolvers:
         except ProjectMember.DoesNotExist:
             return None
 
+    def resolve_all_project_members(self, info, project):
+        return ProjectMember.objects.filter(project=project)
+
 
 class WorkResolvers:
     def resolve_all_work(self, info, member=None, project=None):
@@ -55,7 +59,9 @@ class WorkResolvers:
         if member:
             res = res.filter(member=member)
 
-        return str(
-            res.aggregate(duration=Sum("duration"))["duration"].total_seconds()
-            or timedelta(0)
-        )
+        totalDuration = res.aggregate(duration=Sum("duration", filter=Q(status=2)))["duration"]
+
+        if totalDuration:
+            return str(totalDuration.total_seconds())
+        else:
+            return "0"

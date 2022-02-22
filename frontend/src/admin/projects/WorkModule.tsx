@@ -1,10 +1,13 @@
 import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECT, GET_PROJECTS, GET_TOTAL_TIME_SPENT } from "@graphql/projects/queries";
-import { Box, FormControl, MenuItem, Select, SelectChangeEvent, Skeleton, Stack, Typography } from "@mui/material";
+import { Box, FormControl, IconButton, MenuItem, Paper, Select, SelectChangeEvent, Skeleton, Stack, Typography } from "@mui/material";
 import parseDuration from "@utils/parseDuration";
+import NextLink from "next/link";
+import { Gear } from "phosphor-react";
 import { useEffect, useState } from "react";
 import ProjectType from "src/types/project";
+import WorkMemberStatus from "./WorkMemberStatus";
 import WorkRegisteredModule from "./WorkRegisteredModule";
 
 // REGI: Oversiktblokk
@@ -34,7 +37,7 @@ const WorkModule = () => {
     } else if (data) {
       setProject(data.allProjects[0].id)
     }
-  }, [project, userDetails, data]);
+  }, [loading, userDetails, project]);
 
   // Håndter Select endringer
   const handleChange = (event: SelectChangeEvent<number>) => {
@@ -42,14 +45,21 @@ const WorkModule = () => {
   };
 
   return (
-    <Box my={2}>
-      <Typography variant="h3" sx={{ mb: 3 }}>Arbeid</Typography>
+    <Box mb={2}>
+      <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center", mb: 3 }}>
+        <Typography variant="h3">Arbeid</Typography>
+        <NextLink href="/admin/edit-projects" passHref>
+          <IconButton>
+            <Gear />
+          </IconButton>
+        </NextLink>
+
+      </Stack>
       {!loading && (
-        <FormControl variant="standard" fullWidth size="small">
+        <FormControl variant="standard" fullWidth >
           <Select
             defaultValue={data.allProjects[0].id}
             value={project}
-            label="Velg prosjekt"
             onChange={handleChange}
           >
             {!loading && data.allProjects.map((project: ProjectType) => (
@@ -58,32 +68,32 @@ const WorkModule = () => {
           </Select>
         </FormControl>
       )}
-      {(timeLoading || projectLoading) ? (
-        <Skeleton animation="wave" sx={{ my: 2 }} variant="rectangular" height={70} />
-      ) : (
-        (!timeLoading && !loading && !projectLoading) ? (
-          <>
-            <Box py={2}>
-              <Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body3">Totalt:</Typography>
-                  <Typography variant="body3"><b>{parseDuration((projectData?.project.hours * 60 * 60))}</b></Typography>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body3">Utført:</Typography>
-                  <Typography variant="body3"><b>{timeData && parseDuration(timeData.totalTimeSpent)}</b></Typography>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body3">Gjenstående:</Typography>
-                  <Typography variant="body3"><b>{timeData && parseDuration(Math.max(projectData?.project.hours * 60 * 60 - (timeData.totalTimeSpent | 0), 0))}</b></Typography>
-                </Stack>
-              </Stack>
-            </Box>
-          </>
+      <Paper elevation={18} sx={{ p: 3, my: 4, bgcolor: "grey.900", color: "common.white" }}>
+
+        {(timeLoading || projectLoading) ? (
+          <Skeleton animation="wave" sx={{ my: 2 }} variant="rectangular" height={70} />
         ) : (
-          <Typography sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
-        ))}
-      <WorkRegisteredModule project={project} />
+          (!timeLoading && !loading && !projectLoading) ? (
+            <Stack spacing={2}>
+              <Stack direction="row" sx={{ justifyContent: "space-between" }}>
+                <Typography variant="body2">Totalt:</Typography>
+                <Typography variant="h6"><b>{parseDuration((projectData?.project.hours * 60 * 60))}</b></Typography>
+              </Stack>
+              <Stack direction="row" sx={{ justifyContent: "space-between" }}>
+                <Typography variant="body2">Utført:</Typography>
+                <Typography variant="h6"><b>{timeData && parseDuration(timeData.totalTimeSpent)}</b></Typography>
+              </Stack>
+              <Stack direction="row" sx={{ justifyContent: "space-between" }}>
+                <Typography variant="body2">Gjenstående:</Typography>
+                <Typography variant="h6"><b>{timeData && parseDuration(Math.max(projectData?.project.hours * 60 * 60 - (timeData.totalTimeSpent | 0), 0))}</b></Typography>
+              </Stack>
+            </Stack>
+          ) : (
+            <Typography sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
+          ))}
+      </Paper>
+      {projectData && <WorkMemberStatus project={projectData.project} />}
+      {projectData && <WorkRegisteredModule project={projectData.project} />}
     </Box>
   )
 }

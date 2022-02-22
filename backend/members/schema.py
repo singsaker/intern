@@ -8,6 +8,7 @@ from .resolvers import MemberResolvers
 
 
 class MemberQueries(graphene.ObjectType, MemberResolvers):
+    member = graphene.Field(MemberType, id=graphene.ID(required=True))
     all_users = graphene.List(UserType)
     all_members = graphene.List(MemberType)
     all_active_members = graphene.List(MemberType)

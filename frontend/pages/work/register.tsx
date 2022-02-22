@@ -2,6 +2,7 @@ import { useAuthentication } from '@api/authentication';
 import { useQuery } from '@apollo/client';
 import { GET_PROJECT } from "@graphql/projects/queries";
 import { Button, Typography } from '@mui/material';
+import Routes from '@src/routes';
 import { useRouter } from 'next/router';
 import { ArrowLeft } from 'phosphor-react';
 import React from 'react';
@@ -23,7 +24,7 @@ export default function RegisterWork() {
       <Button startIcon={<ArrowLeft />} onClick={() => router.back()} color="inherit" variant="outlined">Returner</Button>
       <Typography variant="h3" sx={{ my: 2 }}>Registrer regi</Typography>
       <Typography>Regiprosjekt: <b>{!loading && projectData?.project.name}</b></Typography>
-      <WorkRegisterForm project={project} />
+      <WorkRegisterForm project={project} onComplete={() => router.push(Routes.work)} />
 
     </DashboardLayout>
   )

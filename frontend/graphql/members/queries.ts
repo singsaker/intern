@@ -6,6 +6,8 @@ export const GET_MEMBERS = gql`
       id
       firstName
       lastName
+      phone
+      birthDate
     }
   }
 `;
@@ -20,6 +22,23 @@ export const GET_USER = gql`
         id
         firstName
         lastName
+        phone
+        birthDate
+      }
+    }
+  }
+`;
+
+export const GET_MEMBER = gql`
+  query member($id: ID!) {
+    member(id: $id) {
+      id
+      firstName
+      lastName
+      phone
+      birthDate
+      user {
+        email
       }
     }
   }

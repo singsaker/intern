@@ -3,7 +3,9 @@ from importlib.metadata import requires
 from members.models import Member
 import graphene
 from projects.models import Project, Work, ProjectMember, ProjectCategory, WorkCategory
-from projects.types import ProjectType, WorkType
+from projects.types import ProjectType, WorkType, ProjectMemberType
+import django.utils.dateparse as dateparse
+from datetime import datetime
 
 
 class BaseProjectInput(graphene.InputObjectType):
@@ -17,7 +19,7 @@ class BaseWorkInput(graphene.InputObjectType):
     project = graphene.ID(required=True)
     task_category = graphene.ID(required=True)
     member = graphene.ID(required=True)
-
+    execution_date = graphene.String(required=True)
     description = graphene.String(required=False)
     duration = graphene.String(required=False)
 
@@ -39,14 +41,48 @@ class CreateProjectMember(graphene.Mutation):
         allocated_time = graphene.Int(required=False)
 
     ok = graphene.Boolean()
-    project_member = graphene.Field(ProjectType)
+    project_member = graphene.Field(ProjectMemberType)
 
     def mutate(root, info, member, project, allocated_time):
-        project_member = ProjectMember(
-            member=member, project=project, allocated_time=allocated_time
-        )
+        project_member = ProjectMember(allocated_time=allocated_time)
+        project_member.member = Member.objects.get(id=member)
+        project_member.project = Project.objects.get(id=project)
+        project_member.save()
         ok = True
         return CreateProjectMember(project_member=project_member, ok=ok)
+
+
+class UpdateProjectMember(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID(required=True)
+        allocated_time = graphene.Int(required=False)
+
+    ok = graphene.Boolean()
+    project_member = graphene.Field(ProjectMemberType)
+
+    def mutate(self, info, id, allocated_time):
+        try:
+            project_member = ProjectMember.objects.get(pk=id)
+        except ProjectMember.DoesNotExist:
+            raise ValueError("Ugyldig prosjektmedlem")
+
+        project_member.allocated_time = allocated_time
+        project_member.save()
+        ok = True
+        return UpdateProjectMember(project_member=project_member, ok=ok)
+
+
+class DeleteProjectMember(graphene.Mutation):
+    ok = graphene.Boolean()
+
+    class Arguments:
+        id = graphene.ID()
+
+    @classmethod
+    def mutate(cls, root, info, **kwargs):
+        obj = ProjectMember.objects.get(pk=kwargs["id"])
+        obj.delete()
+        return cls(ok=True)
 
 
 class CreateProject(graphene.Mutation):
@@ -112,7 +148,12 @@ class CreateWork(graphene.Mutation):
     work = graphene.Field(WorkType)
 
     def mutate(root, info, work_data=None):
-        work = Work(description=work_data.description, duration=work_data.duration)
+        work = Work(
+            description=work_data.description,
+            duration=dateparse.parse_duration(work_data.duration),
+            register_date=datetime.now(),
+            execution_date=dateparse.parse_date(work_data.execution_date),
+        )
         project = Project.objects.get(id=work_data.project)
         member = Member.objects.get(id=work_data.member)
         task_category = WorkCategory.objects.get(id=work_data.task_category)
@@ -139,7 +180,7 @@ class UpdateWork(graphene.Mutation):
         try:
             work = Work.objects.get(pk=id)
         except Work.DoesNotExist:
-            raise ValueError("Ugyldig arrangement")
+            raise ValueError("Ugyldig arbeid")
 
         for k, v in work_data.items():
             setattr(work, k, v)

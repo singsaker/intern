@@ -2,6 +2,7 @@ from datetime import datetime
 import graphene
 from graphene_django import DjangoObjectType
 from .models import Project, ProjectCategory, ProjectMember, Work, WorkCategory
+from django.db.models import Sum
 
 
 class ProjectType(DjangoObjectType):
@@ -10,14 +11,42 @@ class ProjectType(DjangoObjectType):
 
 
 class ProjectMemberType(DjangoObjectType):
+    work_pending = graphene.String()
+    work_approved = graphene.String()
+    work_disapproved = graphene.String()
+
     class Meta:
         model = ProjectMember
-        fields = [
-            "id",
-            "member",
-            "project",
-            "allocated_time",
-        ]
+
+    def resolve_work_pending(parent, info):
+        totalDuration = Work.objects.filter(
+            project=parent.project.id, member=parent.member.id, status=1
+        ).aggregate(duration=Sum("duration"))["duration"]
+
+        if totalDuration:
+            return str(totalDuration.total_seconds())
+        else:
+            return "0"
+
+    def resolve_work_approved(parent, info):
+        totalDuration = Work.objects.filter(
+            project=parent.project.id, member=parent.member.id, status=2
+        ).aggregate(duration=Sum("duration"))["duration"]
+
+        if totalDuration:
+            return str(totalDuration.total_seconds())
+        else:
+            return "0"
+
+    def resolve_work_disapproved(parent, info):
+        totalDuration = Work.objects.filter(
+            project=parent.project.id, member=parent.member.id, status=3
+        ).aggregate(duration=Sum("duration"))["duration"]
+
+        if totalDuration:
+            return str(totalDuration.total_seconds())
+        else:
+            return "0"
 
 
 class ProjectCategoryType(DjangoObjectType):

@@ -1,5 +1,5 @@
-from members.schema import UserMutations
-from members.schema import MemberQueries
+from shops.schema import ShopQueries
+from members.schema import UserMutations, MemberQueries
 import graphene
 from projects.schema import ProjectMutations, ProjectQueries, WorkQueries
 
@@ -7,15 +7,14 @@ from projects.schema import ProjectMutations, ProjectQueries, WorkQueries
 class Queries(
     MemberQueries,
     ProjectQueries,
-    WorkQueries
+    WorkQueries,
+    ShopQueries,
 ):
     pass
 
-class Mutations(
-  UserMutations,
-  ProjectMutations
-):
-  pass
+
+class Mutations(UserMutations, ProjectMutations):
+    pass
 
 
 schema = graphene.Schema(query=Queries, mutation=Mutations)

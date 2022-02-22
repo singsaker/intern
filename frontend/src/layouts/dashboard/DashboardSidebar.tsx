@@ -47,7 +47,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
       </Box>
 
       <Box sx={{ mb: 5, mx: 2.5 }}>
-        <Link underline="none"  >
+        <Link underline="none" >
           <AccountStyle>
             <Avatar alt="photoURL" />
             <Box sx={{ ml: 2 }}>

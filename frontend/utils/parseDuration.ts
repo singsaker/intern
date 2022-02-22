@@ -5,7 +5,11 @@ const parseDuration = (duration: string | number) => {
   const res = parse(duration + 's', 'h');
   const minutes = Math.round(parse((res % 1) + 'h', 'm'));
 
-  return Math.floor(res) + ' timer' + (minutes != 0 ? ', ' + minutes + ' min' : '');
+  return (
+    (Math.floor(res) != 0 ? Math.floor(res) + 't' : '') +
+    (Math.floor(res) != 0 && minutes != 0 ? ' ' : '') +
+    (minutes != 0 ? minutes + 'm' : '')
+  );
 };
 
 export default parseDuration;
