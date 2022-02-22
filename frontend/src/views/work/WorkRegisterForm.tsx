@@ -1,22 +1,26 @@
 import { useAuthentication } from '@api/authentication';
 import { useMutation, useQuery } from '@apollo/client';
 import { CREATE_WORK } from "@graphql/projects/mutations";
-import { GET_WORK_CATEGORIES } from '@graphql/projects/queries';
+import { GET_WORK, GET_WORK_CATEGORIES } from '@graphql/projects/queries';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import DatePicker from '@mui/lab/DatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { Box, Button, Divider, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
+import dateFormat from 'dateformat';
+import { useRouter } from 'next/router';
 import { useState } from "react";
 import { Controller, useForm } from 'react-hook-form';
 import { WorkCategoryProps } from 'src/types/project';
 
-const WorkRegisterForm = ({ project }: any) => {
+const WorkRegisterForm = ({ project, memberId, onComplete }: any) => {
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
   } = useForm();
+
+  const router = useRouter();
 
   const { userDetails } = useAuthentication();
 
@@ -26,7 +30,30 @@ const WorkRegisterForm = ({ project }: any) => {
   // Hent regikategorier
   const { data: categoryData, loading: categoryLoading } = useQuery(GET_WORK_CATEGORIES);
 
-  const [createWork] = useMutation(CREATE_WORK);
+  const [createWork] = useMutation(CREATE_WORK, {
+    update: (cache, { data }) => {
+      const newDataFromResponse = data?.createWork.work
+      const existingData = cache.readQuery<any>({
+        query: GET_WORK,
+        variables: { project: project }
+      });
+
+      // Update cache
+      if (existingData && newDataFromResponse) {
+        cache.writeQuery({
+          query: GET_WORK,
+          variables: { project: project },
+          data: {
+            allWork: [
+              ...existingData?.allWork,
+              newDataFromResponse,
+            ],
+          },
+        });
+      }
+    }
+  }
+  );
 
   const onSubmit = (data: any) => {
     if (userDetails?.member.id) {
@@ -34,13 +61,15 @@ const WorkRegisterForm = ({ project }: any) => {
         variables: {
           workData: {
             project: project,
-            member: userDetails?.member.id,
+            member: memberId ? memberId : userDetails?.member.id,
             taskCategory: data.category,
             description: data.description,
-            duration: data.duration
+            duration: data.duration,
+            executionDate: dateFormat(data.date, "yyyy-mm-dd"),
           }
         }
       })
+      onComplete()
     }
   }
 

@@ -20,10 +20,27 @@ export const GET_PROJECT = gql`
       name
       hours
       description
-      members {
-        firstName
-        lastName
+      projectMembers {
+        id
+        member {
+          id
+          firstName
+          lastName
+        }
+        workPending
+        workApproved
+        workDisapproved
+        allocatedTime
       }
+    }
+  }
+`;
+
+export const GET_PROJECT_CATEGORIES = gql`
+  query allProjectCategories {
+    allProjectCategories {
+      id
+      name
     }
   }
 `;
@@ -40,6 +57,28 @@ export const GET_WORK_CATEGORIES = gql`
 export const GET_PROJECT_MEMBER = gql`
   query projectMember($project: ID!, $member: ID!) {
     projectMember(project: $project, member: $member) {
+      id
+      member {
+        firstName
+        lastName
+      }
+      workPending
+      workApproved
+      workDisapproved
+      allocatedTime
+    }
+  }
+`;
+
+export const GET_PROJECT_MEMBERS = gql`
+  query allProjectMembers($project: ID!) {
+    allProjectMembers(project: $project) {
+      id
+      member {
+        id
+        firstName
+        lastName
+      }
       allocatedTime
     }
   }

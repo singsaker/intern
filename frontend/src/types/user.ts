@@ -12,4 +12,6 @@ export interface MemberProps {
   id: number;
   firstName?: string;
   lastName?: string;
+  birthDate?: string;
+  phone?: string;
 }

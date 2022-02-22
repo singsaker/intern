@@ -17,7 +17,7 @@ class MemberResolvers:
     def resolve_member(self, info, id=None):
         try:
             if id:
-                return Member.objects.get(pk=id)
+                return Member.objects.get(id=id)
         except Member.DoesNotExist:
             return None
 

@@ -11,8 +11,10 @@ from .mutations import (
     CreateProject,
     CreateProjectMember,
     CreateWork,
+    DeleteProjectMember,
     DeleteWork,
     GenerateSemesterProject,
+    UpdateProjectMember,
     UpdateWork,
 )
 from .resolvers import ProjectResolvers, WorkResolvers
@@ -25,6 +27,8 @@ class ProjectMutations(graphene.ObjectType):
     update_work = UpdateWork.Field()
     delete_work = DeleteWork.Field()
     create_project_member = CreateProjectMember.Field()
+    update_project_member = UpdateProjectMember.Field()
+    delete_project_member = DeleteProjectMember.Field()
     generate_semester_project = GenerateSemesterProject.Field()
     # update_event
 
@@ -36,6 +40,10 @@ class ProjectQueries(graphene.ObjectType, ProjectResolvers):
         ProjectMemberType,
         project=graphene.ID(required=True),
         member=graphene.ID(required=True),
+    )
+    all_project_members = graphene.List(
+        ProjectMemberType,
+        project=graphene.ID(required=True),
     )
     all_project_categories = graphene.List(ProjectCategoryType)
     project_category = graphene.Field(
