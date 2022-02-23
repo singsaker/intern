@@ -28,6 +28,7 @@ const CustomPickersDay = styled(PickersDay, {
   fontSize: 14,
   width: 40,
   height: 40,
+
   // ...(dayIsBetween && {
   //   borderRadius: 0,
   //   backgroundColor: theme.palette.primary.main,
@@ -89,6 +90,9 @@ interface Props {
 
 const HomeCalendar = ({ members }: Props) => {
   const [value, setValue] = React.useState<Date | null>(new Date());
+  const birthdaySelected = members.filter((member) => value && member.birthDate && (value.getUTCMonth() == new Date(member.birthDate).getUTCMonth() && value.getUTCDate() == new Date(member.birthDate).getUTCDate()))
+  console.log(birthdaySelected)
+
   const renderWeekPickerDay = (
     date: Date,
     selectedDates: Array<Date | null>,
@@ -122,7 +126,7 @@ const HomeCalendar = ({ members }: Props) => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <CustomDatePicker>
+      <CustomDatePicker color="inherit">
         <StaticDatePicker
           displayStaticWrapperAs="desktop"
           label="Week picker"

@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_WORK } from "@graphql/projects/queries";
-import { Button, IconButton, Table, TableCell, TableRow, Typography } from "@mui/material";
+import { Button, IconButton, Table, TableCell, TableRow } from "@mui/material";
 import { Box } from "@mui/system";
 import ProjectType, { WorkProps } from "@src/types/project";
 import parseDuration from "@utils/parseDuration";
@@ -34,7 +34,6 @@ const WorkRegisteredModule = ({ project }: Props) => {
 
   return (
     <>
-      <Typography variant="h4" sx={{ my: 2 }}>Registrert regi</Typography>
       <Button fullWidth sx={{ mb: 2 }} variant="outlined" color="inherit" onClick={handleNewWorkOpen}>Registrer regi</Button>
 
       <Box width="100%" sx={{ overflow: "scroll" }}>

@@ -33,7 +33,7 @@ const Admin = () => {
 
   return (
     <DashboardLayout>
-      <Box mt={10} mb={8}>
+      <Box mt={6} mb={8}>
         <Box sx={{ width: '100%' }}>
           <RootStyle color="inherit" sx={{ borderBottom: 1, borderColor: 'divider', top: 64 }}>
             <Tabs
@@ -43,8 +43,8 @@ const Admin = () => {
             >
               <Tab label="Romsjef" />
               <Tab label="Regisjef" />
-              <Tab label="Sekretær" />
               <Tab label="Vaktsjef" />
+              <Tab label="Sekretær" />
               <Tab label="Kosesjef" />
               <Tab label="Husfar" />
             </Tabs>
@@ -63,10 +63,10 @@ const Admin = () => {
             <WorkModule />
           </TabPanel>
           <TabPanel value={value} index={2}>
-            Sekretær
+            <Typography variant="h3" sx={{ mb: 3 }}>Vakt</Typography>
           </TabPanel>
           <TabPanel value={value} index={3}>
-            Vaktsjef
+            Sekretær
           </TabPanel>
           <TabPanel value={value} index={4}>
             Kosesjef

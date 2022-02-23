@@ -20,8 +20,6 @@ const NewWorkDialog = (props: DialogProps) => {
   const [value, setValue] = useState<{ label: string; id: number; } | null>(null);
   const [inputValue, setInputValue] = useState('');
 
-  console.log(value)
-
   return (
     <Dialog
       open={open}

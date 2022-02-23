@@ -28,7 +28,6 @@ const WorkMemberStatus = ({ project }: Props) => {
 
   return (
     <>
-      <Typography variant="h4" sx={{ my: 2 }}>Prosjektmedlemmer</Typography>
       <Button fullWidth sx={{ mb: 2 }} variant="outlined" color="inherit" onClick={handleNewMemberOpen}>Nytt prosjektmedlem</Button>
       <Box sx={{ width: "100%", overflow: "scroll" }}>
         <Table >
