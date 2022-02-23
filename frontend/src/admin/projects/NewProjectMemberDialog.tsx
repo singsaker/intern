@@ -5,6 +5,7 @@ import { CREATE_PROJECT_MEMBER } from "@graphql/projects/mutations";
 import { GET_PROJECT } from "@graphql/projects/queries";
 import { AppBar, Autocomplete, Box, Button, Dialog, DialogActions, Divider, IconButton, Stack, TextField, Toolbar, Typography } from "@mui/material";
 import { MemberProps } from "@src/types/user";
+import shape from "@theme/shape";
 import { X } from 'phosphor-react';
 import { Controller, useForm } from "react-hook-form";
 
@@ -47,9 +48,10 @@ const NewProjectMemberDialog = (props: DialogProps) => {
       aria-labelledby="dialog-title"
       aria-describedby="dialog-description"
       fullWidth
-      PaperProps={{ sx: { overflowY: "visible" } }}
+      PaperProps={{ sx: { overflow: "visible" } }}
     >
-      <AppBar color="inherit" elevation={0} variant="outlined" sx={{ position: 'relative' }}>
+      <AppBar color="inherit" elevation={0} variant="outlined"
+        sx={{ position: 'relative', borderTopLeftRadius: shape.borderRadiusSm, borderTopRightRadius: shape.borderRadiusSm }}>
         <Toolbar>
           <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
             <X size="24px" />

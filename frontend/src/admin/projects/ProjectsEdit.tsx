@@ -1,14 +1,12 @@
 import { useQuery } from "@apollo/client";
 import { GET_PROJECTS } from "@graphql/projects/queries";
-import DashboardLayout from "@layouts/dashboard";
-import { Button, Checkbox, IconButton, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import { Button, Checkbox, IconButton, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import ProjectsGenerateSemesterDialog from "@src/admin/projects/ProjectsGenerateSemesterDialog";
 import ProjectType from "@src/types/project";
 import { DotsThreeVertical } from "phosphor-react";
 import { useState } from "react";
 
-
-const EditProjectsPage = () => {
+const ProjectsEdit = () => {
   // Hent alle regiprosjekter
   const { data: projectsData, loading: projectsLoading } = useQuery(GET_PROJECTS);
 
@@ -23,8 +21,7 @@ const EditProjectsPage = () => {
   };
 
   return (
-    <DashboardLayout>
-      <Typography variant="h2" sx={{ mb: 3 }}>Rediger prosjekter</Typography>
+    <>
       <Table size="small" sx={{ mb: 4 }}>
         <TableHead>
           <TableRow>
@@ -59,8 +56,8 @@ const EditProjectsPage = () => {
         Generer semesterprosjekt
       </Button>
       <ProjectsGenerateSemesterDialog open={semesterDialog} handleClose={handleClose} />
-    </DashboardLayout >
+    </>
   )
 }
 
-export default EditProjectsPage
+export default ProjectsEdit
