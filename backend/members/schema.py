@@ -1,4 +1,3 @@
-from atexit import register
 import graphene
 import graphql_jwt
 from members.mutations import CreateUser

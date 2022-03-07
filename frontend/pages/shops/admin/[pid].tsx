@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { DotsThreeVertical, Plus } from "phosphor-react";
 
 
-const ShopAdministration = () => {
+const ShopAdministrationPage = () => {
   const router = useRouter()
   const { pid } = router.query
 
@@ -114,4 +114,12 @@ const ShopAdministration = () => {
   )
 }
 
-export default ShopAdministration;
+ShopAdministrationPage.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <DashboardLayout>
+      {page}
+    </DashboardLayout>
+  )
+}
+
+export default ShopAdministrationPage;

@@ -1,10 +1,12 @@
+import AdminLayout from "@layouts/admin";
 import DashboardLayout from "@layouts/dashboard";
-import { Box, Dialog } from "@mui/material";
-import MemberCard from "@src/views/members/MemberCard";
-import MembersList from "@src/views/members/MembersList";
-import { useState } from "react";
+import { Box, Dialog, Typography } from '@mui/material';
+import MemberCard from '@src/views/members/MemberCard';
+import MembersList from '@src/views/members/MembersList';
+import { ReactElement, useState } from 'react';
 
-const MembersPage = () => {
+const AdminRoomsPage = () => {
+
   const [beboerModal, setBeboerModal] = useState(false);
   const [beboerId, setBeboerId] = useState<number | null>(null);
 
@@ -15,9 +17,9 @@ const MembersPage = () => {
     setBeboerModal(!beboerModal);
   };
 
-
   return (
     <>
+      <Typography variant="h3" sx={{ mb: 3 }}>Beboere</Typography>
       <Box pb={8}>
         <MembersList toggleBeboer={(id: number) => toggleBeboerModal(id)} />
       </Box>
@@ -29,12 +31,13 @@ const MembersPage = () => {
   )
 }
 
-MembersPage.getLayout = function getLayout(page: React.ReactElement) {
+
+AdminRoomsPage.getLayout = function getLayout(page: ReactElement) {
   return (
-    <DashboardLayout title="Beboere">
-      {page}
+    <DashboardLayout admin title="Utvalget intern">
+      <AdminLayout>{page}</AdminLayout>
     </DashboardLayout>
   )
 }
 
-export default MembersPage;
+export default AdminRoomsPage;

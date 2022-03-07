@@ -133,9 +133,10 @@ class GenerateSemesterProject(graphene.Mutation):
 
         # Create project members
         for i, member in enumerate(members):
-            ProjectMember.objects.create(
-                member=member, project=project, allocated_time=member.role.work_hours
-            )
+            if member.role.type == member.role.ONLY_WORK or member.role.type == member.role.HYBRID:
+                ProjectMember.objects.create(
+                    member=member, project=project, allocated_time=member.role.work_hours()
+                )
 
         return GenerateSemesterProject(project=project, ok=ok)
 

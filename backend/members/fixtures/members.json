@@ -9,7 +9,8 @@
       "birth_date": "1984-09-25",
       "phone": "97072634",
       "zipcode": 7052,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -22,7 +23,8 @@
       "birth_date": "1987-07-07",
       "phone": "92669934",
       "zipcode": 3019,
-      "grade": 5
+      "grade": 5,
+      "role": 4
     }
   },
   {
@@ -35,7 +37,8 @@
       "birth_date": "1991-01-24",
       "phone": "47357280",
       "zipcode": 5229,
-      "grade": 1
+      "grade": 1,
+      "role": 4
     }
   },
   {
@@ -48,7 +51,8 @@
       "birth_date": "1994-06-09",
       "phone": "91706472",
       "zipcode": 3050,
-      "grade": 5
+      "grade": 5,
+      "role": 3
     }
   },
   {
@@ -61,7 +65,8 @@
       "birth_date": "1996-08-30",
       "phone": "47391020",
       "zipcode": 5124,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -74,7 +79,8 @@
       "birth_date": "1994-03-29",
       "phone": "95799232",
       "zipcode": 1412,
-      "grade": 4
+      "grade": 4,
+      "role": 4
     }
   },
   {
@@ -87,7 +93,8 @@
       "birth_date": "1994-02-03",
       "phone": "98028334",
       "zipcode": 7054,
-      "grade": 1
+      "grade": 1,
+      "role": 3
     }
   },
   {
@@ -100,7 +107,8 @@
       "birth_date": "1997-09-11",
       "phone": "95048161",
       "zipcode": 5251,
-      "grade": 5
+      "grade": 5,
+      "role": 3
     }
   },
   {
@@ -113,7 +121,8 @@
       "birth_date": "1997-03-29",
       "phone": "94178799",
       "zipcode": 781,
-      "grade": 5
+      "grade": 5,
+      "role": 4
     }
   },
   {
@@ -126,7 +135,8 @@
       "birth_date": "1996-07-01",
       "phone": "95854658",
       "zipcode": 5232,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -139,7 +149,8 @@
       "birth_date": "1994-11-26",
       "phone": "95450103",
       "zipcode": 1410,
-      "grade": 3
+      "grade": 3,
+      "role": 2
     }
   },
   {
@@ -152,7 +163,8 @@
       "birth_date": "1995-08-23",
       "phone": "90161147",
       "zipcode": 1383,
-      "grade": 5
+      "grade": 5,
+      "role": 3
     }
   },
   {
@@ -165,7 +177,22 @@
       "birth_date": "1996-03-28",
       "phone": "94780480",
       "zipcode": 882,
-      "grade": 2
+      "grade": 2,
+      "role": 4
+    }
+  },
+  {
+    "model": "members.Member",
+    "pk": 33,
+    "fields": {
+      "first_name": "Adrian",
+      "last_name": "Matic",
+      "gender": "M",
+      "birth_date": "1998-01-05",
+      "phone": "91885485",
+      "zipcode": 1391,
+      "grade": 5,
+      "role": 4
     }
   },
   {
@@ -178,7 +205,8 @@
       "birth_date": "1989-06-15",
       "phone": "95148300",
       "zipcode": 7082,
-      "grade": 3
+      "grade": 3,
+      "role": 4
     }
   },
   {
@@ -191,7 +219,8 @@
       "birth_date": "1995-05-16",
       "phone": "95451403",
       "zipcode": 1463,
-      "grade": 5
+      "grade": 5,
+      "role": 3
     }
   },
   {
@@ -204,7 +233,8 @@
       "birth_date": "1998-04-14",
       "phone": "93003425",
       "zipcode": 5154,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -217,7 +247,8 @@
       "birth_date": "1998-04-13",
       "phone": "47905434",
       "zipcode": 4041,
-      "grade": 4
+      "grade": 4,
+      "role": 4
     }
   },
   {
@@ -230,7 +261,8 @@
       "birth_date": "1995-07-19",
       "phone": "47244915",
       "zipcode": 1397,
-      "grade": 5
+      "grade": 5,
+      "role": 4
     }
   },
   {
@@ -243,7 +275,8 @@
       "birth_date": "1997-02-09",
       "phone": "93626258",
       "zipcode": 4313,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -256,7 +289,8 @@
       "birth_date": "1994-07-13",
       "phone": "47821785",
       "zipcode": 7052,
-      "grade": 3
+      "grade": 3,
+      "role": 4
     }
   },
   {
@@ -269,7 +303,8 @@
       "birth_date": "1997-03-13",
       "phone": "41375406",
       "zipcode": 7048,
-      "grade": 5
+      "grade": 5,
+      "role": 3
     }
   },
   {
@@ -282,7 +317,8 @@
       "birth_date": "1997-09-19",
       "phone": "46786973",
       "zipcode": 1346,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -295,7 +331,8 @@
       "birth_date": "1996-03-30",
       "phone": "47381893",
       "zipcode": 1412,
-      "grade": 3
+      "grade": 3,
+      "role": 2
     }
   },
   {
@@ -308,7 +345,8 @@
       "birth_date": "1996-09-29",
       "phone": "41075622",
       "zipcode": 5363,
-      "grade": 5
+      "grade": 5,
+      "role": 4
     }
   },
   {
@@ -321,7 +359,8 @@
       "birth_date": "1997-11-26",
       "phone": "92679914",
       "zipcode": 1389,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -334,7 +373,8 @@
       "birth_date": "1998-03-17",
       "phone": "46823257",
       "zipcode": 7052,
-      "grade": 4
+      "grade": 4,
+      "role": 3
     }
   },
   {
@@ -347,7 +387,8 @@
       "birth_date": "1995-06-27",
       "phone": "92150352",
       "zipcode": 8050,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -360,7 +401,8 @@
       "birth_date": "1996-12-06",
       "phone": "91733458",
       "zipcode": 7022,
-      "grade": 3
+      "grade": 3,
+      "role": 4
     }
   },
   {
@@ -373,7 +415,22 @@
       "birth_date": "1997-10-20",
       "phone": "90227981",
       "zipcode": 752,
-      "grade": 4
+      "grade": 4,
+      "role": 3
+    }
+  },
+  {
+    "model": "members.Member",
+    "pk": 50,
+    "fields": {
+      "first_name": "Knut",
+      "last_name": "Johannessen",
+      "gender": "M",
+      "birth_date": "1994-12-02",
+      "phone": "95882461",
+      "zipcode": 4015,
+      "grade": 2,
+      "role": 3
     }
   },
   {
@@ -386,7 +443,8 @@
       "birth_date": "1998-07-06",
       "phone": "46840410",
       "zipcode": 1187,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -399,7 +457,8 @@
       "birth_date": "1997-02-23",
       "phone": "94425050",
       "zipcode": 374,
-      "grade": 4
+      "grade": 4,
+      "role": 4
     }
   },
   {
@@ -412,7 +471,8 @@
       "birth_date": "1998-07-14",
       "phone": "97499759",
       "zipcode": 5231,
-      "grade": 3
+      "grade": 3,
+      "role": 2
     }
   },
   {
@@ -425,7 +485,8 @@
       "birth_date": "1996-02-26",
       "phone": "48176845",
       "zipcode": 7100,
-      "grade": 4
+      "grade": 4,
+      "role": 3
     }
   },
   {
@@ -438,7 +499,8 @@
       "birth_date": "1996-02-11",
       "phone": "99334636",
       "zipcode": 1387,
-      "grade": 5
+      "grade": 5,
+      "role": 4
     }
   },
   {
@@ -451,7 +513,8 @@
       "birth_date": "1997-04-17",
       "phone": "91573900",
       "zipcode": 1363,
-      "grade": 3
+      "grade": 3,
+      "role": 4
     }
   },
   {
@@ -464,7 +527,8 @@
       "birth_date": "1999-10-02",
       "phone": "46791999",
       "zipcode": 5224,
-      "grade": 3
+      "grade": 3,
+      "role": 4
     }
   },
   {
@@ -477,7 +541,8 @@
       "birth_date": "1999-01-07",
       "phone": "48172896",
       "zipcode": 860,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -490,7 +555,8 @@
       "birth_date": "1999-01-22",
       "phone": "95016543",
       "zipcode": 1396,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -503,7 +569,8 @@
       "birth_date": "1999-05-06",
       "phone": "40381082",
       "zipcode": 7025,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -516,7 +583,8 @@
       "birth_date": "1997-09-02",
       "phone": "41075088",
       "zipcode": 7052,
-      "grade": 4
+      "grade": 4,
+      "role": 3
     }
   },
   {
@@ -529,7 +597,8 @@
       "birth_date": "1997-11-27",
       "phone": "94281806",
       "zipcode": 7052,
-      "grade": 4
+      "grade": 4,
+      "role": 3
     }
   },
   {
@@ -542,7 +611,8 @@
       "birth_date": "1998-04-01",
       "phone": "98643205",
       "zipcode": 5096,
-      "grade": 2
+      "grade": 2,
+      "role": 4
     }
   },
   {
@@ -555,7 +625,8 @@
       "birth_date": "1998-10-27",
       "phone": "93813022",
       "zipcode": 3089,
-      "grade": 3
+      "grade": 3,
+      "role": 2
     }
   },
   {
@@ -568,7 +639,8 @@
       "birth_date": "1997-09-30",
       "phone": "90599548",
       "zipcode": 3614,
-      "grade": 4
+      "grade": 4,
+      "role": 3
     }
   },
   {
@@ -581,7 +653,8 @@
       "birth_date": "1999-07-16",
       "phone": "92428244",
       "zipcode": 6152,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -594,7 +667,8 @@
       "birth_date": "1998-07-09",
       "phone": "48602866",
       "zipcode": 1185,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -607,7 +681,8 @@
       "birth_date": "1997-10-02",
       "phone": "41298693",
       "zipcode": 1341,
-      "grade": 3
+      "grade": 3,
+      "role": 4
     }
   },
   {
@@ -620,7 +695,8 @@
       "birth_date": "2000-08-21",
       "phone": "94161580",
       "zipcode": 4637,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -633,7 +709,8 @@
       "birth_date": "1997-12-28",
       "phone": "91816121",
       "zipcode": 7052,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -646,7 +723,8 @@
       "birth_date": "2000-07-02",
       "phone": "91573766",
       "zipcode": 4639,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -659,7 +737,8 @@
       "birth_date": "1995-02-15",
       "phone": "93405588",
       "zipcode": 3189,
-      "grade": 5
+      "grade": 5,
+      "role": 4
     }
   },
   {
@@ -672,7 +751,8 @@
       "birth_date": "1998-05-23",
       "phone": "41511514",
       "zipcode": 4631,
-      "grade": 3
+      "grade": 3,
+      "role": 4
     }
   },
   {
@@ -685,7 +765,8 @@
       "birth_date": "1997-12-03",
       "phone": "97148504",
       "zipcode": 7016,
-      "grade": 3
+      "grade": 3,
+      "role": 2
     }
   },
   {
@@ -698,7 +779,8 @@
       "birth_date": "2000-06-04",
       "phone": "98057507",
       "zipcode": 1525,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -711,7 +793,8 @@
       "birth_date": "1999-10-08",
       "phone": "46817969",
       "zipcode": 7052,
-      "grade": 4
+      "grade": 4,
+      "role": 3
     }
   },
   {
@@ -724,7 +807,8 @@
       "birth_date": "1999-04-05",
       "phone": "97471900",
       "zipcode": 6510,
-      "grade": 4
+      "grade": 4,
+      "role": 3
     }
   },
   {
@@ -737,7 +821,8 @@
       "birth_date": "2000-10-19",
       "phone": "95481766",
       "zipcode": 5411,
-      "grade": 3
+      "grade": 3,
+      "role": 3
     }
   },
   {
@@ -750,7 +835,8 @@
       "birth_date": "2000-04-02",
       "phone": "91578155",
       "zipcode": 3121,
-      "grade": 3
+      "grade": 3,
+      "role": 4
     }
   },
   {
@@ -763,7 +849,8 @@
       "birth_date": "2000-01-14",
       "phone": "48239262",
       "zipcode": 3540,
-      "grade": 1
+      "grade": 1,
+      "role": 4
     }
   },
   {
@@ -776,7 +863,8 @@
       "birth_date": "2000-08-07",
       "phone": "46963301",
       "zipcode": 7016,
-      "grade": 1
+      "grade": 1,
+      "role": 3
     }
   },
   {
@@ -789,7 +877,8 @@
       "birth_date": "1998-07-07",
       "phone": "45274601",
       "zipcode": 3282,
-      "grade": 4
+      "grade": 4,
+      "role": 3
     }
   },
   {
@@ -802,7 +891,8 @@
       "birth_date": "2001-01-27",
       "phone": "95422902",
       "zipcode": 5239,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -815,7 +905,8 @@
       "birth_date": "1997-09-11",
       "phone": "47666366",
       "zipcode": 2030,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -828,7 +919,8 @@
       "birth_date": "1999-08-06",
       "phone": "94129090",
       "zipcode": 880,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -841,7 +933,8 @@
       "birth_date": "1997-09-26",
       "phone": "91758977",
       "zipcode": 1786,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -854,7 +947,8 @@
       "birth_date": "1997-07-11",
       "phone": "93821480",
       "zipcode": 1389,
-      "grade": 1
+      "grade": 1,
+      "role": 3
     }
   },
   {
@@ -867,7 +961,8 @@
       "birth_date": "1997-06-28",
       "phone": "97163103",
       "zipcode": 4770,
-      "grade": 4
+      "grade": 4,
+      "role": 4
     }
   },
   {
@@ -880,7 +975,8 @@
       "birth_date": "2000-10-27",
       "phone": "94846429",
       "zipcode": 854,
-      "grade": 2
+      "grade": 2,
+      "role": 3
     }
   },
   {
@@ -893,7 +989,8 @@
       "birth_date": "2001-05-01",
       "phone": "98080841",
       "zipcode": 4023,
-      "grade": 2
+      "grade": 2,
+      "role": 3
     }
   },
   {
@@ -906,7 +1003,8 @@
       "birth_date": "1996-11-20",
       "phone": "90994437",
       "zipcode": 1359,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -919,7 +1017,8 @@
       "birth_date": "2000-02-25",
       "phone": "41480098",
       "zipcode": 1395,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -932,7 +1031,8 @@
       "birth_date": "2000-01-27",
       "phone": "47909983",
       "zipcode": 1187,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -945,7 +1045,8 @@
       "birth_date": "2000-03-31",
       "phone": "90970107",
       "zipcode": 1387,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -958,7 +1059,8 @@
       "birth_date": "2000-01-21",
       "phone": "47240121",
       "zipcode": 3125,
-      "grade": 2
+      "grade": 2,
+      "role": 3
     }
   },
   {
@@ -971,7 +1073,8 @@
       "birth_date": "2000-05-24",
       "phone": "40722717",
       "zipcode": 5859,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -984,7 +1087,8 @@
       "birth_date": "2000-01-14",
       "phone": "97869022",
       "zipcode": 4073,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -997,7 +1101,8 @@
       "birth_date": "2000-03-12",
       "phone": "90704743",
       "zipcode": 767,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -1010,7 +1115,8 @@
       "birth_date": "1997-05-18",
       "phone": "40573277",
       "zipcode": 7052,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -1023,7 +1129,8 @@
       "birth_date": "2001-11-16",
       "phone": "91617069",
       "zipcode": 5223,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1036,7 +1143,8 @@
       "birth_date": "1000-01-01",
       "phone": "96724436",
       "zipcode": 0,
-      "grade": 1
+      "grade": 1,
+      "role": 4
     }
   },
   {
@@ -1049,7 +1157,8 @@
       "birth_date": "1998-01-04",
       "phone": "93691913",
       "zipcode": 283,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -1062,7 +1171,8 @@
       "birth_date": "2001-07-01",
       "phone": "48505069",
       "zipcode": 493,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -1075,7 +1185,8 @@
       "birth_date": "1996-11-15",
       "phone": "46545355",
       "zipcode": 7052,
-      "grade": 5
+      "grade": 5,
+      "role": 4
     }
   },
   {
@@ -1088,7 +1199,8 @@
       "birth_date": "1998-10-19",
       "phone": "94164312",
       "zipcode": 7033,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -1101,7 +1213,8 @@
       "birth_date": "1999-09-11",
       "phone": "47520330",
       "zipcode": 4010,
-      "grade": 2
+      "grade": 2,
+      "role": 2
     }
   },
   {
@@ -1114,7 +1227,22 @@
       "birth_date": "1999-06-08",
       "phone": "98602035",
       "zipcode": 4022,
-      "grade": 2
+      "grade": 2,
+      "role": 4
+    }
+  },
+  {
+    "model": "members.Member",
+    "pk": 108,
+    "fields": {
+      "first_name": "Eirik",
+      "last_name": "Hauge",
+      "gender": "M",
+      "birth_date": "1000-01-01",
+      "phone": "45209787",
+      "zipcode": 0,
+      "grade": 3,
+      "role": 2
     }
   },
   {
@@ -1127,7 +1255,8 @@
       "birth_date": "2002-05-17",
       "phone": "47708120",
       "zipcode": 7051,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1140,7 +1269,8 @@
       "birth_date": "2000-08-09",
       "phone": "95782251",
       "zipcode": 2743,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1153,7 +1283,8 @@
       "birth_date": "2000-10-24",
       "phone": "47707474",
       "zipcode": 1671,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1166,7 +1297,8 @@
       "birth_date": "1998-11-02",
       "phone": "95775349",
       "zipcode": 7052,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -1179,7 +1311,8 @@
       "birth_date": "1000-01-01",
       "phone": "28768232",
       "zipcode": 0,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1192,7 +1325,8 @@
       "birth_date": "1997-12-09",
       "phone": "96044036",
       "zipcode": 6516,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -1205,7 +1339,8 @@
       "birth_date": "2001-09-08",
       "phone": "46957717",
       "zipcode": 375,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1218,7 +1353,8 @@
       "birth_date": "2000-10-22",
       "phone": "45917120",
       "zipcode": 4014,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1231,7 +1367,8 @@
       "birth_date": "1998-11-28",
       "phone": "46813648",
       "zipcode": 3234,
-      "grade": 1
+      "grade": 1,
+      "role": 3
     }
   },
   {
@@ -1244,7 +1381,8 @@
       "birth_date": "1998-12-22",
       "phone": "50587865",
       "zipcode": 0,
-      "grade": 3
+      "grade": 3,
+      "role": 2
     }
   },
   {
@@ -1257,7 +1395,8 @@
       "birth_date": "2001-01-17",
       "phone": "93852756",
       "zipcode": 491,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1270,7 +1409,8 @@
       "birth_date": "2000-09-10",
       "phone": "94056869",
       "zipcode": 1387,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1283,7 +1423,8 @@
       "birth_date": "2018-12-01",
       "phone": "90272335",
       "zipcode": 0,
-      "grade": 1
+      "grade": 1,
+      "role": 4
     }
   },
   {
@@ -1296,7 +1437,8 @@
       "birth_date": "2001-06-12",
       "phone": "95494216",
       "zipcode": 1363,
-      "grade": 1
+      "grade": 1,
+      "role": 4
     }
   },
   {
@@ -1309,7 +1451,8 @@
       "birth_date": "1995-03-16",
       "phone": "90280937",
       "zipcode": 4876,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -1322,7 +1465,8 @@
       "birth_date": "2000-01-09",
       "phone": "90476790",
       "zipcode": 4044,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1335,7 +1479,8 @@
       "birth_date": "2000-01-26",
       "phone": "97733248",
       "zipcode": 1341,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1348,7 +1493,8 @@
       "birth_date": "1995-01-28",
       "phone": "40482836",
       "zipcode": 7016,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -1361,7 +1507,8 @@
       "birth_date": "1996-12-21",
       "phone": "91915021",
       "zipcode": 7052,
-      "grade": 4
+      "grade": 4,
+      "role": 2
     }
   },
   {
@@ -1374,7 +1521,8 @@
       "birth_date": "1996-04-17",
       "phone": "91998698",
       "zipcode": 1362,
-      "grade": 5
+      "grade": 5,
+      "role": 2
     }
   },
   {
@@ -1387,7 +1535,8 @@
       "birth_date": "2001-10-06",
       "phone": "98621454",
       "zipcode": 8010,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1400,7 +1549,8 @@
       "birth_date": "2000-09-29",
       "phone": "48077207",
       "zipcode": 1580,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1413,7 +1563,8 @@
       "birth_date": "2000-07-25",
       "phone": "94970075",
       "zipcode": 1542,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1426,7 +1577,8 @@
       "birth_date": "1996-01-03",
       "phone": "97079145",
       "zipcode": 5164,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1439,7 +1591,8 @@
       "birth_date": "2001-05-05",
       "phone": "91159409",
       "zipcode": 6670,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1452,7 +1605,8 @@
       "birth_date": "1997-11-04",
       "phone": "27614391",
       "zipcode": 0,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1465,7 +1619,8 @@
       "birth_date": "1996-06-18",
       "phone": "40555521",
       "zipcode": 0,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1478,7 +1633,8 @@
       "birth_date": "2000-12-30",
       "phone": "48462373",
       "zipcode": 0,
-      "grade": 1
+      "grade": 1,
+      "role": 3
     }
   },
   {
@@ -1491,7 +1647,8 @@
       "birth_date": "1999-08-14",
       "phone": "48226543",
       "zipcode": 0,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1504,7 +1661,8 @@
       "birth_date": "1999-08-06",
       "phone": "90549262",
       "zipcode": 7052,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1517,7 +1675,8 @@
       "birth_date": "2002-09-10",
       "phone": "94847891",
       "zipcode": 7016,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   },
   {
@@ -1530,7 +1689,8 @@
       "birth_date": "1999-04-17",
       "phone": "47863535",
       "zipcode": 3018,
-      "grade": 1
+      "grade": 1,
+      "role": 2
     }
   }
 ]
