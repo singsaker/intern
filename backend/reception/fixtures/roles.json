@@ -1,0 +1,6 @@
+[
+  { "model": "members.role", "pk": 1, "fields": { "type": "ADMIN" } },
+  { "model": "members.role", "pk": 2, "fields": { "type": "HYBRID" } },
+  { "model": "members.role", "pk": 3, "fields": { "type": "FULL_WORK" } },
+  { "model": "members.role", "pk": 4, "fields": { "type": "FULL_RECEPTION" } }
+]

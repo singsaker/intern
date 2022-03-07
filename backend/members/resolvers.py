@@ -1,6 +1,4 @@
-from django.db.models import Q
 from .models import Member, User
-from django.conf import settings
 
 
 class MemberResolvers:

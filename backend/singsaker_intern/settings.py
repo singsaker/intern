@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'members.apps.MembersConfig',
     'projects.apps.ProjectsConfig',
     'shops.apps.ShopsConfig',
+    'reception.apps.ReceptionConfig',
 ]
 
 MIDDLEWARE = [

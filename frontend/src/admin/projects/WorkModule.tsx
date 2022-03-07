@@ -75,7 +75,7 @@ const WorkModule = () => {
             <Paper elevation={18} sx={{ p: 3, my: 4, bgcolor: "grey.900", color: "common.white" }}>
 
               {(timeLoading || projectLoading) ? (
-                <Skeleton animation="wave" sx={{ my: 2 }} variant="rectangular" height={70} />
+                <Skeleton animation="wave" sx={{ my: 2 }} variant="rectangular" height={79} />
               ) : (
                 (!timeLoading && !loading && !projectLoading) ? (
                   <Stack spacing={2}>
@@ -96,7 +96,7 @@ const WorkModule = () => {
                   <Typography sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
                 ))}
             </Paper>
-            <Accordion>
+            <Accordion >
               <AccordionSummary sx={{ px: 1 }} expandIcon={<CaretDown />}        >
                 <Typography variant="h4" sx={{ my: 1 }}>Prosjektmedlemmer</Typography>
               </AccordionSummary>

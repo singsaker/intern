@@ -14,13 +14,14 @@ import DashboardSidebar from './DashboardSidebar';
 const APP_BAR_MOBILE = 48;
 const APP_BAR_DESKTOP = 92;
 
+
 const RootStyle = styled('div')({
   minHeight: '100%',
   overflow: 'hidden'
 });
 
 const MainStyle = styled('div')(({ theme }) => ({
-  paddingTop: APP_BAR_MOBILE + 16,
+  paddingTop: APP_BAR_MOBILE + 24,
   paddingLeft: theme.spacing(2),
   paddingRight: theme.spacing(2),
 
@@ -39,9 +40,12 @@ const MainStyle = styled('div')(({ theme }) => ({
 
 interface Props {
   children: JSX.Element | JSX.Element[]
+  admin?: boolean
+  title?: string
+  back?: boolean
 }
 
-export default function DashboardLayout({ children }: Props) {
+export default function DashboardLayout({ children, admin, title, back }: Props) {
   const [open, setOpen] = useState(false);
   const isDesktop = useResponsive("up", "lg")
   const { userDetails } = useAuthentication();
@@ -52,9 +56,9 @@ export default function DashboardLayout({ children }: Props) {
 
   return (
     <RootStyle>
-      <DashboardNavbar />
+      <DashboardNavbar admin={admin} title={title} back={back} />
       {isDesktop ? <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} /> : <DashboardAppbar />}
-      <MainStyle>
+      <MainStyle >
         {children}
       </MainStyle>
     </RootStyle>

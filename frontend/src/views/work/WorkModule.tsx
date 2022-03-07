@@ -42,7 +42,7 @@ const WorkModule = () => {
   };
 
   return (
-    <Box my={2}>
+    <Box mb={2}>
       <Typography variant="h3" sx={{ mb: 3 }}>Min regi</Typography>
       {!loading && (
         <FormControl variant="standard" fullWidth size="small">

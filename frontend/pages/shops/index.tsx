@@ -6,7 +6,7 @@ import { ShopType } from "@src/types/shop";
 import NextLink from "next/link";
 import { useState } from "react";
 
-const Shops = () => {
+const ShopsPage = () => {
   const [shop, setShop] = useState(0);
 
 
@@ -18,8 +18,7 @@ const Shops = () => {
   const { data: shopsData, loading: shopsLoading } = useQuery(GET_SHOPS);
 
   return (
-    <DashboardLayout>
-      <Typography variant="h2" sx={{ mb: 3 }}>Shops</Typography>
+    <>
       <Paper elevation={18} sx={{ padding: 2, mb: 4, bgcolor: "info.main", color: "common.white" }}>
         <Stack spacing={2}>
           <Typography variant="subtitle1">Dine shops</Typography>
@@ -72,8 +71,16 @@ const Shops = () => {
       </Table>
       <Typography variant="h4" sx={{ my: 3 }}>Konsum</Typography>
       <Typography variant="h4" sx={{ my: 3 }}>Statistikk</Typography>
+    </>
+  )
+}
+
+ShopsPage.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <DashboardLayout title="Shops">
+      {page}
     </DashboardLayout>
   )
 }
 
-export default Shops;
+export default ShopsPage;

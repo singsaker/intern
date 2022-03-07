@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+from reception.models import Semester
+
 
 class University(models.Model):
     name = models.CharField(max_length=30, default="")
@@ -30,12 +32,46 @@ class User(AbstractUser):
 
 # Regitimer / vakter
 class Role(models.Model):
-    name = models.CharField(max_length=30)
-    work_hours = models.IntegerField(default=18)
-    shift_count = models.IntegerField(default=4)
+    ONLY_RECEPTION = "FULL_RECEPTION"
+    ONLY_WORK = "FULL_WORK"
+    HYBRID = "HYBRID"
+    KEY_PERSON = "ADMIN"
+
+    TYPE_CHOICES = (
+        (ONLY_RECEPTION, "Full vakt"),
+        (ONLY_WORK, "Full regi"),
+        (HYBRID, "Hybrid"),
+        (KEY_PERSON, "Utvalget"),
+    )
+
+    type = models.CharField(max_length=30, choices=TYPE_CHOICES, default=HYBRID)
+
+    def shift_number(self, semester_code):
+        if semester_code == Semester.FALL:
+            if self.type == self.ONLY_RECEPTION:
+                return 8
+            elif self.type == self.HYBRID:
+                return 5
+            else:
+                return 0
+        if semester_code == Semester.SPRING:
+            if self.type == self.ONLY_RECEPTION:
+                return 9
+            elif self.type == self.HYBRID:
+                return 6
+            else:
+                return 0
+
+    def work_hours(self):
+        if self.type == self.ONLY_WORK:
+            return 48
+        elif self.type == self.HYBRID:
+            return 18
+        else:
+            return 0
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return f"{self.type}"
 
 
 class Member(models.Model):
