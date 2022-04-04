@@ -2,7 +2,9 @@ from .models import Semester, Shift, ShiftDate
 
 
 class ReceptionResolvers:
-    def resolve_all_shift_dates(self, info, semester=None):
+    def resolve_all_shift_dates(self, info, semester=None, member=None):
+        if member:
+            return ShiftDate.objects.filter(semester=semester, shifts__member=member)
         return ShiftDate.objects.filter(semester=semester)
 
     def resolve_shift_dates(self, info, id=None):
