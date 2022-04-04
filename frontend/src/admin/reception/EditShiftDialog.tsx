@@ -20,7 +20,6 @@ const EditShiftDialog = (props: DialogProps) => {
   const { open, id, handleClose, ...other } = props;
   const { data: membersData, loading: membersLoading } = useQuery(GET_MEMBERS);
   const {
-    register,
     handleSubmit,
     control,
     formState: { errors },
