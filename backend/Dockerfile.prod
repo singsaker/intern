@@ -38,7 +38,9 @@ FROM python:3.9.6 as runner
 RUN mkdir -p /home/app
 
 # create the app user
-RUN addgroup -S app && adduser -S app -G app
+# RUN addgroup -S app && adduser -S app -G app
+RUN addgroup --gid 1001 -S app
+RUN adduser -S app --uid 1001
 
 # create the appropriate directories
 ENV HOME=/home/app
@@ -49,7 +51,7 @@ RUN mkdir staticfiles
 RUN mkdir mediafiles
 
 # install dependencies
-RUN apk update && apk add libpq
+# RUN apk update && apk add libpq
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements/requirements.txt .
 RUN pip install --no-cache /wheels/*
