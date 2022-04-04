@@ -60,7 +60,7 @@ const WorkModule = () => {
         ) : (
           <>
             {!loading && (
-              <FormControl variant="standard" fullWidth >
+              <FormControl fullWidth >
                 <Select
                   defaultValue={data.allProjects[0]?.id}
                   value={project}

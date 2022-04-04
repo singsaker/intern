@@ -15,7 +15,7 @@ const WorkPage = () => {
 
 WorkPage.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <DashboardLayout title="Arbeid">
+    <DashboardLayout title="Dugnad">
       {page}
     </DashboardLayout>
   )

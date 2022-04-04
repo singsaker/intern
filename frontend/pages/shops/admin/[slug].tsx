@@ -8,15 +8,15 @@ import { DotsThreeVertical, Plus } from "phosphor-react";
 
 const ShopAdministrationPage = () => {
   const router = useRouter()
-  const { pid } = router.query
+  const { slug } = router.query
 
   const { data: shopData, loading: shopLoading } = useQuery(GET_SHOP, {
-    variables: { id: pid }
+    variables: { slug: slug }
   })
 
   return (
-    <DashboardLayout>
-      <Typography variant="h2" sx={{ mb: 3 }}>Shops: {shopData?.shop.name}</Typography>
+    <>
+      <Typography variant="h2" sx={{ mb: 3 }}>Administrer {shopData?.shop.name}</Typography>
       <Typography variant="h4" sx={{ my: 3 }}>Kategorier</Typography>
       <Table size="small">
         <TableHead>
@@ -110,7 +110,7 @@ const ShopAdministrationPage = () => {
         </TableBody>
       </Table>
       <Typography variant="h4" sx={{ my: 3 }}>Statistikk</Typography>
-    </DashboardLayout>
+    </>
   )
 }
 
