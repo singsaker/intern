@@ -55,8 +55,8 @@ RUN pip install --no-cache /wheels/*
 
 # copy entrypoint.prod.sh
 COPY ./entrypoints/entrypoint.prod.sh .
-RUN sed -i 's/\r$//g'  $APP_HOME/entrypoints/entrypoint.prod.sh
-RUN chmod +x  $APP_HOME/entrypoints/entrypoint.prod.sh
+RUN sed -i 's/\r$//g'  $APP_HOME/entrypoints/production.sh
+RUN chmod +x  $APP_HOME/entrypoints/production.sh
 
 # copy project
 COPY . $APP_HOME
@@ -68,4 +68,4 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 # run entrypoint.prod.sh
-ENTRYPOINT ["/home/app/backend/entrypoint.prod.sh"]
+ENTRYPOINT ["/home/app/backend/production.sh"]
