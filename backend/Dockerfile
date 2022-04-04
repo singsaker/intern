@@ -1,5 +1,6 @@
+
 # pull official base image
-FROM python:3.9.6
+FROM python:3
 
 # set work directory
 WORKDIR /usr/src/app
@@ -21,4 +22,4 @@ RUN chmod +x ./entrypoints/*.sh
 COPY . .
 
 # run entrypoint.sh
-ENTRYPOINT ["/usr/src/app/entrypoints/local.sh"]
+ENTRYPOINT ["sh", "/usr/src/app/entrypoints/local.sh"]
