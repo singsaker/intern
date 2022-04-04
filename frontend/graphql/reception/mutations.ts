@@ -47,3 +47,19 @@ export const DELETE_SHIFT = gql`
     }
   }
 `;
+
+export const GENERATE_SHIFTS = gql`
+  mutation generateShifts ($semester: ID!, $startDate: String!, $endDate: String!) {
+    generateShifts(semester: $semester, startDate: $startDate, endDate: $endDate) {
+      ok
+    }
+  }
+`
+
+export const CLEAR_SEMESTER = gql`
+  mutation clearSemester($semester: ID!) {
+    clearSemester(semester: $semester) {
+      ok
+    }
+  }
+`
