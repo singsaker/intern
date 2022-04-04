@@ -23,7 +23,7 @@ const ShopsPage = () => {
         <Stack spacing={2}>
           <Typography variant="subtitle1">Dine shops</Typography>
           {!shopsLoading && shopsData.allShops.map((shop: ShopType) => (
-            <NextLink key={shop.id} passHref href={"/shops/admin/" + shop.id}>
+            <NextLink key={shop.id} passHref href="/shops/admin/[slug]" as={"/shops/admin/" + shop.slug}>
               <Button fullWidth color="secondary" variant="contained">{shop.name}</Button>
             </NextLink>
           ))}
@@ -35,7 +35,7 @@ const ShopsPage = () => {
         {(!shopsLoading) && (
           <FormControl variant="standard" fullWidth size="small">
             <Select
-              defaultValue={shopsData.allShops[0].id}
+              defaultValue={shopsData.allShops[0]?.id}
               value={shop}
               label="Velg prosjekt"
               onChange={handleChange}

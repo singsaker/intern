@@ -1,7 +1,7 @@
 import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECTS, GET_PROJECT_MEMBER, GET_TOTAL_TIME_SPENT } from "@graphql/projects/queries";
-import { Box, Button, FormControl, MenuItem, Select, SelectChangeEvent, Skeleton, Stack, Typography } from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem, Paper, Select, SelectChangeEvent, Skeleton, Stack, Table, TableBody, TableCell, TableRow, Typography } from "@mui/material";
 import parseDuration from "@utils/parseDuration";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
@@ -42,10 +42,11 @@ const WorkModule = () => {
   };
 
   return (
-    <Box mb={2}>
+    <Paper sx={{ bgcolor: "grey.200", mb: 2, p: 2 }}>
       <Typography variant="h3" sx={{ mb: 3 }}>Min regi</Typography>
       {!loading && (
-        <FormControl variant="standard" fullWidth size="small">
+        <FormControl variant="standard" fullWidth>
+          <InputLabel>Velg prosjekt</InputLabel>
           <Select
             defaultValue={data.allProjects[0].id}
             value={project}
@@ -63,23 +64,23 @@ const WorkModule = () => {
       ) : (
         projectMemberData?.projectMember ? (
           <>
-            <Box py={2}>
-              <Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body3">Totalt:</Typography>
-                  <Typography variant="body3"><b>{projectMemberData?.projectMember && parseDuration((projectMemberData.projectMember.allocatedTime * 60 * 60))}</b></Typography>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body3">Utført:</Typography>
-                  <Typography variant="body3"><b>{timeData && parseDuration(timeData.totalTimeSpent)}</b></Typography>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                  <Typography variant="body3">Gjenstående:</Typography>
-                  <Typography variant="body3"><b>{timeData && parseDuration(Math.max(projectMemberData.projectMember.allocatedTime * 60 * 60 - (timeData.totalTimeSpent | 0), 0))}</b></Typography>
-                </Stack>
-              </Stack>
-            </Box>
-            <Stack spacing={2} direction="row">
+            <Table sx={{ my: 2 }}>
+              <TableBody>
+                <TableRow>
+                  <TableCell sx={{ pl: 0.5 }}>Totale timer</TableCell>
+                  <TableCell align="right"><b>{projectMemberData?.projectMember && parseDuration((projectMemberData.projectMember.allocatedTime * 60 * 60))}</b></TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell sx={{ pl: 0.5 }}>Totalt utførte timer</TableCell>
+                  <TableCell align="right"><b>{timeData && parseDuration(timeData.totalTimeSpent) || "0t"}</b></TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell sx={{ pl: 0.5 }}>Gjenstående timer</TableCell>
+                  <TableCell align="right"><b>{timeData && parseDuration(Math.max(projectMemberData.projectMember.allocatedTime * 60 * 60 - (timeData.totalTimeSpent | 0), 0))}</b></TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+            <Stack spacing={2} direction="row" sx={{ my: 1 }}>
               <NextLink href={"/work/register?project=" + project} passHref>
                 <Button variant="contained" fullWidth>Registrer regi</Button>
               </NextLink>
@@ -91,7 +92,7 @@ const WorkModule = () => {
         ) : (
           <Typography sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
         ))}
-    </Box>
+    </Paper>
   )
 }
 

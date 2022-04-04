@@ -12,8 +12,8 @@ export const GET_SHOPS = gql`
 `;
 
 export const GET_SHOP = gql`
-  query shop($id: ID!) {
-    shop(id: $id) {
+  query shop($slug: String!) {
+    shop(slug: $slug) {
       id
       name
       slug

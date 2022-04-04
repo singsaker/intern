@@ -18,7 +18,9 @@ interface Props {
   back?: boolean
 }
 
-const RootStyle = styled(AppBar)<Props>(({ theme, admin }) => ({
+const RootStyle = styled(AppBar, {
+  shouldForwardProp: (prop) => prop != "admin"
+})<Props>(({ theme, admin }) => ({
   boxShadow: 'none',
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile

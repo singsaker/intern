@@ -2,8 +2,9 @@ import { useAuthentication } from "@api/authentication";
 import { Avatar, Box, Button, Divider, IconButton, MenuItem, Typography } from '@mui/material';
 // material
 import { alpha } from '@mui/material/styles';
+import NextLink from "next/link";
 //
-import { Gear, House, User } from 'phosphor-react';
+import { House, User } from 'phosphor-react';
 import { useRef, useState } from 'react';
 // components
 import MenuPopover from 'src/components/MenuPopover';
@@ -19,12 +20,7 @@ const MENU_OPTIONS = [
   {
     label: 'Profil',
     icon: User,
-    linkTo: '#',
-  },
-  {
-    label: 'Innstillinger',
-    icon: Gear,
-    linkTo: '#',
+    linkTo: '/profile',
   },
 ];
 
@@ -82,21 +78,23 @@ export default function AccountPopover() {
         <Divider sx={{ my: 1 }} />
 
         {MENU_OPTIONS.map((option) => (
-          <MenuItem
-            key={option.label}
-            onClick={handleClose}
-            sx={{ typography: 'body2', py: 1, px: 2.5 }}
-          >
-            <Box
-              component={option.icon}
-              sx={{
-                mr: 2,
-                width: 24,
-                height: 24,
-              }}
-            />
-            {option.label}
-          </MenuItem>
+          <NextLink key={option.label} href={option.linkTo} passHref>
+            <MenuItem
+              onClick={handleClose}
+              sx={{ typography: 'body2', py: 1, px: 2.5 }}
+            >
+              <Box
+                component={option.icon}
+                sx={{
+                  mr: 2,
+                  width: 24,
+                  height: 24,
+                }}
+              />
+              {option.label}
+            </MenuItem>
+          </NextLink>
+
         ))}
 
         <Box sx={{ p: 2, pt: 1.5 }}>
