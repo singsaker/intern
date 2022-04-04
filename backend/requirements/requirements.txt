@@ -7,10 +7,11 @@ graphene-django==2.15.0
 graphql-core==2.3.2
 graphql-relay==2.0.1
 django-guardian==2.4.0
-psycopg2>=2.8
+promise==2.3
 pyJWT==1.7.1
 PyYAML==5.4.1
 django-environ==0.8.1
 postgres==4.0
 pulp==2.6.0
 gunicorn==20.1.0
+psycopg2-binary==2.9.3
