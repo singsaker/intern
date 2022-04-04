@@ -39,8 +39,8 @@ RUN mkdir -p /home/app
 
 # create the app user
 # RUN addgroup -S app && adduser -S app -G app
-RUN addgroup --gid 1001 -S app
-RUN adduser -S app --uid 1001
+RUN addgroup --gid 1001 --system python
+RUN adduser --system django --uid 1001
 
 # create the appropriate directories
 ENV HOME=/home/app
@@ -67,10 +67,10 @@ COPY .env ./.env
 COPY . $APP_HOME
 
 # chown all the files to the app user
-RUN chown -R app:app $APP_HOME
+RUN chown -R django:python $APP_HOME
 
-# change to the app user
-USER app
+# change to the django user
+USER django
 
 EXPOSE 8000
 
