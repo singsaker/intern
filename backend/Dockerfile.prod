@@ -35,37 +35,39 @@ RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r ./requ
 # pull official base image
 FROM python:3.9.6-alpine
 
-# create directory for the app user
-RUN mkdir -p /home/app
+WORKDIR /usr/src/app
 
-# create the app user
-RUN addgroup -S app && adduser -S app -G app
+# create directory for the app user
+RUN addgroup --gid 1001 -system python
+RUN adduser -system django --uid 1001
 
 # create the appropriate directories
-ENV HOME=/home/app
-ENV APP_HOME=/home/app/backend
-RUN mkdir $APP_HOME
-WORKDIR $APP_HOME
+RUN mkdir staticfiles
+RUN mkdir mediafiles
 
 # install dependencies
-RUN apk update && apk add libpq
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements ./requirements
 RUN pip install --no-cache /wheels/*
 
 # copy entrypoint.prod.sh
-COPY ./entrypoints/production .
-RUN sed -i 's/\r$//g'  $APP_HOME/entrypoints/production.sh
-RUN chmod +x  $APP_HOME/entrypoints/production.sh
+COPY entrypoints ./entrypoints
+RUN chmod +x  ./entrypoints/*.sh
+
+# copy env files
+COPY .env.production ./.env.production
+COPY .env.test ./.env.test
 
 # copy project
-COPY . $APP_HOME
+COPY . .
 
 # chown all the files to the app user
-RUN chown -R app:app $APP_HOME
+RUN chown -R django:python /usr/src/app
 
-# change to the app user
-USER app
+# change to the django user
+USER django
+
+EXPOSE 8000
 
 # run entrypoint.prod.sh
-ENTRYPOINT ["/home/app/backend/production.sh"]
+ENTRYPOINT ["/usr/src/app/entrypoints/production.sh"]
