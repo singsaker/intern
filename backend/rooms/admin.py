@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Room, RoomType, RoomExchange, RoomExchangeRecord
+from .models import Room, RoomExchange, RoomExchangeRecord, RoomType
 
 admin.site.register(Room)
 admin.site.register(RoomType)
