@@ -29,6 +29,8 @@ services:
       - 8000:8000
     depends_on:
       - postgres
+    links:
+      - postgres:postgres
     expose:
       - 8000
 
