@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/:cached
+
+  backend:
+    image: backend:production
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    entrypoint: /usr/src/app/entrypoints/production.sh
+    environment:
+      - DJANGO_READ_DOT_ENV_FILE=true
+      - DJANGO_DOT_ENV_FILES=.env
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+    expose:
+      - 8000
+
+  frontend:
+    image: frontend:production
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        - APP_ENV=production
+        - NODE_ENV=production
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+
+volumes:
+  postgres_data:
+    driver: local
