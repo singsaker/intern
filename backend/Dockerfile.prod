@@ -38,8 +38,8 @@ FROM python:3.9.6-alpine
 WORKDIR /usr/src/app
 
 # create directory for the app user
-RUN addgroup --gid 1001 -system python
-RUN adduser -system django --uid 1001
+RUN addgroup --gid 1001 -S python
+RUN adduser -S django --uid 1001
 
 # create the appropriate directories
 RUN mkdir staticfiles
