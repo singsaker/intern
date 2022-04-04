@@ -1,9 +1,9 @@
-from django.contrib import admin
-
-from .models import Member, Role, Study, University, User
 from django import forms
+from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+
+from .models import Member, Role, Study, University, User
 
 
 class UserCreationForm(forms.ModelForm):
@@ -132,7 +132,7 @@ class UserAdmin(BaseUserAdmin):
 
 
 class MemberAdmin(admin.ModelAdmin):
-    list_display = ("user", "first_name", "last_name", "phone")
+    list_display = ("user", "first_name", "last_name", "phone", "role")
 
 
 admin.site.register(User, UserAdmin)

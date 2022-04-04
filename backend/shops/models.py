@@ -1,12 +1,13 @@
 from turtle import onclick
-from django.db import models
 
+from django.db import models
 from members.models import Member
+
 
 # Create your models here.
 class Shop(models.Model):
     name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
     description = models.CharField(max_length=4000, blank=True)
 
     def __str__(self) -> str:
