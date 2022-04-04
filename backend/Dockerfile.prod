@@ -55,8 +55,7 @@ COPY entrypoints ./entrypoints
 RUN chmod +x  ./entrypoints/*.sh
 
 # copy env files
-COPY .env.production ./.env.production
-COPY .env.test ./.env.test
+COPY .env ./.env
 
 # copy project
 COPY . .
