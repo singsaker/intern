@@ -1,6 +1,6 @@
-from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+
 from members import models
 
 # Hook the create_user_profile and save_user_profile methods to the User model, whenever a save event occurs

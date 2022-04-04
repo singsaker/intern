@@ -1,5 +1,5 @@
 from datetime import timedelta
-from email.policy import default
+
 from django.db import models
 from members.models import Member
 
@@ -21,9 +21,7 @@ class Project(models.Model):
     project_category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE)
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
-    members = models.ManyToManyField(
-        Member, related_name="projects", through="ProjectMember", blank=True
-    )
+    members = models.ManyToManyField(Member, related_name="projects", through="ProjectMember", blank=True)
     parent_project = models.ForeignKey(
         "self",
         blank=True,
@@ -44,11 +42,7 @@ class ProjectMember(models.Model):
         Member,
         on_delete=models.CASCADE,
     )
-    project = models.ForeignKey(
-        Project,
-        on_delete=models.CASCADE,
-        related_name="project_members"
-    )
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="project_members")
     allocated_time = models.IntegerField(default=0)
 
     def __str__(self) -> str:

@@ -1,12 +1,7 @@
 import graphene
 
-from .mutations import (
-    ClearSemester,
-    CreateShift,
-    DeleteShift,
-    GenerateShifts,
-    UpdateShift,
-)
+from .mutations import (ClearSemester, CreateShift, DeleteShift,
+                        GenerateShifts, UpdateShift)
 from .resolvers import ReceptionResolvers
 from .types import SemesterType, ShiftDateType
 
