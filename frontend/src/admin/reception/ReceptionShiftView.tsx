@@ -46,8 +46,8 @@ const ReceptionShiftView = ({ date, shifts }: Props) => {
       </Typography>
       <Table sx={{ width: "100%" }} size="small">
         <TableBody>
-          {(new Array(4)).fill(0).map((value, index) => (
-            <TableRow>
+          {(new Array(4)).fill(0).map((_, index) => (
+            <TableRow key={index}>
               <TableCell width={40}>
                 <Typography variant="body3"><b>{index + 1}</b></Typography>
               </TableCell>
