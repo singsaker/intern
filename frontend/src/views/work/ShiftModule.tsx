@@ -116,7 +116,7 @@ const ShiftModule = () => {
       <div id="chart">
         <Chart options={chartOptions} series={chartSeries} type="rangeBar" height={100} />
       </div>
-      <Table>
+      <Table size="small" sx={{ mb: 2 }}>
         <TableHead>
           <TableRow>
             <TableCell sx={{ pl: 1 }}>Dato</TableCell>
