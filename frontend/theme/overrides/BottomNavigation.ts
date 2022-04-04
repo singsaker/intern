@@ -31,5 +31,12 @@ export default function BottomNavigation(theme: Theme) {
         },
       },
     },
+    MuiBottomNavigation: {
+      styleOverrides: {
+        root: {
+          height: 64,
+        }
+      }
+    }
   };
 }

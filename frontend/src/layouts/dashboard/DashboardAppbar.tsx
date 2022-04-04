@@ -32,7 +32,7 @@ export default function DashboardAppbar() {
         onChange={handleChange}
       >
         <BottomNavigationAction value={Routes.home} label="Hjem" icon={<House weight="duotone" />} />
-        <BottomNavigationAction value={Routes.work} label="Arbeid" icon={<Timer weight="duotone" />} />
+        <BottomNavigationAction value={Routes.work} label="Dugnad" icon={<Timer weight="duotone" />} />
         <BottomNavigationAction value={Routes.members} label="Beboere" icon={<UserList weight="duotone" />} />
         <BottomNavigationAction value={Routes.shops} label="Kryssing" icon={<ShoppingCart weight="duotone" />} />
         <BottomNavigationAction value={Routes.admin} label="Utvalget" icon={<Key weight="duotone" />} />
