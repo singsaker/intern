@@ -36,7 +36,7 @@ const AdminLayout = ({ children }: Props) => {
 
   return (
     <Box mt={6} mb={8}>
-      <Box sx={{ width: '100%', mb: 8 }}>
+      <Box sx={{ width: '100%', mb: 10 }}>
         <RootStyle sx={{ top: 64, border: 1, borderColor: "divider" }}>
           <Tabs
             textColor="secondary"
