@@ -115,7 +115,7 @@ const WorkMemberStatus = ({ project }: Props) => {
       width: 10,
       minWidth: 20,
       renderCell: (params: GridRenderCellParams<ProjectMemberProps>) => (
-        <IconButton onClick={() => handleMemberClickOpen(params.value)}>
+        <IconButton onClick={() => { if (params.value) { handleMemberClickOpen(params.value) } }}>
           <DotsThreeVertical size="24" />
         </IconButton>
       ),
