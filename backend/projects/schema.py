@@ -1,12 +1,5 @@
-from importlib.metadata import requires
 import graphene
-from .types import (
-    ProjectCategoryType,
-    ProjectType,
-    WorkCategoryType,
-    WorkType,
-    ProjectMemberType,
-)
+
 from .mutations import (
     CreateProject,
     CreateProjectMember,
@@ -18,7 +11,13 @@ from .mutations import (
     UpdateWork,
 )
 from .resolvers import ProjectResolvers, WorkResolvers
-from members.types import MemberType
+from .types import (
+    ProjectCategoryType,
+    ProjectMemberType,
+    ProjectType,
+    WorkCategoryType,
+    WorkType,
+)
 
 
 class ProjectMutations(graphene.ObjectType):

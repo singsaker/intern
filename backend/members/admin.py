@@ -11,9 +11,7 @@ class UserCreationForm(forms.ModelForm):
     fields, plus a repeated password."""
 
     password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
-    password2 = forms.CharField(
-        label="Password confirmation", widget=forms.PasswordInput
-    )
+    password2 = forms.CharField(label="Password confirmation", widget=forms.PasswordInput)
     first_name = forms.CharField(label="First name", required=False)
     last_name = forms.CharField(label="Last name", required=False)
 

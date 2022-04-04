@@ -1,8 +1,8 @@
-from datetime import datetime
 import graphene
-from graphene_django import DjangoObjectType
-from .models import Project, ProjectCategory, ProjectMember, Work, WorkCategory
 from django.db.models import Sum
+from graphene_django import DjangoObjectType
+
+from .models import Project, ProjectCategory, ProjectMember, Work, WorkCategory
 
 
 class ProjectType(DjangoObjectType):
@@ -19,9 +19,9 @@ class ProjectMemberType(DjangoObjectType):
         model = ProjectMember
 
     def resolve_work_pending(parent, info):
-        totalDuration = Work.objects.filter(
-            project=parent.project.id, member=parent.member.id, status=1
-        ).aggregate(duration=Sum("duration"))["duration"]
+        totalDuration = Work.objects.filter(project=parent.project.id, member=parent.member.id, status=1).aggregate(
+            duration=Sum("duration")
+        )["duration"]
 
         if totalDuration:
             return str(totalDuration.total_seconds())
@@ -29,9 +29,9 @@ class ProjectMemberType(DjangoObjectType):
             return "0"
 
     def resolve_work_approved(parent, info):
-        totalDuration = Work.objects.filter(
-            project=parent.project.id, member=parent.member.id, status=2
-        ).aggregate(duration=Sum("duration"))["duration"]
+        totalDuration = Work.objects.filter(project=parent.project.id, member=parent.member.id, status=2).aggregate(
+            duration=Sum("duration")
+        )["duration"]
 
         if totalDuration:
             return str(totalDuration.total_seconds())
@@ -39,9 +39,9 @@ class ProjectMemberType(DjangoObjectType):
             return "0"
 
     def resolve_work_disapproved(parent, info):
-        totalDuration = Work.objects.filter(
-            project=parent.project.id, member=parent.member.id, status=3
-        ).aggregate(duration=Sum("duration"))["duration"]
+        totalDuration = Work.objects.filter(project=parent.project.id, member=parent.member.id, status=3).aggregate(
+            duration=Sum("duration")
+        )["duration"]
 
         if totalDuration:
             return str(totalDuration.total_seconds())

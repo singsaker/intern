@@ -7,7 +7,9 @@ admin.site.register(ProjectCategory)
 admin.site.register(Work)
 admin.site.register(WorkCategory)
 
+
 class ProjectMemberAdmin(admin.ModelAdmin):
-    list_display = ('project', 'member', 'allocated_time')
+    list_display = ("project", "member", "allocated_time")
+
 
 admin.site.register(ProjectMember, ProjectMemberAdmin)

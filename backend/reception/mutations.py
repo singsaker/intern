@@ -18,9 +18,9 @@ class GenerateShifts(graphene.Mutation):
     ok = graphene.Boolean()
 
     def mutate(root, info, semester, start_date, end_date):
-        members = Member.objects.filter(
-            active=True, role__type=Role.ONLY_RECEPTION
-        ) | Member.objects.filter(active=True, role__type=Role.HYBRID)
+        members = Member.objects.filter(active=True, role__type=Role.ONLY_RECEPTION) | Member.objects.filter(
+            active=True, role__type=Role.HYBRID
+        )
         semester = Semester.objects.get(id=semester)
         num_days = (parse_date(end_date) - parse_date(start_date)).days
         start_day = parse_date(start_date).weekday()

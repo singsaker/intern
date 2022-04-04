@@ -1,4 +1,4 @@
-from .models import Semester, Shift, ShiftDate
+from .models import Semester, ShiftDate
 
 
 class ReceptionResolvers:

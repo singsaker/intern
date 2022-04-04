@@ -1,7 +1,8 @@
 import graphene
-from members.types import UserType
 from django.contrib.auth import get_user_model
 from graphql_jwt.shortcuts import get_token
+
+from members.types import UserType
 
 
 class CreateUser(graphene.Mutation):
@@ -29,9 +30,7 @@ class CreateUser(graphene.Mutation):
         last_name = graphene.String(required=False)
         gender = graphene.String(required=False)
 
-    def mutate(
-        self, info, username, password, email, first_name, last_name, gender="M"
-    ):
+    def mutate(self, info, username, password, email, first_name, last_name, gender="M"):
         token = ""
 
         # Return token

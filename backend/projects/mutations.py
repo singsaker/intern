@@ -1,11 +1,12 @@
-import grp
-from importlib.metadata import requires
-from members.models import Member
-import graphene
-from projects.models import Project, Work, ProjectMember, ProjectCategory, WorkCategory
-from projects.types import ProjectType, WorkType, ProjectMemberType
-import django.utils.dateparse as dateparse
 from datetime import datetime
+
+import django.utils.dateparse as dateparse
+import graphene
+from members.models import Member
+
+from projects.models import (Project, ProjectCategory, ProjectMember, Work,
+                             WorkCategory)
+from projects.types import ProjectMemberType, ProjectType, WorkType
 
 
 class BaseProjectInput(graphene.InputObjectType):
@@ -135,7 +136,9 @@ class GenerateSemesterProject(graphene.Mutation):
         for i, member in enumerate(members):
             if member.role.type == member.role.ONLY_WORK or member.role.type == member.role.HYBRID:
                 ProjectMember.objects.create(
-                    member=member, project=project, allocated_time=member.role.work_hours()
+                    member=member,
+                    project=project,
+                    allocated_time=member.role.work_hours(),
                 )
 
         return GenerateSemesterProject(project=project, ok=ok)

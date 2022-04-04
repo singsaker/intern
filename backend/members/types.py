@@ -1,8 +1,9 @@
-from reception.models import Semester
-from .models import Member, Role
 import graphene
-from graphene_django import DjangoObjectType
 from django.contrib.auth import get_user_model
+from graphene_django import DjangoObjectType
+from reception.models import Semester
+
+from .models import Member, Role
 
 
 class UserType(DjangoObjectType):

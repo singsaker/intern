@@ -1,9 +1,8 @@
 import graphene
 import graphql_jwt
-from members.mutations import CreateUser
 
-from .types import UserType, MemberType
 from .resolvers import MemberResolvers
+from .types import MemberType, UserType
 
 
 class MemberQueries(graphene.ObjectType, MemberResolvers):

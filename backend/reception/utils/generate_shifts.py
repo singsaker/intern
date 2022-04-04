@@ -15,22 +15,12 @@ def generate_shifts(num_members, num_shifts, num_days, start_day):
 
     # List of all shifts considered bad
     bad_shifts = [(d, 1) for d in all_days if ((start_day + d) % 7) != 5]
-    bad_shifts += [
-        (d, s) for d in all_days for s in all_shifts if ((start_day + d) % 7) == 5
-    ]
+    bad_shifts += [(d, s) for d in all_days for s in all_shifts if ((start_day + d) % 7) == 5]
     bad_shifts += [(d, 2) for d in all_days if ((start_day + d) % 7) == 6]
-    bad_shifts += [
-        (d, s)
-        for d in all_days
-        for s in all_shifts
-        if ((start_day + d) % 7) == 4 and (s == 3 or s == 4)
-    ]
+    bad_shifts += [(d, s) for d in all_days for s in all_shifts if ((start_day + d) % 7) == 4 and (s == 3 or s == 4)]
 
-    shifts = LpVariable.dicts(
-        "shifts", (all_members, all_days, all_shifts), 0, 1, LpInteger
-    )
+    shifts = LpVariable.dicts("shifts", (all_members, all_days, all_shifts), 0, 1, LpInteger)
     members = LpVariable.dicts("members", (all_members), 0, None, LpInteger)
-    member_boolean = LpVariable.dicts("member_boolean", (members), 0, 1, LpInteger)
 
     model = LpProblem("Scheduler", LpMaximize)
     model += lpSum(members[si] for si in all_members)
@@ -42,36 +32,18 @@ def generate_shifts(num_members, num_shifts, num_days, start_day):
     # Distribute num of all shifts evenly
     min_shift_per_member = (num_days * num_shifts) // num_members
     for n in all_members:
-        model += (
-            lpSum(shifts[n][d][s] for d in all_days for s in all_shifts)
-            >= min_shift_per_member
-        )
-        model += (
-            lpSum(shifts[n][d][s] for d in all_days for s in all_shifts)
-            <= min_shift_per_member + 1
-        )
+        model += lpSum(shifts[n][d][s] for d in all_days for s in all_shifts) >= min_shift_per_member
+        model += lpSum(shifts[n][d][s] for d in all_days for s in all_shifts) <= min_shift_per_member + 1
 
     # Distribute bad shifts evenly
     min_bad_shift_per_member = len(bad_shifts) // num_members
     for n in all_members:
         model += (
-            lpSum(
-                shifts[n][d][s]
-                for d in all_days
-                for s in all_shifts
-                if (d, s) in bad_shifts
-            )
-            >= min_bad_shift_per_member
-        )
+            lpSum(shifts[n][d][s] for d in all_days for s in all_shifts if (d, s) in bad_shifts)
+        ) >= min_bad_shift_per_member
         model += (
-            lpSum(
-                shifts[n][d][s]
-                for d in all_days
-                for s in all_shifts
-                if (d, s) in bad_shifts
-            )
-            <= min_bad_shift_per_member + 1
-        )
+            lpSum(shifts[n][d][s] for d in all_days for s in all_shifts if (d, s) in bad_shifts)
+        ) <= min_bad_shift_per_member + 1
 
     # Only one shift per member per day
     for m in members:
@@ -85,10 +57,7 @@ def generate_shifts(num_members, num_shifts, num_days, start_day):
 
     # Number of shifts that a member has done
     for m in members:
-        model += (
-            lpSum(shifts[m][d][r] for d in all_days for r in all_shifts) - members[m]
-            == 0
-        )
+        model += lpSum(shifts[m][d][r] for d in all_days for r in all_shifts) - members[m] == 0
 
     # Prevent two shifts in a row
     # for e in all_members:
