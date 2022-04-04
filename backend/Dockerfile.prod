@@ -42,7 +42,7 @@ RUN addgroup -S app && adduser -S app -G app
 
 # create the appropriate directories
 ENV HOME=/home/app
-ENV APP_HOME=/home/app/web
+ENV APP_HOME=/home/app/backend
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 RUN mkdir staticfiles
@@ -70,4 +70,4 @@ USER app
 EXPOSE 8000
 
 # run entrypoint.prod.sh
-ENTRYPOINT ["/usr/src/app/entrypoints/production.sh"]
+ENTRYPOINT ["/home/app/backend/entrypoints/production.sh"]
