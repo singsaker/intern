@@ -64,7 +64,7 @@ const WorkModule = () => {
       ) : (
         projectMemberData?.projectMember ? (
           <>
-            <Table sx={{ my: 2 }}>
+            <Table sx={{ my: 2 }} size="small">
               <TableBody>
                 <TableRow>
                   <TableCell sx={{ pl: 0.5 }}>Totale timer</TableCell>
