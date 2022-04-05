@@ -19,7 +19,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.prod
-    entrypoint: /usr/src/app/entrypoints/production.sh
+    entrypoint: /home/app/backend/entrypoints/production.sh
     environment:
       - DJANGO_READ_DOT_ENV_FILE=true
       - DJANGO_DOT_ENV_FILES=.env
