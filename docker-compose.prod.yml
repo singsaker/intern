@@ -24,7 +24,7 @@ services:
       - DJANGO_READ_DOT_ENV_FILE=true
       - DJANGO_DOT_ENV_FILES=.env
     volumes:
-      - static_volume:/home/app/web/staticfiles
+      - static_volume:/home/app/backend/staticfiles
     depends_on:
       - postgres
     expose:
@@ -48,7 +48,7 @@ services:
       context: ./nginx
       dockerfile: Dockerfile.prod
     volumes:
-      - static_volume:/home/app/web/staticfiles
+      - static_volume:/home/app/backend/staticfiles
     ports:
       - 1337:80
     depends_on:
