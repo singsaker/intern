@@ -25,12 +25,8 @@ services:
       - DJANGO_DOT_ENV_FILES=.env
     volumes:
       - ./backend:/usr/src/app
-    ports:
-      - 8000:8000
     depends_on:
       - postgres
-    links:
-      - postgres:postgres
     expose:
       - 8000
 
@@ -46,6 +42,13 @@ services:
       - 3000:3000
     expose:
       - 3000
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - backend
 
 volumes:
   postgres_data:
