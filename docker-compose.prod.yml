@@ -33,7 +33,8 @@ services:
   frontend:
     image: frontend:production
     build:
-      context: ./frontend
+      build:
+      context: ./backend
       dockerfile: Dockerfile.prod
       args:
         - APP_ENV=production
@@ -44,7 +45,9 @@ services:
       - 3000
 
   nginx:
-    build: ./nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.prod
     ports:
       - 1337:80
     depends_on:
