@@ -10,5 +10,4 @@ CORS_ORIGIN_WHITELIST = env("CORS_ORIGIN_WHITELIST")
 ROOT_URLCONF = "config.urls"
 
 # GRAPHENE
-GRAPHENE["MIDDLEWARE"] += ["config.sentry.middleware.SentryMiddleware"]  # noqa
 GRAPHQL_JWT = {"JWT_COOKIE_DOMAIN": env("JWT_COOKIE_DOMAIN", default="genfors.singsaker.no")}
