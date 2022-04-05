@@ -1,6 +1,6 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 
-const uri = typeof window === "undefined" ? "http://127.0.0.1:8000/graphql/" : "http://genfors.singsaker.no:1337/graphql/";
+const uri = process.env.NODE_ENV == "production" ? "http://genfors.singsaker.no:1337/graphql/" : "http://localhost:8000/graphql/";
 
 const link = createHttpLink({
   uri: uri,

@@ -11,29 +11,31 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 
 import environ
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
+env = environ.Env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
+if READ_DOT_ENV_FILE:
+    DOT_ENV_FILES = env.list("DJANGO_DOT_ENV_FILES", default=[".env.development"])
+    # OS environment variables take precedence over variables from .env
+    for file in DOT_ENV_FILES:
+        env.read_env(str(BASE_DIR / file))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-DEBUG = False
+ENVIRONMENT = env("DJANGO_ENVIRONMENT")
+DEBUG = ENVIRONMENT == "development"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
-
-ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -47,18 +49,12 @@ GRAPHENE = {
 GRAPHQL_URL = "graphql/"
 
 CSRF_TRUSTED_ORIGINS = ["localhost:3000"]
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://0.0.0.0:3000",
-    "http://127.0.0.1:3000",
-    "http://genfors.singsaker.no",
-    "http://genfors.singsaker.no:8000",
-    "http://genfors.singsaker.no:3000",
-    "https://genfors.singsaker.no",
-    "https://genfors.singsaker.no:8000",
-    "https://genfors.singsaker.no:3000",
-]
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = env.bool("CORS_ALLOW_CREDENTIALS", True)
+CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST", default="http://127.0.0.1:3000")
+GRAPHQL_JWT = {
+    "JWT_VERIFY_EXPIRATION": True,
+    "JWT_EXPIRATION_DELTA": timedelta(days=2),
+}
 
 
 INSTALLED_APPS = [

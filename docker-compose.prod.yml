@@ -22,7 +22,7 @@ services:
     entrypoint: /home/app/backend/entrypoints/production.sh
     environment:
       - DJANGO_READ_DOT_ENV_FILE=true
-      - DJANGO_DOT_ENV_FILES=.env
+      - DJANGO_DOT_ENV_FILES=.env.production
     volumes:
       - static_volume:/home/app/backend/staticfiles
     depends_on:

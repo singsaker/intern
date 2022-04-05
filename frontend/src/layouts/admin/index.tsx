@@ -1,4 +1,4 @@
-import { AppBar, Box, styled, Tab, Tabs } from '@mui/material';
+import { AppBar, Slide, styled, Tab, Tabs, useScrollTrigger } from '@mui/material';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
@@ -19,7 +19,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
 }));
 
 interface Props {
-  children: JSX.Element | JSX.Element[]
+  children?: JSX.Element | JSX.Element[]
 }
 
 const AdminLayout = ({ children }: Props) => {
@@ -35,25 +35,47 @@ const AdminLayout = ({ children }: Props) => {
   }, [router])
 
   return (
-    <Box mt={6} mb={8}>
-      <Box sx={{ width: '100%', mb: 10 }}>
-        <RootStyle sx={{ top: 64, border: 1, borderColor: "divider" }}>
-          <Tabs
-            textColor="secondary"
-            indicatorColor="secondary"
-            variant="scrollable"
-            value={value}
-            onChange={handleChange}
-          >
-            <Tab value={"/admin/rooms"} label="Romsjef" />
-            <Tab value={"/admin/projects"} label="Regisjef" />
-            <Tab value={"/admin/reception"} label="Vaktsjef" />
-          </Tabs>
-        </RootStyle>
-      </Box>
-      {children}
-    </Box>
+    <>
+      <RootStyle position='sticky' sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs
+          textColor="secondary"
+          indicatorColor="secondary"
+          variant="scrollable"
+          value={value}
+          onChange={handleChange}
+        >
+          <Tab value={"/admin/rooms"} label="Romsjef" />
+          <Tab value={"/admin/projects"} label="Regisjef" />
+          <Tab value={"/admin/reception"} label="Vaktsjef" />
+        </Tabs>
+      </RootStyle>
+    </>
   )
+}
+
+interface HideOnScrollProps {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window?: () => Window;
+  children: React.ReactElement;
+}
+
+function HideOnScroll(props: HideOnScrollProps) {
+  const { children, window } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
 }
 
 

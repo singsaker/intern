@@ -1,6 +1,6 @@
 
 # pull official base image
-FROM python:3
+FROM --platform=linux/amd64 python:3.9.6
 
 # set work directory
 WORKDIR /usr/src/app
@@ -12,7 +12,7 @@ ENV PYTHONUNBUFFERED 1
 # install dependencies
 RUN pip install --upgrade pip
 COPY requirements ./requirements
-RUN pip install -r ./requirements/requirements.txt
+RUN pip install -r ./requirements/local.txt
 
 # copy entrypoint.sh
 COPY entrypoints ./entrypoints

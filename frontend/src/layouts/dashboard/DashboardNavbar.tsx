@@ -47,7 +47,7 @@ export default function DashboardNavbar({ admin, title, back }: Props) {
   const router = useRouter()
 
   return (
-    <RootStyle admin={admin}>
+    <RootStyle admin={admin} position="relative">
       <ToolbarStyle>
         {back && (
           <IconButton onClick={() => router.back()} edge="start" sx={{ mr: 1 }}>

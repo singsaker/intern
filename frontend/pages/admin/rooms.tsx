@@ -1,4 +1,3 @@
-import AdminLayout from "@layouts/admin";
 import DashboardLayout from "@layouts/dashboard";
 import { Box, Dialog, Typography } from '@mui/material';
 import MemberCard from '@src/views/members/MemberCard';
@@ -35,7 +34,7 @@ const AdminRoomsPage = () => {
 AdminRoomsPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <DashboardLayout admin title="Utvalget intern">
-      <AdminLayout>{page}</AdminLayout>
+      {page}
     </DashboardLayout>
   )
 }

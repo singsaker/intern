@@ -1,6 +1,8 @@
 // material
 import { useAuthentication } from '@api/authentication';
 import Loading from '@components/Loading';
+import AdminLayout from '@layouts/admin';
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import useResponsive from '@utils/useResponsive';
 import { useState } from 'react';
@@ -15,13 +17,8 @@ const APP_BAR_MOBILE = 48;
 const APP_BAR_DESKTOP = 92;
 
 
-const RootStyle = styled('div')({
-  minHeight: '100%',
-  overflow: 'hidden'
-});
-
 const MainStyle = styled('div')(({ theme }) => ({
-  paddingTop: APP_BAR_MOBILE + 24,
+  // paddingTop: APP_BAR_MOBILE + 24,
   paddingLeft: theme.spacing(2),
   paddingRight: theme.spacing(2),
 
@@ -55,12 +52,16 @@ export default function DashboardLayout({ children, admin, title, back }: Props)
   }
 
   return (
-    <RootStyle>
+    <Box sx={{ minHeight: 1, pb: 10 }}>
       <DashboardNavbar admin={admin} title={title} back={back} />
+      {admin && (<AdminLayout />)}
+      {admin && (<Box py={1.5} />)}
+
       {isDesktop ? <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} /> : <DashboardAppbar />}
-      <MainStyle >
+      <MainStyle>
+
         {children}
       </MainStyle>
-    </RootStyle>
+    </Box>
   );
 }
