@@ -1,7 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client"
 import { CLEAR_SEMESTER } from "@graphql/reception/mutations"
 import { GET_SHIFT_DATES } from "@graphql/reception/queries"
-import AdminLayout from "@layouts/admin"
 import DashboardLayout from "@layouts/dashboard"
 import { Box, Button, LinearProgress, Stack, Typography } from "@mui/material"
 import GenerateShiftsDialog from "@src/admin/reception/GenerateShiftsDialog"
@@ -42,7 +41,7 @@ const ReceptionAdminPage = () => {
 ReceptionAdminPage.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <DashboardLayout admin title="Utvalget intern">
-      <AdminLayout>{page}</AdminLayout>
+      {page}
     </DashboardLayout>
   )
 }

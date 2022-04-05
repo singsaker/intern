@@ -116,7 +116,7 @@ const ShopAdministrationPage = () => {
 
 ShopAdministrationPage.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <DashboardLayout>
+    <DashboardLayout title="Shop administrasjon" back>
       {page}
     </DashboardLayout>
   )
