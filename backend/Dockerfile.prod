@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install psycopg2 dependencies
+# install psycopg2 dependencies. USE FOR ALPINE
 # RUN apk update \
 #     && apk add postgresql-dev gcc python3-dev musl-dev
 
@@ -50,14 +50,14 @@ RUN mkdir $APP_HOME/staticfiles
 WORKDIR $APP_HOME
 
 # install dependencies
-# RUN apk update && apk add libpq
+# RUN apk update && apk add libpq. ONLY ALPINE
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements/requirements.txt .
 RUN pip install --no-cache /wheels/*
 
-# copy entrypoint.prod.sh
+# copy production.sh
 COPY entrypoints ./entrypoints
-# RUN sed -i 's/\r$//g'  $APP_HOME/entrypoints/production.sh
+# RUN sed -i 's/\r$//g'  $APP_HOME/entrypoints/production.sh FIX THIS LATER
 RUN chmod +x  $APP_HOME/entrypoints/production.sh
 
 COPY .env ./.env
@@ -73,5 +73,5 @@ USER django
 
 EXPOSE 8000
 
-# run entrypoint.prod.sh
+# run production.sh
 ENTRYPOINT ["/home/app/backend/entrypoints/production.sh"]
