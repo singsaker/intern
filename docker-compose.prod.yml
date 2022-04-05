@@ -12,7 +12,7 @@ services:
     expose:
       - 5432
     volumes:
-      - postgres_data:/var/lib/postgresql/data/:cached
+      - postgres_data:/var/lib/postgresql/data/
 
   backend:
     image: backend:production
@@ -24,7 +24,7 @@ services:
       - DJANGO_READ_DOT_ENV_FILE=true
       - DJANGO_DOT_ENV_FILES=.env
     volumes:
-      - ./backend:/usr/src/app
+      - static_volume:/home/app/web/staticfiles
     depends_on:
       - postgres
     expose:
@@ -47,6 +47,8 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile.prod
+    volumes:
+      - static_volume:/home/app/web/staticfiles
     ports:
       - 1337:80
     depends_on:
@@ -54,4 +56,4 @@ services:
 
 volumes:
   postgres_data:
-    driver: local
+  static_volume:
