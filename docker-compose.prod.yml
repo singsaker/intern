@@ -33,8 +33,7 @@ services:
   frontend:
     image: frontend:production
     build:
-      build:
-      context: ./backend
+      context: ./frontend
       dockerfile: Dockerfile.prod
       args:
         - APP_ENV=production
