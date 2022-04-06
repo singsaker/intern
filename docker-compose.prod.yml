@@ -53,6 +53,7 @@ services:
       - 80:80
     depends_on:
       - backend
+      - frontend
 
 volumes:
   postgres_data:
