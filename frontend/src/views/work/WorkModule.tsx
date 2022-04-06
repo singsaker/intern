@@ -1,16 +1,24 @@
 import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECTS, GET_PROJECT_MEMBER, GET_TOTAL_TIME_SPENT } from "@graphql/projects/queries";
-import { Button, FormControl, InputLabel, MenuItem, Paper, Select, SelectChangeEvent, Skeleton, Stack, Table, TableBody, TableCell, TableRow, Typography } from "@mui/material";
+import { Box, Button, Chip, FormControl, MenuItem, Paper, Select, SelectChangeEvent, Stack, Typography, useTheme } from "@mui/material";
+import { remToPx } from "@theme/typography";
 import parseDuration from "@utils/parseDuration";
+import { ApexOptions } from "apexcharts";
+import dynamic from "next/dynamic";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import ProjectType from "src/types/project";
+
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
 
 // REGI: Oversiktblokk
 const WorkModule = () => {
   // Hent alle regiprosjekter
   const { data, loading, error } = useQuery(GET_PROJECTS);
+
+  const theme = useTheme();
 
   // Hent bruker
   const { userDetails } = useAuthentication();
@@ -41,48 +49,142 @@ const WorkModule = () => {
     setProject(event.target.value as number);
   };
 
+  if (loading || timeLoading || projectMemberLoading || !timeData || !projectMemberData) {
+    return <></>
+  }
+
+  const chartSeries = [
+    (projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent),
+    parseInt(timeData.totalTimeSpent)
+  ]
+
+  const chartOptions: ApexOptions = {
+    chart: {
+      type: 'donut',
+    },
+    grid: {
+      borderColor: "transparent"
+    },
+    stroke: {
+      colors: ['transparent']
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    colors: [theme.palette.primary.light, theme.palette.secondary.main],
+    plotOptions: {
+      pie: {
+        expandOnClick: false,
+        donut: {
+          size: '85%',
+          labels: {
+            show: true,
+            value: {
+              show: true,
+              formatter: function (val) {
+                return parseDuration(val)
+              },
+              ...(theme.typography.h4 as any),
+              color: theme.palette.text.primary,
+            },
+            name: {
+              show: true
+            },
+            total: {
+              color: theme.palette.text.secondary,
+              ...(theme.typography.subtitle1 as any),
+              show: true,
+              label: 'Totale timer',
+              formatter: function (val) {
+                if (projectMemberData?.projectMember) {
+                  return parseDuration((projectMemberData.projectMember.allocatedTime * 60 * 60))
+                } else {
+                  return ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    labels: ['Utførte timer', "Gjenstående timer"],
+    legend: {
+      show: false,
+      position: 'top',
+      offsetY: 0,
+      ...(theme.typography.body3 as any),
+      color: theme.palette.text.disabled,
+      fontSize: remToPx(theme.typography.body3.fontSize + ""),
+      fontWeight: 600,
+      itemMargin: {
+        horizontal: 10
+      },
+      fontFamily: theme.typography.fontFamily,
+      markers: {
+        offsetX: -3
+      }
+    }
+  }
+
   return (
-    <Paper sx={{ bgcolor: "grey.200", mb: 2, p: 2 }}>
-      <Typography variant="h3" sx={{ mb: 3 }}>Min regi</Typography>
-      {!loading && (
-        <FormControl variant="standard" fullWidth>
-          <InputLabel>Velg prosjekt</InputLabel>
-          <Select
-            defaultValue={data.allProjects[0].id}
-            value={project}
-            label="Velg prosjekt"
-            onChange={handleChange}
-          >
-            {!loading && data.allProjects.map((project: ProjectType) => (
-              <MenuItem key={project.id} value={project.id}>{project.name}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      )}
+    <Paper sx={{ mb: 2, bgcolor: "transparent" }}>
+      <Stack sx={{ mb: 3 }} spacing={3}>
+        <Typography variant="h3">Min regi</Typography>
+        {!loading && (
+          <FormControl color="info" variant="standard" fullWidth>
+            <Select
+              defaultValue={data.allProjects[0].id}
+              value={project}
+              label="Velg prosjekt"
+              onChange={handleChange}
+            >
+              {!loading && data.allProjects.map((project: ProjectType) => (
+                <MenuItem key={project.id} value={project.id}>{project.name}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        )}
+      </Stack>
+
       {(timeLoading || projectMemberLoading) ? (
-        <Skeleton animation="wave" sx={{ my: 2 }} variant="rectangular" height={90} />
+        <></>
       ) : (
         projectMemberData?.projectMember ? (
           <>
-            <Table sx={{ my: 2 }} size="small">
-              <TableBody>
-                <TableRow>
-                  <TableCell sx={{ pl: 0.5 }}>Totale timer</TableCell>
-                  <TableCell align="right"><b>{projectMemberData?.projectMember && parseDuration((projectMemberData.projectMember.allocatedTime * 60 * 60))}</b></TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ pl: 0.5 }}>Totalt utførte timer</TableCell>
-                  <TableCell align="right"><b>{timeData && parseDuration(timeData.totalTimeSpent) || "0t"}</b></TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell sx={{ pl: 0.5 }}>Gjenstående timer</TableCell>
-                  <TableCell align="right"><b>{timeData && parseDuration(Math.max(projectMemberData.projectMember.allocatedTime * 60 * 60 - (timeData.totalTimeSpent | 0), 0))}</b></TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
+            <Stack direction="row" justifyContent="space-between" spacing={2}>
+              <Chip
+                avatar={
+                  <Chip
+                    sx={{ width: "fit-content!important", color: "common.white", bgcolor: "primary.light" }}
+                    label={
+                      <Typography fontWeight={600} variant="body3">
+                        {parseDuration(parseInt(timeData.totalTimeSpent))}
+                      </Typography>
+                    } />
+                }
+                label={<Typography fontWeight={600} variant="body3">Utført</Typography>}
+                variant="outlined"
+              />
+              <Chip
+                avatar={
+                  <Chip
+                    sx={{ width: "fit-content!important", color: "common.white", bgcolor: "secondary.main" }}
+                    label={
+                      <Typography fontWeight={600} variant="body3" sx={{ color: "common.white" }}>
+                        {parseDuration((projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent))}
+                      </Typography>
+                    } />
+                }
+                label={<Typography fontWeight={600} variant="body3">Gjenstående</Typography>}
+                variant="outlined"
+              />
+            </Stack>
+            <Box my={2} id="chart">
+              <Chart options={chartOptions} series={chartSeries} type="donut" height={300} />
+            </Box>
             <Stack spacing={2} direction="row" sx={{ my: 1 }}>
               <NextLink href={"/work/register?project=" + project} passHref>
-                <Button variant="contained" fullWidth>Registrer regi</Button>
+                <Button color="secondary" variant="contained" fullWidth>Registrer regi</Button>
               </NextLink>
               <NextLink href={"/work/registered?project=" + project} passHref>
                 <Button variant="outlined" color="inherit" fullWidth>Se detaljer</Button>

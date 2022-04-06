@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@apollo/client"
 import { CLEAR_SEMESTER } from "@graphql/reception/mutations"
 import { GET_SHIFT_DATES } from "@graphql/reception/queries"
 import DashboardLayout from "@layouts/dashboard"
-import { Box, Button, LinearProgress, Stack, Typography } from "@mui/material"
+import { Box, Button, Container, LinearProgress, Stack, Typography } from "@mui/material"
 import GenerateShiftsDialog from "@src/admin/reception/GenerateShiftsDialog"
 import ReceptionCalendar from "@src/admin/reception/ReceptionCalendar"
 import ReceptionShiftView from "@src/admin/reception/ReceptionShiftView"
@@ -18,7 +18,7 @@ const ReceptionAdminPage = () => {
   const [generateShiftsDialogOpen, setGenerateShiftsDialogOpen] = useState(false)
 
   return (
-    <>
+    <Container>
       <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center", mb: 3 }}>
         <Typography variant="h3">Vakter</Typography>
         <Stack direction="row" spacing={1}>
@@ -34,7 +34,7 @@ const ReceptionAdminPage = () => {
       </Box>
       {!loading && selectedDate && (<ReceptionShiftView date={selectedDate} shifts={data.allShiftDates} />)}
       <GenerateShiftsDialog semester={1} open={generateShiftsDialogOpen} handleClose={() => setGenerateShiftsDialogOpen(false)} />
-    </>
+    </Container>
   )
 }
 

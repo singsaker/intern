@@ -1,7 +1,7 @@
 import { useAuthentication } from '@api/authentication';
 import { useQuery } from '@apollo/client';
 import { GET_PROJECT } from "@graphql/projects/queries";
-import { Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import Routes from '@src/routes';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -19,10 +19,10 @@ const RegisterWorkPage = () => {
     { variables: { id: project } });
 
   return (
-    <>
+    <Container>
       <Typography>Regiprosjekt: <b>{!loading && projectData?.project.name}</b></Typography>
       <WorkRegisterForm project={project} onComplete={() => router.push(Routes.work)} />
-    </>
+    </Container>
   )
 }
 

@@ -1,11 +1,14 @@
 import DashboardLayout from "@layouts/dashboard";
+import { Container } from "@mui/material";
 import WorkModule from "@src/admin/projects/WorkModule";
 import { ReactElement } from "react";
 
 
 const AdminProjectsPage = () => {
   return (
-    <WorkModule />
+    <Container>
+      <WorkModule />
+    </Container>
   )
 }
 

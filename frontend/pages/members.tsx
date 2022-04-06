@@ -1,5 +1,5 @@
 import DashboardLayout from "@layouts/dashboard";
-import { Box, Dialog } from "@mui/material";
+import { Box, Container, Dialog } from "@mui/material";
 import MemberCard from "@src/views/members/MemberCard";
 import MembersList from "@src/views/members/MembersList";
 import { useState } from "react";
@@ -17,7 +17,7 @@ const MembersPage = () => {
 
 
   return (
-    <>
+    <Container>
       <Box pb={8}>
         <MembersList toggleBeboer={(id: number) => toggleBeboerModal(id)} />
       </Box>
@@ -25,7 +25,7 @@ const MembersPage = () => {
       <Dialog onClose={toggleBeboerModal} open={beboerModal}>
         <MemberCard toggleBeboerModal={toggleBeboerModal} beboer_id={beboerId} />
       </Dialog>
-    </>
+    </Container>
   )
 }
 
