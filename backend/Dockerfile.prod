@@ -60,7 +60,7 @@ COPY entrypoints ./entrypoints
 # RUN sed -i 's/\r$//g'  $APP_HOME/entrypoints/production.sh FIX THIS LATER
 RUN chmod +x  $APP_HOME/entrypoints/production.sh
 
-COPY .env ./.env
+COPY .env.production ./.env.production
 
 # copy project
 COPY . $APP_HOME
