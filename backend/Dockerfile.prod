@@ -71,7 +71,5 @@ RUN chown -R django:python $APP_HOME
 # change to the django user
 USER django
 
-EXPOSE 8000
-
 # run production.sh
 ENTRYPOINT ["/home/app/backend/entrypoints/production.sh"]
