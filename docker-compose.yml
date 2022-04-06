@@ -42,8 +42,6 @@ services:
       - /app/.next
     ports:
       - 3000:3000
-    expose:
-      - 3000
 
 volumes:
   postgres_data:
