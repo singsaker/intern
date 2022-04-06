@@ -38,8 +38,6 @@ services:
       args:
         - APP_ENV=production
         - NODE_ENV=production
-    ports:
-      - 3000:3000
     expose:
       - 3000
 
