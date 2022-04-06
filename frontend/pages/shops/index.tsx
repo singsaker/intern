@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_SHOPS } from "@graphql/shops/queries";
 import DashboardLayout from "@layouts/dashboard";
-import { Button, FormControl, MenuItem, Paper, Select, SelectChangeEvent, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import { Button, Container, FormControl, MenuItem, Paper, Select, SelectChangeEvent, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 import { ShopType } from "@src/types/shop";
 import NextLink from "next/link";
 import { useState } from "react";
@@ -18,7 +18,7 @@ const ShopsPage = () => {
   const { data: shopsData, loading: shopsLoading } = useQuery(GET_SHOPS);
 
   return (
-    <>
+    <Container>
       <Paper elevation={18} sx={{ padding: 2, mb: 4, bgcolor: "info.main", color: "common.white" }}>
         <Stack spacing={2}>
           <Typography variant="subtitle1">Dine shops</Typography>
@@ -71,7 +71,7 @@ const ShopsPage = () => {
       </Table>
       <Typography variant="h4" sx={{ my: 3 }}>Konsum</Typography>
       <Typography variant="h4" sx={{ my: 3 }}>Statistikk</Typography>
-    </>
+    </Container>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useAuthentication } from "@api/authentication";
 import Loading from "@components/Loading";
 import DashboardLayout from "@layouts/dashboard";
-import { Box, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Container, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 
 
@@ -19,7 +19,7 @@ const ProfilePage = () => {
     };
 
     return (
-        <>
+        <Container>
             <Typography variant="h4" sx={{ mb: 2 }}>Beboer</Typography>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={tab} onChange={handleChange} aria-label="basic tabs example">
@@ -58,7 +58,7 @@ const ProfilePage = () => {
                     </Box>
                 )}
             </div>
-        </>
+        </Container>
     )
 }
 

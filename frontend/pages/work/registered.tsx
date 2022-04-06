@@ -2,7 +2,7 @@ import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECT, GET_WORK } from "@graphql/projects/queries";
 import DashboardLayout from "@layouts/dashboard";
-import { Stack, Typography } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
 import parseDuration from "@utils/parseDuration";
 import dateFormat from "dateformat";
 import { useRouter } from "next/router";
@@ -32,7 +32,7 @@ const RegisteredWorkPage = () => {
   }, [userDetails]);
 
   return (
-    <>
+    <Container>
       <Stack spacing={2}>
         {!workLoading && workData?.allWork.map((work: WorkProps) => (
           <Stack key={work.id} spacing={2} direction="row">
@@ -44,7 +44,7 @@ const RegisteredWorkPage = () => {
           </Stack>
         ))}
       </Stack>
-    </>
+    </Container>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_SHOP } from "@graphql/shops/queries";
 import DashboardLayout from "@layouts/dashboard";
-import { IconButton, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import { Container, IconButton, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { DotsThreeVertical, Plus } from "phosphor-react";
 
@@ -15,7 +15,7 @@ const ShopAdministrationPage = () => {
   })
 
   return (
-    <>
+    <Container>
       <Typography variant="h2" sx={{ mb: 3 }}>Administrer {shopData?.shop.name}</Typography>
       <Typography variant="h4" sx={{ my: 3 }}>Kategorier</Typography>
       <Table size="small">
@@ -110,7 +110,7 @@ const ShopAdministrationPage = () => {
         </TableBody>
       </Table>
       <Typography variant="h4" sx={{ my: 3 }}>Statistikk</Typography>
-    </>
+    </Container>
   )
 }
 

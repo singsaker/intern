@@ -73,8 +73,8 @@ const ShiftModule = () => {
       xaxis: [{
         x: new Date().getTime(),
         strokeDashArray: 0,
-        borderColor: theme.palette.primary.main,
-        borderWidth: 3,
+        borderColor: theme.palette.grey[900],
+        borderWidth: 2,
       }]
     },
     tooltip: {
@@ -111,7 +111,7 @@ const ShiftModule = () => {
   }
 
   return (
-    <Paper sx={{ bgcolor: "grey.200", p: 2, mb: 12 }}>
+    <Paper sx={{ mb: 3, bgcolor: "transparent" }}>
       <Typography variant="h3">Mine vakter</Typography>
       <div id="chart">
         <Chart options={chartOptions} series={chartSeries} type="rangeBar" height={100} />
@@ -128,7 +128,7 @@ const ShiftModule = () => {
           {shifts.map((shift) => (
             <TableRow key={shift[0]}>
               <TableCell sx={{ pl: 1 }}>
-                {dateFormat(new Date(shift[0]), "dd / mm")}
+                {dateFormat(new Date(shift[0]), "dd.mm")}
               </TableCell>
               <TableCell align="center">
                 <Chip label={shift[1].shiftType} />

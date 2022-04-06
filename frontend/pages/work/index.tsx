@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Container, Divider } from '@mui/material';
 import DashboardLayout from "src/layouts/dashboard";
 import ShiftModule from "src/views/work/ShiftModule";
 import WorkModule from "src/views/work/WorkModule";
@@ -6,9 +6,17 @@ import WorkModule from "src/views/work/WorkModule";
 const WorkPage = () => {
   return (
     <>
-      <WorkModule />
-      <Box sx={{ my: 3 }} />
-      <ShiftModule />
+      <Box sx={{ py: 3, bgcolor: "grey.200" }} >
+        <Container>
+          <WorkModule />
+        </Container>
+      </Box>
+      <Divider />
+      <Box sx={{ py: 3, bgcolor: "grey.200" }} >
+        <Container>
+          <ShiftModule />
+        </Container>
+      </Box>
     </>
   )
 }

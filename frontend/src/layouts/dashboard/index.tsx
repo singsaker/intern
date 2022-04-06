@@ -19,8 +19,8 @@ const APP_BAR_DESKTOP = 92;
 
 const MainStyle = styled('div')(({ theme }) => ({
   // paddingTop: APP_BAR_MOBILE + 24,
-  paddingLeft: theme.spacing(2),
-  paddingRight: theme.spacing(2),
+  // paddingLeft: theme.spacing(2),
+  // paddingRight: theme.spacing(2),
 
   [theme.breakpoints.up('lg')]: {
     paddingTop: APP_BAR_DESKTOP + 24,
@@ -52,7 +52,7 @@ export default function DashboardLayout({ children, admin, title, back }: Props)
   }
 
   return (
-    <Box sx={{ minHeight: 1, pb: 10 }}>
+    <Box sx={{ minHeight: 1, pb: 8 }}>
       <DashboardNavbar admin={admin} title={title} back={back} />
       {admin && (<AdminLayout />)}
       {admin && (<Box py={1.5} />)}
