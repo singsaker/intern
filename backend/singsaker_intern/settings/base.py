@@ -56,7 +56,6 @@ GRAPHQL_JWT = {
     "JWT_EXPIRATION_DELTA": timedelta(days=2),
 }
 
-
 INSTALLED_APPS = [
     "graphene_django",
     "corsheaders",
