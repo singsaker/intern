@@ -1,10 +1,12 @@
 import { useQuery } from "@apollo/client";
+import Loading from "@components/Loading";
 import { GET_SHOP } from "@graphql/shops/queries";
 import DashboardLayout from "@layouts/dashboard";
-import { Container, IconButton, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import { Button, Container, Stack, Typography } from "@mui/material";
+import ShopCategoryTable from "@src/admin/shops/ShopCategoryTable";
+import ShopProductTable from "@src/admin/shops/ShopProductTable";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
-import { DotsThreeVertical, Plus } from "phosphor-react";
-
 
 const ShopAdministrationPage = () => {
   const router = useRouter()
@@ -14,102 +16,20 @@ const ShopAdministrationPage = () => {
     variables: { slug: slug }
   })
 
+  if (shopLoading || !shopData) {
+    return <Loading />
+  }
+
   return (
     <Container>
-      <Typography variant="h2" sx={{ mb: 3 }}>Administrer {shopData?.shop.name}</Typography>
-      <Typography variant="h4" sx={{ my: 3 }}>Kategorier</Typography>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              Navn
-            </TableCell>
-            <TableCell align="right">
-              <IconButton>
-                <Plus size="20" />
-              </IconButton>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableCell>
-              Øl
-            </TableCell>
-            <TableCell align="right">
-              <IconButton>
-                <DotsThreeVertical />
-              </IconButton>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              Sukker
-            </TableCell>
-            <TableCell align="right">
-              <IconButton>
-                <DotsThreeVertical />
-              </IconButton>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-      <Typography variant="h4" sx={{ my: 3 }}>Produkter</Typography>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              Navn
-            </TableCell>
-            <TableCell>
-              Pris
-            </TableCell>
-            <TableCell>
-              Kategori
-            </TableCell>
-            <TableCell align="right">
-              <IconButton>
-                <Plus size="20" />
-              </IconButton>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableCell>
-              Hansa Pils
-            </TableCell>
-            <TableCell>
-              20
-            </TableCell>
-            <TableCell>
-              Øl
-            </TableCell>
-            <TableCell align="right">
-              <IconButton>
-                <DotsThreeVertical />
-              </IconButton>
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              Cider
-            </TableCell>
-            <TableCell>
-              24
-            </TableCell>
-            <TableCell>
-              Sukker
-            </TableCell>
-            <TableCell align="right">
-              <IconButton>
-                <DotsThreeVertical />
-              </IconButton>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-      <Typography variant="h4" sx={{ my: 3 }}>Statistikk</Typography>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
+        <Typography variant="h3">{shopData.shop.name}</Typography>
+        <NextLink href="/shops/front/[slug]" as={"/shops/front/" + slug} passHref>
+          <Button variant="outlined" color="inherit">Gå til krysseside</Button>
+        </NextLink>
+      </Stack>
+      <ShopCategoryTable shop={shopData.shop} />
+      <ShopProductTable shop={shopData.shop} />
     </Container>
   )
 }
