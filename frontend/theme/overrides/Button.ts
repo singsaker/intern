@@ -1,37 +1,32 @@
+import { alpha, Theme } from '@mui/material/styles';
+
 // ----------------------------------------------------------------------
 
-import { Theme } from '@mui/material/styles';
-import palette from '@theme/palette';
-
 export default function Button(theme: Theme) {
+  const isLight = theme.palette.mode === 'light';
+
   return {
     MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+
       styleOverrides: {
-        root: {
-          '&:hover': {
-            boxShadow: 'none',
-          },
-        },
         sizeLarge: {
           height: 48,
         },
         containedInherit: {
-          color: theme.palette.grey[800],
-          boxShadow: theme.customShadows.z8,
+          color: isLight ? theme.palette.common.white : theme.palette.grey[800],
+          backgroundColor: isLight ? theme.palette.grey[800] : theme.palette.common.white,
           '&:hover': {
-            backgroundColor: theme.palette.grey[400],
+            backgroundColor: isLight ? theme.palette.grey[700] : theme.palette.grey[400],
           },
         },
-        containedPrimary: {
-          boxShadow: theme.customShadows.primary,
-        },
-        containedSecondary: {
-          boxShadow: theme.customShadows.secondary,
-        },
         outlinedInherit: {
-          border: `1px solid ${palette.grey[500_32]}`,
+          borderColor: alpha(theme.palette.grey[500], 0.32),
           '&:hover': {
             backgroundColor: theme.palette.action.hover,
+            borderColor: theme.palette.text.primary,
           },
         },
         textInherit: {

@@ -16,7 +16,7 @@ type ThemeConfigProps = {
 export default function ThemeConfig({ children }: ThemeConfigProps) {
   const themeOptions: ThemeOptions = useMemo(
     () => ({
-      palette,
+      palette: palette.light,
       shape,
       typography,
       shadows: shadows.light,
