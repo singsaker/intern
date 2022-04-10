@@ -32,7 +32,7 @@ interface Props {
 
 const MembersListToolbar = ({ filterName, onFilterName }: Props) => {
   return (
-    <Box>
+    <Box mx={2} mt={1}>
       <RootStyle>
         <SearchStyle
           value={filterName}

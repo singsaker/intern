@@ -62,7 +62,7 @@ const ReceptionCalendar = ({ setDate, selectedDate, shifts }: Props) => {
   }
 
   return (
-    <Paper sx={{}} >
+    <Paper >
       <Stack component={Paper} direction="row" sx={{ bgcolor: "grey.900", color: "common.white", justifyContent: "space-between", alignItems: "center", p: 1.5, px: 3, mb: 2 }}>
         <Typography variant="h4">{months[month - 1]}</Typography>
         <Stack direction="row">

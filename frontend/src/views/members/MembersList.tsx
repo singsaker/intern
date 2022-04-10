@@ -1,8 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_MEMBERS } from "@graphql/members/queries";
-import { Chip, Hidden, Stack, TablePagination, useMediaQuery, useTheme } from "@mui/material";
+import { Card, CardHeader, Chip, Hidden, Stack, TablePagination, useMediaQuery, useTheme } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -58,7 +57,8 @@ const MembersList = (props: any) => {
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - membersData.allMembers.length) : 0;
 
   return (
-    <Paper>
+    <Card>
+      <CardHeader title="Aktive beboere" />
       <MembersListToolbar filterName={filterName} onFilterName={handleFilterByName} />
       <TableContainer>
         <Table >
@@ -68,9 +68,9 @@ const MembersList = (props: any) => {
               <TableCell align="right" sx={{ pr: 2 }}>Rom</TableCell>
               <Hidden smDown>
                 <TableCell >Epost</TableCell>
+                <TableCell>Telefon</TableCell>
                 <TableCell>Studie</TableCell>
                 <TableCell>Universitet</TableCell>
-                <TableCell></TableCell>
               </Hidden>
             </TableRow>
           </TableHead>
@@ -97,15 +97,12 @@ const MembersList = (props: any) => {
                   <TableCell align="right" sx={{ pr: 1 }}>
                     <Chip variant="outlined" label={273} />
                   </TableCell>
-                  {/* <Hidden smDown>
-                    <TableCell align="left">{epost}</TableCell>
-                    <TableCell align="left">{studie && studie.navn}</TableCell>
-                    <TableCell align="left">{skole.navn}</TableCell>
-                    
-                    <TableCell sx={{ pr: 3 }} align="right">
-                      {rolle.navn}
-                    </TableCell>
-                  </Hidden> */}
+                  <Hidden smDown>
+                    <TableCell align="left">{row.user?.email}</TableCell>
+                    <TableCell align="left">{row.phone}</TableCell>
+                    <TableCell align="left">study</TableCell>
+                    <TableCell align="left">school</TableCell>
+                  </Hidden>
                 </TableRow>
               );
             })}
@@ -135,7 +132,7 @@ const MembersList = (props: any) => {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </TableContainer>
-    </Paper>
+    </Card>
   );
 };
 

@@ -2,6 +2,9 @@ import { AppBar, Slide, styled, Tab, Tabs, useScrollTrigger } from '@mui/materia
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
+const DRAWER_WIDTH = 280;
+
+
 const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: "none",
   backdropFilter: 'blur(6px)',
@@ -15,7 +18,11 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
   },
   "& .MuiTabs-indicator": {
     // backgroundColor: theme.palette.secondary.light
-  }
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
+    marginLeft: DRAWER_WIDTH,
+  },
 }));
 
 interface Props {
@@ -45,8 +52,10 @@ const AdminLayout = ({ children }: Props) => {
           onChange={handleChange}
         >
           <Tab value={"/admin/rooms"} label="Romsjef" />
-          <Tab value={"/admin/projects"} label="Regisjef" />
-          <Tab value={"/admin/reception"} label="Vaktsjef" />
+          <Tab value={"/admin/projects"} label="Regi" />
+          <Tab value={"/admin/reception"} label="Vakter" />
+          <Tab value={"/admin/rental"} label="Utleie" />
+          <Tab value={"/admin/secretary"} label="Sekretær" />
         </Tabs>
       </RootStyle>
     </>

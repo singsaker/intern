@@ -1,6 +1,5 @@
 import { Box, Button, Container, Drawer, Stack, styled, Typography } from "@mui/material";
 import { MemberProps } from "@src/types/user";
-import Link from "next/link";
 
 const StyledBox = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.secondary.dark,
@@ -9,9 +8,10 @@ const StyledBox = styled(Box)(({ theme }) => ({
 interface Props {
     open: boolean;
     member?: MemberProps;
+    handleCheckout: (member: MemberProps) => void
 }
 
-function SelectedMemberDrawer({ open, member }: Props) {
+function SelectedMemberDrawer({ open, member, handleCheckout }: Props) {
     if (!member) {
         return <></>
     }
@@ -43,11 +43,9 @@ function SelectedMemberDrawer({ open, member }: Props) {
                                     Her kommer en liste over ting som er krysset.
                                 </Typography>
                             </div>
-                            <Link href={"/resepsjonen/kryss/" + member.id} passHref>
-                                <Button size="large" variant="contained" color="secondary">
-                                    Velg drikke
-                                </Button>
-                            </Link>
+                            <Button size="large" variant="contained" color="secondary" onClick={() => handleCheckout(member)}>
+                                Velg drikke
+                            </Button>
                         </Stack>
                     </Container>
                 </Box>
