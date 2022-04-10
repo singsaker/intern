@@ -1,8 +1,7 @@
 import { useAuthentication } from "@api/authentication";
 import { useQuery } from "@apollo/client";
 import { GET_SHIFT_DATES } from "@graphql/reception/queries";
-import { Button, Chip, LinearProgress, Paper, Stack, Table, TableBody, TableCell, TableHead, TableRow, useTheme } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { Box, Button, Card, CardHeader, Chip, LinearProgress, Stack, Table, TableBody, TableCell, TableHead, TableRow, useTheme } from "@mui/material";
 import { ShiftDateProps, ShiftProps } from "@src/types/shift";
 import { ApexOptions } from "apexcharts";
 import dateFormat from "dateformat";
@@ -44,6 +43,7 @@ const ShiftModule = () => {
         barHeight: '80%'
       }
     },
+    colors: [theme.palette.primary.light],
     yaxis: {
       labels: {
         show: false,
@@ -111,46 +111,48 @@ const ShiftModule = () => {
   }
 
   return (
-    <Paper sx={{ mb: 3, bgcolor: "transparent" }}>
-      <Typography variant="h3">Mine vakter</Typography>
-      <div id="chart">
-        <Chart options={chartOptions} series={chartSeries} type="rangeBar" height={100} />
-      </div>
-      <Table size="small" sx={{ mb: 2 }}>
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ pl: 1 }}>Dato</TableCell>
-            <TableCell>Vakttype</TableCell>
-            <TableCell sx={{ pr: 0.5 }} />
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {shifts.map((shift) => (
-            <TableRow key={shift[0]}>
-              <TableCell sx={{ pl: 1 }}>
-                {dateFormat(new Date(shift[0]), "dd.mm")}
-              </TableCell>
-              <TableCell align="center">
-                <Chip label={shift[1].shiftType} />
-              </TableCell>
-              <TableCell align="right" sx={{ pr: 0.5 }}>
-                {new Date(shift[0]) < new Date() ? (
-                  <Chip color="success" variant="outlined" label="Fullført" />
-                ) : (
-                  <Chip color="info" variant="outlined" label="Ikke fullført" />
-                )}
-              </TableCell>
+    <Card>
+      <CardHeader title="Dine vakter" />
+      <Box sx={{ mx: 3, pb: 2 }}>
+        <div id="chart">
+          <Chart options={chartOptions} series={chartSeries} type="rangeBar" height={100} />
+        </div>
+        <Table size="small" sx={{ mb: 2 }}>
+          <TableHead>
+            <TableRow>
+              <TableCell sx={{ pl: 1 }}>Dato</TableCell>
+              <TableCell align="center">Vakttype</TableCell>
+              <TableCell align="right" sx={{ pr: 0.5 }}>Status</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <Stack spacing={2} direction="row" my={1}>
-        <Button variant="contained" color="secondary" fullWidth>Bytt vakt</Button>
-        <NextLink href={"/work/shifts"} passHref>
-          <Button variant="outlined" color="inherit" fullWidth>Se alle vakter</Button>
-        </NextLink>
-      </Stack>
-    </Paper>
+          </TableHead>
+          <TableBody>
+            {shifts.map((shift) => (
+              <TableRow key={shift[0]}>
+                <TableCell sx={{ pl: 1 }}>
+                  {dateFormat(new Date(shift[0]), "dd.mm")}
+                </TableCell>
+                <TableCell align="center">
+                  <Chip label={shift[1].shiftType} />
+                </TableCell>
+                <TableCell align="right" sx={{ pr: 0.5 }}>
+                  {new Date(shift[0]) < new Date() ? (
+                    <Chip color="success" size="small" label="Fullført" />
+                  ) : (
+                    <Chip color="warning" size="small" label="Ikke fullført" />
+                  )}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <Stack spacing={2} direction="row" my={1}>
+          <Button variant="contained" color="primary" fullWidth>Bytt vakt</Button>
+          <NextLink href={"/work/shifts"} passHref>
+            <Button variant="outlined" color="inherit" fullWidth>Se alle vakter</Button>
+          </NextLink>
+        </Stack>
+      </Box>
+    </Card>
   )
 }
 

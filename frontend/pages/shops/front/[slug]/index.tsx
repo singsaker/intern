@@ -1,9 +1,12 @@
 import { useQuery } from "@apollo/client";
 import { GET_MEMBERS } from "@graphql/members/queries";
 import { GET_SHOP } from "@graphql/shops/queries";
-import { alpha, Box, Card, CardActionArea, Chip, Container, Divider, Grid, Stack, ToggleButton, ToggleButtonGroup, Typography, useTheme } from "@mui/material";
+import { alpha, Box, Card, CardActionArea, Chip, Container, Grid, Stack, Table, TableBody, TableCell, TableRow, ToggleButton, ToggleButtonGroup, Typography, useTheme } from "@mui/material";
+import { SaleType } from "@src/types/sale";
 import { MemberProps } from "@src/types/user";
 import SelectedMemberDrawer from "@src/views/shop/front/SelectedMemberDrawer";
+import ShopCheckout from "@src/views/shop/front/ShopCheckout";
+import dateFormat from "dateformat";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -15,6 +18,7 @@ const ShopFrontPage = () => {
     const theme = useTheme();
     const [alignment, setAlignment] = useState<string | undefined>();
     const [open, setOpen] = useState(false);
+    const [checkout, setCheckout] = useState<MemberProps | undefined>();
 
     const { data: shopData, loading: shopLoading } = useQuery(GET_SHOP, {
         variables: { slug: slug }
@@ -45,19 +49,28 @@ const ShopFrontPage = () => {
         return <></>
     }
 
+    const handleCheckoutClose = () => {
+        setCheckout(undefined)
+        setOpen(false)
+    }
+
+    if (checkout) {
+        return <ShopCheckout shop={shopData.shop} member={checkout} handleClose={handleCheckoutClose} />
+    }
+
     return (
         <>
-            <Container>
-                <Typography variant="h2">Krysseside for {shopData?.shop.name}</Typography>
+            <Container sx={{ maxWidth: 1500, pt: 5 }}>
                 <Grid container spacing={5}>
                     <Grid item xs>
+                        <Typography variant="h3">Krysseside for {shopData?.shop.name}</Typography>
                         <Box py={4}>
                             <ToggleButtonGroup color="standard" value={alignment} exclusive onChange={handleSortChange}>
                                 {[...new Set(beboere.map((m) => m.firstName && m.firstName[0]))]
                                     .sort()
                                     .map((letter, i) => (
                                         letter && (
-                                            <ToggleButton key={i} value={letter}>
+                                            <ToggleButton key={i} value={letter} sx={{ px: 2, fontSize: theme.typography.h6.fontSize }}>
                                                 {letter as string}
                                             </ToggleButton>
                                         )
@@ -100,17 +113,26 @@ const ShopFrontPage = () => {
                                 })}
                         </Grid>
                     </Grid>
-                    <Divider sx={{ ml: 4 }} orientation="vertical" flexItem />
                     <Grid item xs={3}>
-                        <Box py={4}>
-                            <Typography variant="h4" gutterBottom>
-                                Nylige kryss
-                            </Typography>
-                        </Box>
+                        <Typography variant="h4" gutterBottom sx={{ mt: 2 }}>
+                            Nylige kryss
+                        </Typography>
+                        <Table>
+                            <TableBody>
+                                {(!shopLoading && shopData) && shopData.shop.sales.map((sale: SaleType) => (
+                                    <TableRow key={sale.id}>
+                                        <TableCell>{dateFormat(new Date(sale.date), "mm.dd.yy HH:mm")}</TableCell>
+                                        <TableCell>{sale.member.firstName} {sale.member.lastName}</TableCell>
+                                        <TableCell>{sale.quantity}</TableCell>
+                                        <TableCell>{sale.product.name}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
                     </Grid>
                 </Grid>
             </Container>
-            <SelectedMemberDrawer open={open} member={selectedMember} />
+            <SelectedMemberDrawer open={open} member={selectedMember} handleCheckout={(member) => setCheckout(member)} />
         </>
     )
 }

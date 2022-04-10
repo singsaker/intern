@@ -1,6 +1,7 @@
 export default interface UserProps {
   username: string;
   password: string;
+  email: string;
   member: {
     id: number;
     firstName?: string;
@@ -14,4 +15,5 @@ export interface MemberProps {
   lastName?: string;
   birthDate?: string;
   phone?: string;
+  user: UserProps;
 }

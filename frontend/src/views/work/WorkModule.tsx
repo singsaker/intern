@@ -1,7 +1,7 @@
 import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECTS, GET_PROJECT_MEMBER, GET_TOTAL_TIME_SPENT } from "@graphql/projects/queries";
-import { Box, Button, Chip, FormControl, MenuItem, Paper, Select, SelectChangeEvent, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Button, Card, CardHeader, Chip, FormControl, LinearProgress, MenuItem, Select, SelectChangeEvent, Stack, Typography, useTheme } from "@mui/material";
 import { remToPx } from "@theme/typography";
 import parseDuration from "@utils/parseDuration";
 import { ApexOptions } from "apexcharts";
@@ -50,12 +50,12 @@ const WorkModule = () => {
   };
 
   if (loading || timeLoading || projectMemberLoading || !timeData || !projectMemberData) {
-    return <></>
+    return <LinearProgress variant="indeterminate" />
   }
 
   const chartSeries = [
+    parseInt(timeData.totalTimeSpent),
     (projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent),
-    parseInt(timeData.totalTimeSpent)
   ]
 
   const chartOptions: ApexOptions = {
@@ -71,7 +71,7 @@ const WorkModule = () => {
     dataLabels: {
       enabled: false,
     },
-    colors: [theme.palette.primary.light, theme.palette.secondary.main],
+    colors: [theme.palette.primary.main, theme.palette.warning.main],
     plotOptions: {
       pie: {
         expandOnClick: false,
@@ -127,74 +127,77 @@ const WorkModule = () => {
   }
 
   return (
-    <Paper sx={{ mb: 2, bgcolor: "transparent" }}>
-      <Stack sx={{ mb: 3 }} spacing={3}>
-        <Typography variant="h3">Min regi</Typography>
-        {!loading && (
-          <FormControl color="info" variant="standard" fullWidth>
-            <Select
-              defaultValue={data.allProjects[0].id}
-              value={project}
-              label="Velg prosjekt"
-              onChange={handleChange}
-            >
-              {!loading && data.allProjects.map((project: ProjectType) => (
-                <MenuItem key={project.id} value={project.id}>{project.name}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        )}
-      </Stack>
+    <Card>
+      <CardHeader title="Din regi" />
+      <Box sx={{ mx: 3, pb: 2 }}>
+        <Stack sx={{ mb: 3 }} spacing={3}>
 
-      {(timeLoading || projectMemberLoading) ? (
-        <></>
-      ) : (
-        projectMemberData?.projectMember ? (
-          <>
-            <Stack direction="row" justifyContent="space-between" spacing={2}>
-              <Chip
-                avatar={
-                  <Chip
-                    sx={{ width: "fit-content!important", color: "common.white", bgcolor: "primary.light" }}
-                    label={
-                      <Typography fontWeight={600} variant="body3">
-                        {parseDuration(parseInt(timeData.totalTimeSpent))}
-                      </Typography>
-                    } />
-                }
-                label={<Typography fontWeight={600} variant="body3">Utført</Typography>}
-                variant="outlined"
-              />
-              <Chip
-                avatar={
-                  <Chip
-                    sx={{ width: "fit-content!important", color: "common.white", bgcolor: "secondary.main" }}
-                    label={
-                      <Typography fontWeight={600} variant="body3" sx={{ color: "common.white" }}>
-                        {parseDuration((projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent))}
-                      </Typography>
-                    } />
-                }
-                label={<Typography fontWeight={600} variant="body3">Gjenstående</Typography>}
-                variant="outlined"
-              />
-            </Stack>
-            <Box my={2} id="chart">
-              <Chart options={chartOptions} series={chartSeries} type="donut" height={300} />
-            </Box>
-            <Stack spacing={2} direction="row" sx={{ my: 1 }}>
-              <NextLink href={"/work/register?project=" + project} passHref>
-                <Button color="secondary" variant="contained" fullWidth>Registrer regi</Button>
-              </NextLink>
-              <NextLink href={"/work/registered?project=" + project} passHref>
-                <Button variant="outlined" color="inherit" fullWidth>Se detaljer</Button>
-              </NextLink>
-            </Stack>
-          </>
+          {!loading && (
+            <FormControl color="info" variant="standard" fullWidth>
+              <Select
+                defaultValue={data.allProjects[0].id}
+                value={project}
+                label="Velg prosjekt"
+                onChange={handleChange}
+              >
+                {!loading && data.allProjects.map((project: ProjectType) => (
+                  <MenuItem key={project.id} value={project.id}>{project.name}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          )}
+        </Stack>
+
+        {(timeLoading || projectMemberLoading) ? (
+          <></>
         ) : (
-          <Typography sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
-        ))}
-    </Paper>
+          projectMemberData?.projectMember ? (
+            <>
+              <Stack direction="row" spacing={2} justifyContent="center">
+                <Chip
+                  avatar={
+                    <Chip
+                      sx={{ width: "fit-content!important", color: "common.white", bgcolor: "primary.main" }}
+                      label={
+                        <Typography fontWeight={600} variant="body3" sx={{ color: "common.white" }}>
+                          {parseDuration(parseInt(timeData.totalTimeSpent))}
+                        </Typography>
+                      } />
+                  }
+                  label={<Typography fontWeight={600} variant="caption" >Utført</Typography>}
+                  variant="outlined"
+                />
+                <Chip
+                  avatar={
+                    <Chip
+                      sx={{ width: "fit-content!important", color: "common.white", bgcolor: "warning.main" }}
+                      label={
+                        <Typography fontWeight={600} variant="body3" sx={{ color: "common.white" }}>
+                          {parseDuration((projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent))}
+                        </Typography>
+                      } />
+                  }
+                  label={<Typography fontWeight={600} variant="caption">Gjenstående</Typography>}
+                  variant="outlined"
+                />
+              </Stack>
+              <Box my={2} id="chart">
+                <Chart options={chartOptions} series={chartSeries} type="donut" height={250} />
+              </Box>
+              <Stack spacing={2} direction="row" sx={{ my: 1 }}>
+                <NextLink href={"/work/register?project=" + project} passHref>
+                  <Button color="primary" variant="contained" fullWidth>Registrer regi</Button>
+                </NextLink>
+                <NextLink href={"/work/registered?project=" + project} passHref>
+                  <Button variant="outlined" color="inherit" fullWidth>Se detaljer</Button>
+                </NextLink>
+              </Stack>
+            </>
+          ) : (
+            <Typography sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
+          ))}
+      </Box>
+    </Card>
   )
 }
 

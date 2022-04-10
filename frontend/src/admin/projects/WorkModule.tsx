@@ -1,7 +1,7 @@
 import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECT, GET_PROJECTS, GET_TOTAL_TIME_SPENT } from "@graphql/projects/queries";
-import { Accordion, AccordionDetails, AccordionSummary, Box, FormControl, IconButton, MenuItem, Paper, Select, SelectChangeEvent, Skeleton, Stack, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Box, Card, FormControl, IconButton, MenuItem, Paper, Select, SelectChangeEvent, Skeleton, Stack, Typography } from "@mui/material";
 import parseDuration from "@utils/parseDuration";
 import { CaretDown, Gear, X } from "phosphor-react";
 import { useEffect, useState } from "react";
@@ -96,22 +96,24 @@ const WorkModule = () => {
                   <Typography sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
                 ))}
             </Paper>
-            <Accordion >
-              <AccordionSummary sx={{ px: 1 }} expandIcon={<CaretDown />}        >
-                <Typography variant="h4" sx={{ my: 1 }}>Prosjektmedlemmer</Typography>
-              </AccordionSummary>
-              <AccordionDetails sx={{ px: 1 }}>
-                {projectData && <WorkMemberStatus project={projectData.project} />}
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary sx={{ px: 1 }} expandIcon={<CaretDown />}>
-                <Typography variant="h4" sx={{ my: 1 }}>Registrert arbeid</Typography>
-              </AccordionSummary>
-              <AccordionDetails sx={{ px: 1 }}>
-                {projectData && <WorkRegisteredModule project={projectData.project} />}
-              </AccordionDetails>
-            </Accordion>
+            <Card sx={{ px: 2 }}>
+              <Accordion sx={{ bgcolor: "transparent" }}>
+                <AccordionSummary sx={{ px: 1 }} expandIcon={<CaretDown />}        >
+                  <Typography variant="h4" sx={{ my: 1 }}>Prosjektmedlemmer</Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ px: 1 }}>
+                  {projectData && <WorkMemberStatus project={projectData.project} />}
+                </AccordionDetails>
+              </Accordion>
+              <Accordion sx={{ bgcolor: "transparent" }}>
+                <AccordionSummary sx={{ px: 1 }} expandIcon={<CaretDown />}>
+                  <Typography variant="h4" sx={{ my: 1 }}>Registrert arbeid</Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ px: 1 }}>
+                  {projectData && <WorkRegisteredModule project={projectData.project} />}
+                </AccordionDetails>
+              </Accordion>
+            </Card>
           </>
         )
       }

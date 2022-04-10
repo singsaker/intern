@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@apollo/client"
 import { CLEAR_SEMESTER } from "@graphql/reception/mutations"
 import { GET_SHIFT_DATES } from "@graphql/reception/queries"
 import DashboardLayout from "@layouts/dashboard"
-import { Box, Button, Container, LinearProgress, Stack, Typography } from "@mui/material"
+import { Button, Container, Grid, LinearProgress, Stack, Typography } from "@mui/material"
 import GenerateShiftsDialog from "@src/admin/reception/GenerateShiftsDialog"
 import ReceptionCalendar from "@src/admin/reception/ReceptionCalendar"
 import ReceptionShiftView from "@src/admin/reception/ReceptionShiftView"
@@ -29,10 +29,14 @@ const ReceptionAdminPage = () => {
       {loading && (
         <LinearProgress color="secondary" variant="indeterminate" sx={{ width: 1 }} />
       )}
-      <Box mb={3}>
-        {!loading && (<ReceptionCalendar selectedDate={selectedDate} setDate={setSelectedDate} shifts={data.allShiftDates} />)}
-      </Box>
-      {!loading && selectedDate && (<ReceptionShiftView date={selectedDate} shifts={data.allShiftDates} />)}
+      <Grid container spacing={3}>
+        <Grid item xs={12} lg={6}>
+          {!loading && (<ReceptionCalendar selectedDate={selectedDate} setDate={setSelectedDate} shifts={data.allShiftDates} />)}
+        </Grid>
+        <Grid item xs={12} lg={6}>
+          {!loading && selectedDate && (<ReceptionShiftView date={selectedDate} shifts={data.allShiftDates} />)}
+        </Grid>
+      </Grid>
       <GenerateShiftsDialog semester={1} open={generateShiftsDialogOpen} handleClose={() => setGenerateShiftsDialogOpen(false)} />
     </Container>
   )

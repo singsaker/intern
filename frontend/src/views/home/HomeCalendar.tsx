@@ -2,7 +2,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import PickersDay, { PickersDayProps } from '@mui/lab/PickersDay';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
-import { Box } from '@mui/material';
+import { alpha, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { MemberProps } from '@src/types/user';
@@ -23,11 +23,13 @@ const CustomPickersDay = styled(PickersDay, {
   shouldForwardProp: (prop) =>
     prop !== 'dayIsBetween' && prop !== 'isFirstDay' && prop !== 'isLastDay',
 })<CustomPickerDayProps>(({ theme, dayIsBetween, isFirstDay, isLastDay, isToday }) => ({
-  backgroundColor: theme.palette.grey[800],
-  color: "white",
+  backgroundColor: theme.palette.grey[200],
   fontSize: 14,
-  width: 40,
-  height: 40,
+  fontWeight: "700",
+  color: alpha(theme.palette.common.black, 0.5),
+  width: 35,
+  height: 35,
+  margin: 2.5,
 
   // ...(dayIsBetween && {
   //   borderRadius: 0,
@@ -46,39 +48,42 @@ const CustomPickersDay = styled(PickersDay, {
   //   borderBottomRightRadius: '50%',
   // }),
   ...(isToday && {
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.light,
+
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.lighter,
+    }
   })
 })) as React.ComponentType<CustomPickerDayProps>;
 
 const CustomDatePicker = styled(Box)(({ theme }) => ({
   "& .MuiPickerStaticWrapper-root": {
-    width: "100%!important",
     maxHeight: "100%!important",
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
+    backgroundColor: "transparent",
+    // color: theme.palette.common.white,
 
-    "& .MuiTypography-root": {
-      color: theme.palette.common.white,
+    // "& .MuiTypography-root": {
+    //   color: theme.palette.common.white,
 
-    },
+    // },
 
-    "& .MuiButtonBase-root": {
-      color: theme.palette.common.white,
-    },
+    // "& .MuiButtonBase-root": {
+    //   color: theme.palette.common.white,
+    // },
 
     weekDays: {
-      backgroundColor: "rgba(0, 0, 0, 0.20);",
+      backgroundColor: theme.palette.warning.light,
       border: "1px solid #777",
-      color: theme.palette.common.white,
+      // color: theme.palette.common.white,
 
       calenderHeader: {
         display: "flex",
         justifyContent: "center",
-        color: theme.palette.common.white,
+        // color: theme.palette.common.white,
       },
       vaktDay: {
-        backgroundColor: "rgba(120, 0, 0, 0.20);",
-        color: theme.palette.common.white,
+        backgroundColor: theme.palette.warning.light,
+        // color: theme.palette.common.white,
       }
     }
   }

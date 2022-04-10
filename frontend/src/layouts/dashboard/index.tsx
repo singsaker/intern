@@ -6,7 +6,6 @@ import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import useResponsive from '@utils/useResponsive';
 import { useState } from 'react';
-import DashboardAppbar from './DashboardAppbar';
 //
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
@@ -21,15 +20,15 @@ const MainStyle = styled('div')(({ theme }) => ({
   // paddingTop: APP_BAR_MOBILE + 24,
   // paddingLeft: theme.spacing(2),
   // paddingRight: theme.spacing(2),
+  width: "100%",
+  paddingTop: theme.spacing(2),
 
   [theme.breakpoints.up('lg')]: {
-    paddingTop: APP_BAR_DESKTOP + 24,
-    paddingLeft: theme.spacing(5),
-    paddingRight: theme.spacing(5),
     flexGrow: 1,
     overflow: 'auto',
     minHeight: '100%',
-    paddingBottom: theme.spacing(10),
+    paddingBottom: theme.spacing(5),
+    paddingTop: theme.spacing(5),
   }
 }));
 
@@ -52,16 +51,15 @@ export default function DashboardLayout({ children, admin, title, back }: Props)
   }
 
   return (
-    <Box sx={{ minHeight: 1, pb: 8 }}>
-      <DashboardNavbar admin={admin} title={title} back={back} />
+    <Box sx={{ minHeight: "100vh", pb: 8, bgcolor: "grey.100" }}>
+      <DashboardNavbar onOpenSidebar={() => setOpen(true)} admin={admin} title={title} back={back} />
       {admin && (<AdminLayout />)}
-      {admin && (<Box py={1.5} />)}
-
-      {isDesktop ? <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} /> : <DashboardAppbar />}
-      <MainStyle>
-
-        {children}
-      </MainStyle>
+      <Box display="flex">
+        <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
+        <MainStyle>
+          {children}
+        </MainStyle>
+      </Box>
     </Box>
   );
 }
