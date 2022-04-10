@@ -1,7 +1,6 @@
 // ----------------------------------------------------------------------
 
 import { Theme } from '@mui/material/styles';
-import palette from '@theme/palette';
 
 export default function Input(theme: Theme) {
   return {
@@ -24,7 +23,7 @@ export default function Input(theme: Theme) {
       styleOverrides: {
         underline: {
           '&:before': {
-            borderBottomColor: palette.grey[500_56],
+            borderBottomColor: theme.palette.grey[500_56],
           },
         },
       },
@@ -32,9 +31,9 @@ export default function Input(theme: Theme) {
     MuiFilledInput: {
       styleOverrides: {
         root: {
-          backgroundColor: palette.grey[500_12],
+          backgroundColor: theme.palette.grey[500_12],
           '&:hover': {
-            backgroundColor: palette.grey[500_16],
+            backgroundColor: theme.palette.grey[500_16],
           },
           '&.Mui-focused': {
             backgroundColor: theme.palette.action.focus,
@@ -45,7 +44,7 @@ export default function Input(theme: Theme) {
         },
         underline: {
           '&:before': {
-            borderBottomColor: palette.grey[500_56],
+            borderBottomColor: theme.palette.grey[500_56],
           },
         },
       },
@@ -54,7 +53,7 @@ export default function Input(theme: Theme) {
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: palette.grey[500_32],
+            borderColor: theme.palette.grey[500_32],
           },
           '&.Mui-disabled': {
             '& .MuiOutlinedInput-notchedOutline': {

@@ -1,15 +1,14 @@
 // ----------------------------------------------------------------------
 
 import { Theme } from '@mui/material/styles';
-import shape from '@theme/shape';
 
 export default function Card(theme: Theme) {
   return {
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: theme.customShadows.z16,
-          borderRadius: shape.borderRadiusMd,
+          boxShadow: theme.customShadows.z1,
+          borderRadius: Number(theme.shape.borderRadius) * 2,
           position: 'relative',
           zIndex: 0, // Fix Safari overflow: hidden with border radius
         },
@@ -17,7 +16,7 @@ export default function Card(theme: Theme) {
     },
     MuiCardHeader: {
       defaultProps: {
-        titleTypographyProps: { variant: 'h6' },
+        titleTypographyProps: { variant: 'subtitle1', gutterBottom: true },
         subheaderTypographyProps: { variant: 'body2' },
       },
       styleOverrides: {
