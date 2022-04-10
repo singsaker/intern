@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('members', '0003_auto_20220118_2222'),
-        ('projects', '0002_alter_projectmember_allocated_time'),
+        ("members", "0003_auto_20220118_2222"),
+        ("projects", "0002_alter_projectmember_allocated_time"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='project',
-            name='members',
-            field=models.ManyToManyField(through='projects.ProjectMember', to='members.Member'),
+            model_name="project",
+            name="members",
+            field=models.ManyToManyField(through="projects.ProjectMember", to="members.Member"),
         ),
     ]
