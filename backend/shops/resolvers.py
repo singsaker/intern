@@ -1,4 +1,4 @@
-from .models import Shop
+from .models import Sale, Shop
 
 
 class ShopResolvers:
@@ -10,3 +10,9 @@ class ShopResolvers:
             return Shop.objects.get(slug=slug)
         except Shop.DoesNotExist:
             return None
+
+    def resolve_all_sales(self, info, shop, member=None):
+        if member:
+            return Sale.objects.filter(shop=shop, member=member)
+
+        return Sale.objects.filter(shop=shop)
