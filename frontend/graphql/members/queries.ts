@@ -8,6 +8,9 @@ export const GET_MEMBERS = gql`
       lastName
       phone
       birthDate
+      user {
+        email
+      }
     }
   }
 `;
