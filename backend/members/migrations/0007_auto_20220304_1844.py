@@ -6,25 +6,34 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('members', '0006_member_active'),
+        ("members", "0006_member_active"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='role',
-            name='name',
+            model_name="role",
+            name="name",
         ),
         migrations.RemoveField(
-            model_name='role',
-            name='shift_count',
+            model_name="role",
+            name="shift_count",
         ),
         migrations.RemoveField(
-            model_name='role',
-            name='work_hours',
+            model_name="role",
+            name="work_hours",
         ),
         migrations.AddField(
-            model_name='role',
-            name='type',
-            field=models.CharField(choices=[('FULL_RECEPTION', 'Full vakt'), ('FULL_WORK', 'Full regi'), ('HYBRID', 'Hybrid'), ('ADMIN', 'Utvalget')], default='HYBRID', max_length=30),
+            model_name="role",
+            name="type",
+            field=models.CharField(
+                choices=[
+                    ("FULL_RECEPTION", "Full vakt"),
+                    ("FULL_WORK", "Full regi"),
+                    ("HYBRID", "Hybrid"),
+                    ("ADMIN", "Utvalget"),
+                ],
+                default="HYBRID",
+                max_length=30,
+            ),
         ),
     ]

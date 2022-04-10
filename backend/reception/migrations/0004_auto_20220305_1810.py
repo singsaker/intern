@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('reception', '0003_alter_shift_shift_date'),
+        ("reception", "0003_alter_shift_shift_date"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='shiftdate',
-            name='date',
+            model_name="shiftdate",
+            name="date",
             field=models.DateField(unique=True),
         ),
         migrations.AlterUniqueTogether(
-            name='shift',
-            unique_together={('shift_date', 'shift_type')},
+            name="shift",
+            unique_together={("shift_date", "shift_type")},
         ),
     ]
