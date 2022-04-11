@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { CREATE_PRODUCT_CATEGORY, DELETE_PRODUCT_CATEGORY, UPDATE_PRODUCT_CATEGORY } from "@graphql/shops/mutations";
 import { GET_SHOP } from "@graphql/shops/queries";
-import { AppBar, Box, Button, Dialog, DialogActions, Divider, IconButton, Stack, TextField, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, CardHeader, Dialog, DialogActions, Divider, IconButton, Stack, TextField, Toolbar, Typography } from "@mui/material";
 import { DataGrid, GridActionsCellItem, GridRowParams, GridRowsProp, GridValueSetterParams } from "@mui/x-data-grid";
 import { ShopType } from "@src/types/shop";
 import shape from "@theme/shape";
@@ -66,24 +66,26 @@ const ShopCategoryTable = ({ shop }: Props) => {
 
     return (
         <>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ my: 3 }}>
-                <Typography variant="h4" >Kategorier</Typography>
-                <Button variant="outlined" color="inherit" onClick={() => setOpen(true)}>Ny kategori</Button>
+            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
+                <CardHeader title="Kategorier" />
+                <Button variant="outlined" color="inherit" onClick={() => setOpen(true)} sx={{ mr: 3, mt: 1.5 }}>Ny kategori</Button>
             </Stack>
-
-            {(rows.length != 0) && (
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    autoHeight
-                    rowsPerPageOptions={[15, 50]}
-                    initialState={{
-                        sorting: {
-                            sortModel: [{ field: 'name', sort: 'asc' }],
-                        },
-                    }}
-                />
-            )}
+            <Box mx={2}>
+                {(rows.length != 0) && (
+                    <DataGrid
+                        sx={{ borderRadius: 0, borderLeft: "none", borderRight: "none" }}
+                        rows={rows}
+                        columns={columns}
+                        autoHeight
+                        rowsPerPageOptions={[15, 50]}
+                        initialState={{
+                            sorting: {
+                                sortModel: [{ field: 'name', sort: 'asc' }],
+                            },
+                        }}
+                    />
+                )}
+            </Box>
             <ProductCategoryDialog open={open} handleClose={() => setOpen(false)} shop={shop} />
         </>
     )

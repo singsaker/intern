@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
@@ -87,6 +89,8 @@ class Member(models.Model):
     phone = models.IntegerField(blank=True, null=True)
     role = models.ForeignKey(Role, on_delete=models.CASCADE, blank=True, null=True)  # Antall regitimer / vakter
     active = models.BooleanField(default=True)  # Beboer bor på sing
+    seniority = models.IntegerField(default=0, validators=[MinValueValidator(0)])  # Annsiennitet
+    move_in_date = models.DateField(blank=True, null=True)
 
     # Address
     street = models.CharField(max_length=20, default="", blank=True, null=True)
@@ -98,6 +102,44 @@ class Member(models.Model):
     university = models.ForeignKey(University, on_delete=models.SET_NULL, blank=True, null=True)
     study = models.ForeignKey(Study, on_delete=models.SET_NULL, blank=True, null=True)
     grade = models.IntegerField(default=1, validators=[MaxValueValidator(6), MinValueValidator(1)])
+
+    def semesters_count(self):
+        if not self.move_in_date:
+            return 0
+
+        def seasons(Y):
+            return [
+                ("SPRING", (date(Y, 1, 1), date(Y, 7, 14))),
+                ("FALL", (date(Y, 7, 15), date(Y, 12, 31))),
+            ]
+
+        today = date.today()
+
+        def get_season(date):
+            season = seasons(date.year)
+
+            for i, s in enumerate(season):
+                if s[1][0] < date and s[1][1] > date:
+                    return s, i
+
+        _, i = get_season(self.move_in_date)
+        year = self.move_in_date.year
+        end_season, _ = get_season(today)
+        count = 0
+
+        while True:
+            if seasons(year)[i][1] == end_season[1]:
+                break
+
+            count += 1
+
+            if i == 0:
+                i += 1
+            else:
+                i = 0
+                year += 1
+
+        return count
 
     class Meta:
         unique_together = [["first_name", "last_name"]]

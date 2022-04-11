@@ -38,7 +38,7 @@ const ShopsPage = () => {
     if (shopsData && shop) {
       getSales({ variables: { shop: shop, member: userDetails?.member.id } })
     }
-  }, [shop])
+  }, [shop, shopsData])
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -65,7 +65,7 @@ const ShopsPage = () => {
     <Container>
       <Grid container spacing={3}>
         <Grid item xs={12} lg={4}>
-          <Paper sx={{ padding: { xs: 2, lg: 3 }, bgcolor: "warning.lighter" }}>
+          <Paper sx={{ padding: { xs: 2, lg: 3 }, bgcolor: "warning.lighter", color: "warning.darker" }}>
             <Stack spacing={2}>
               <Typography variant="subtitle1">Dine shops</Typography>
               {!shopsLoading && shopsData.allShops.map((shop: ShopType) => (

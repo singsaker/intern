@@ -2,9 +2,10 @@ import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECTS, GET_PROJECT_MEMBER, GET_TOTAL_TIME_SPENT } from "@graphql/projects/queries";
 import { Box, Button, Card, CardHeader, Chip, FormControl, LinearProgress, MenuItem, Select, SelectChangeEvent, Stack, Typography, useTheme } from "@mui/material";
-import { remToPx } from "@theme/typography";
+import BaseOptionChart from "@theme/charts";
 import parseDuration from "@utils/parseDuration";
 import { ApexOptions } from "apexcharts";
+import deepmerge from "deepmerge";
 import dynamic from "next/dynamic";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
@@ -58,20 +59,21 @@ const WorkModule = () => {
     (projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent),
   ]
 
-  const chartOptions: ApexOptions = {
+  const chartOptions: ApexOptions = deepmerge(BaseOptionChart(), {
     chart: {
       type: 'donut',
-    },
-    grid: {
-      borderColor: "transparent"
+      selection: {
+        enabled: false,
+      }
     },
     stroke: {
       colors: ['transparent']
     },
-    dataLabels: {
-      enabled: false,
+    tooltip: {
+      y: {
+        formatter: (val: any) => parseDuration(val),
+      },
     },
-    colors: [theme.palette.primary.main, theme.palette.warning.main],
     plotOptions: {
       pie: {
         expandOnClick: false,
@@ -81,7 +83,7 @@ const WorkModule = () => {
             show: true,
             value: {
               show: true,
-              formatter: function (val) {
+              formatter: function (val: any) {
                 return parseDuration(val)
               },
               ...(theme.typography.h4 as any),
@@ -95,7 +97,7 @@ const WorkModule = () => {
               ...(theme.typography.subtitle1 as any),
               show: true,
               label: 'Totale timer',
-              formatter: function (val) {
+              formatter: function (val: any) {
                 if (projectMemberData?.projectMember) {
                   return parseDuration((projectMemberData.projectMember.allocatedTime * 60 * 60))
                 } else {
@@ -110,21 +112,8 @@ const WorkModule = () => {
     labels: ['Utførte timer', "Gjenstående timer"],
     legend: {
       show: false,
-      position: 'top',
-      offsetY: 0,
-      ...(theme.typography.body3 as any),
-      color: theme.palette.text.disabled,
-      fontSize: remToPx(theme.typography.body3.fontSize + ""),
-      fontWeight: 600,
-      itemMargin: {
-        horizontal: 10
-      },
-      fontFamily: theme.typography.fontFamily,
-      markers: {
-        offsetX: -3
-      }
     }
-  }
+  })
 
   return (
     <Card>
@@ -147,7 +136,6 @@ const WorkModule = () => {
             </FormControl>
           )}
         </Stack>
-
         {(timeLoading || projectMemberLoading) ? (
           <></>
         ) : (
@@ -170,9 +158,9 @@ const WorkModule = () => {
                 <Chip
                   avatar={
                     <Chip
-                      sx={{ width: "fit-content!important", color: "common.white", bgcolor: "warning.main" }}
+                      sx={{ width: "fit-content!important", color: "common.white", bgcolor: (theme) => theme.palette.chart.yellow[0] }}
                       label={
-                        <Typography fontWeight={600} variant="body3" sx={{ color: "common.white" }}>
+                        <Typography fontWeight={600} variant="body3">
                           {parseDuration((projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent))}
                         </Typography>
                       } />

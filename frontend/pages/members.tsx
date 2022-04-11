@@ -2,6 +2,7 @@ import DashboardLayout from "@layouts/dashboard";
 import { Box, Container, Dialog, Tab, Tabs, Typography } from "@mui/material";
 import MemberCard from "@src/views/members/MemberCard";
 import MembersList from "@src/views/members/MembersList";
+import RolesList from "@src/views/members/RolesList";
 import { useState } from "react";
 
 const MembersPage = () => {
@@ -44,9 +45,7 @@ const MembersPage = () => {
         hidden={tab !== 1}
       >
         {tab === 1 && (
-          <Box sx={{ pt: 3 }}>
-            <Typography>Åpmandsverv</Typography>
-          </Box>
+          <RolesList />
         )}
       </div>
       <div

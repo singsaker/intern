@@ -7,11 +7,11 @@ const WorkPage = () => {
   return (
     <Container>
       <Grid container spacing={2}>
-        <Grid xs={12} lg={6} item >
+        <Grid xs={12} md={6} item >
           <WorkModule />
         </Grid>
         <Divider />
-        <Grid xs={12} lg={6} item>
+        <Grid xs={12} md={6} item>
           <ShiftModule />
         </Grid>
       </Grid>

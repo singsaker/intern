@@ -4,8 +4,7 @@ import { styled } from '@mui/material/styles';
 
 const RootStyle = styled("div")(({ theme }) => ({
   width: "100%",
-  height: "100%",
-  position: "absolute",
+  height: "50vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center"
