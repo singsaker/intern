@@ -1,5 +1,4 @@
-import { Button, IconButton, Paper, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
-import { styled } from "@mui/system";
+import { Box, Button, Card, Divider, IconButton, Paper, Stack, styled, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 import { ShiftDateProps, ShiftProps } from "@src/types/shift";
 import { getDate, getDay, getMonth, getYear, isSameDay } from "date-fns";
 import { CaretLeft, CaretRight } from "phosphor-react";
@@ -62,8 +61,8 @@ const ReceptionCalendar = ({ setDate, selectedDate, shifts }: Props) => {
   }
 
   return (
-    <Paper >
-      <Stack component={Paper} direction="row" sx={{ bgcolor: "grey.900", color: "common.white", justifyContent: "space-between", alignItems: "center", p: 1.5, px: 3, mb: 2 }}>
+    <Card >
+      <Stack component={Paper} direction="row" sx={{ bgcolor: "common.white", justifyContent: "space-between", alignItems: "center", p: 1.5, px: 3 }}>
         <Typography variant="h4">{months[month - 1]}</Typography>
         <Stack direction="row">
           <IconButton onClick={decreaseMonth}>
@@ -75,49 +74,52 @@ const ReceptionCalendar = ({ setDate, selectedDate, shifts }: Props) => {
           </IconButton>
         </Stack>
       </Stack>
-      <Table sx={{ width: "100%", tableLayout: "fixed" }} size="small">
-        <TableHead>
-          <TableRow>
-            {days.map((day: string) => (
-              <TableCell key={day} sx={{ textAlign: "center", px: 0 }}>{day.substring(0, 3)}</TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
+      <Divider />
+      <Box m={2}>
+        <Table sx={{ width: "100%", tableLayout: "fixed" }} size="small">
+          <TableHead>
+            <TableRow>
+              {days.map((day: string) => (
+                <TableCell key={day} sx={{ textAlign: "center", px: "0!important" }}>{day.substring(0, 3)}</TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
 
-        <TableBody>
-          {getWeeksInMonth(month, getYear(currentDate)).map((week, i) => {
-            return (
-              <TableRow key={i}>
-                {week.map((day, i) => {
-                  const shifts = day?.shifts?.reduce((obj: any, item: ShiftProps) => Object.assign(obj, { [item.shiftType]: { ...item } }), {})
+          <TableBody>
+            {getWeeksInMonth(month, getYear(currentDate)).map((week, i) => {
+              return (
+                <TableRow key={i}>
+                  {week.map((day, i) => {
+                    const shifts = day?.shifts?.reduce((obj: any, item: ShiftProps) => Object.assign(obj, { [item.shiftType]: { ...item } }), {})
 
-                  return (
-                    <TableCell key={i} sx={{ textAlign: "center", px: 0, py: 1, borderBottom: 0 }}>
-                      {day ? (
-                        <Button fullWidth
-                          color="inherit"
-                          variant={(selectedDate && isSameDay(selectedDate, day.date)) ? "contained" : "text"}
-                          sx={{ display: "block", px: 0, py: 0, minWidth: 0 }} onClick={() => setDate(day.date)}>
-                          <Typography variant="body3">{getDate(day.date)}</Typography>
-                          <Stack direction="row" sx={{ width: "100%", justifyContent: "center", mb: 0.8, mt: 0.5 }}>
-                            <Dot start active={shifts && shifts[1]} />
-                            <Dot active={shifts && shifts[2]} />
-                            <Dot active={shifts && shifts[3]} />
-                            <Dot end active={shifts && shifts[4]} />
-                          </Stack>
-                        </Button>
-                      ) : (
-                        <></>
-                      )}
-                    </TableCell>
-                  )
-                })}
-              </TableRow>
-            )
-          })}
-        </TableBody>
-      </Table>
-    </Paper>
+                    return (
+                      <TableCell align="center" key={i} sx={{ textAlign: "center", px: "0!important", py: 1, borderBottom: 0 }}>
+                        {day ? (
+                          <Button fullWidth
+                            color={(selectedDate && isSameDay(selectedDate, day.date)) ? "success" : "inherit"}
+                            variant={(selectedDate && isSameDay(selectedDate, day.date)) ? "contained" : "text"}
+                            sx={{ display: "block", px: 0, mx: "auto", py: 0, minWidth: 0, maxWidth: 50 }} onClick={() => setDate(day.date)}>
+                            <Typography variant="body3">{getDate(day.date)}</Typography>
+                            <Stack direction="row" sx={{ width: "100%", justifyContent: "center", mb: 0.8, mt: 0.5 }}>
+                              <Dot start active={shifts && shifts[1]} />
+                              <Dot active={shifts && shifts[2]} />
+                              <Dot active={shifts && shifts[3]} />
+                              <Dot end active={shifts && shifts[4]} />
+                            </Stack>
+                          </Button>
+                        ) : (
+                          <></>
+                        )}
+                      </TableCell>
+                    )
+                  })}
+                </TableRow>
+              )
+            })}
+          </TableBody>
+        </Table>
+      </Box>
+    </Card>
   )
 }
 

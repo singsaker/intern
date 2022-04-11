@@ -1,7 +1,7 @@
-import { useAuthentication } from '@api/authentication';
 import { useQuery } from '@apollo/client';
+import Loading from '@components/Loading';
 import { GET_PROJECT } from "@graphql/projects/queries";
-import { Container, Typography } from '@mui/material';
+import { Box, Card, CardHeader, Container } from '@mui/material';
 import Routes from '@src/routes';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -10,7 +10,6 @@ import WorkRegisterForm from 'src/views/work/WorkRegisterForm';
 
 
 const RegisterWorkPage = () => {
-  const { userDetails } = useAuthentication()
   const router = useRouter()
   const { project } = router.query
 
@@ -18,10 +17,18 @@ const RegisterWorkPage = () => {
   const { data: projectData, loading } = useQuery(GET_PROJECT,
     { variables: { id: project } });
 
+  if (loading) {
+    return <Loading />
+  }
+
   return (
     <Container>
-      <Typography>Regiprosjekt: <b>{!loading && projectData?.project.name}</b></Typography>
-      <WorkRegisterForm project={project} onComplete={() => router.push(Routes.work)} />
+      <Card>
+        <CardHeader title={"Registrer regi for " + projectData?.project.name} />
+        <Box mx={3}>
+          <WorkRegisterForm project={project} onComplete={() => router.push(Routes.work)} />
+        </Box>
+      </Card>
     </Container>
   )
 }

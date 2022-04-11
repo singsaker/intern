@@ -1,4 +1,4 @@
-import { Button, IconButton, Table, TableBody, TableCell, TableRow, Typography } from "@mui/material"
+import { Button, Card, CardHeader, Chip, IconButton, Table, TableBody, TableCell, TableRow, Typography } from "@mui/material"
 import { ShiftDateProps, ShiftProps } from "@src/types/shift"
 import { format, isSameDay } from 'date-fns'
 import { nb } from 'date-fns/locale'
@@ -40,16 +40,14 @@ const ReceptionShiftView = ({ date, shifts }: Props) => {
   }
 
   return (
-    <>
-      <Typography variant="h4" sx={{ textTransform: "capitalize", mb: 2, textAlign: "center" }}>
-        {format(date, "EEEE dd.MM", { locale: nb })}
-      </Typography>
-      <Table sx={{ width: "100%" }} size="small">
+    <Card>
+      <CardHeader sx={{ textTransform: "capitalize" }} title={format(date, "EEEE dd.MM", { locale: nb })} />
+      <Table sx={{ width: "100%", mb: 2 }} size="small">
         <TableBody>
           {(new Array(4)).fill(0).map((_, index) => (
             <TableRow key={index}>
               <TableCell width={40}>
-                <Typography variant="body3"><b>{index + 1}</b></Typography>
+                <Chip label={<b>{index + 1}</b>} />
               </TableCell>
 
               {(!shiftsObject || !shiftsObject[index + 1]) ? (
@@ -77,7 +75,7 @@ const ReceptionShiftView = ({ date, shifts }: Props) => {
       </Table>
       {shiftID && (<EditShiftDialog id={shiftID} open={editOpen} handleClose={() => setEditOpen(false)} />)}
       <NewShiftDialog type={type} open={newOpen} handleClose={() => setNewOpen(false)} semester={1} date={date} />
-    </>
+    </Card>
   )
 }
 

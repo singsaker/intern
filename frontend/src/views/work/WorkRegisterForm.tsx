@@ -5,7 +5,7 @@ import { GET_WORK, GET_WORK_CATEGORIES } from '@graphql/projects/queries';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import DatePicker from '@mui/lab/DatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import { Box, Button, Divider, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
+import { Box, Button, Divider, FormControl, InputLabel, LinearProgress, MenuItem, Select, Stack, TextField } from "@mui/material";
 import dateFormat from 'dateformat';
 import { useRouter } from 'next/router';
 import { useState } from "react";
@@ -81,7 +81,7 @@ const WorkRegisterForm = ({ project, memberId, onComplete }: any) => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <Stack spacing={3}>
-          {!categoryLoading && (
+          {categoryLoading ? (<LinearProgress variant='indeterminate' />) : (
             <Controller
               name="category"
               defaultValue={categoryData.allWorkCategories[0].id}

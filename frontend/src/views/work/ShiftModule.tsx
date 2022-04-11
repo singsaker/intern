@@ -3,8 +3,10 @@ import { useQuery } from "@apollo/client";
 import { GET_SHIFT_DATES } from "@graphql/reception/queries";
 import { Box, Button, Card, CardHeader, Chip, LinearProgress, Stack, Table, TableBody, TableCell, TableHead, TableRow, useTheme } from "@mui/material";
 import { ShiftDateProps, ShiftProps } from "@src/types/shift";
+import BaseOptionChart from "@theme/charts";
 import { ApexOptions } from "apexcharts";
 import dateFormat from "dateformat";
+import deepmerge from "deepmerge";
 import dynamic from 'next/dynamic';
 import NextLink from "next/link";
 
@@ -25,25 +27,20 @@ const ShiftModule = () => {
 
   const chartSeries = [
     {
-      data: shifts.map((shift) => ({ "x": "Vakt", "y": [new Date(shift[0]).getTime(), new Date(shift[0]).getTime() + (6 * 60 * 60 * 1000)] }))
+      data: shifts.map((shift) => ({ "x": shift[1].shiftType + " Vakt", "y": [new Date(shift[0]).getTime(), new Date(shift[0]).getTime() + (6 * 60 * 60 * 1000)] }))
     }
   ]
 
-  const chartOptions: ApexOptions = {
+  const chartOptions: ApexOptions = deepmerge(BaseOptionChart(), {
     chart: {
-      height: 100,
       type: 'rangeBar',
-      toolbar: {
-        show: false,
-      }
     },
     plotOptions: {
       bar: {
         horizontal: true,
-        barHeight: '80%'
+        barHeight: '100%'
       }
     },
-    colors: [theme.palette.primary.light],
     yaxis: {
       labels: {
         show: false,
@@ -57,11 +54,6 @@ const ShiftModule = () => {
     },
     xaxis: {
       type: 'datetime',
-      labels: {
-        style: {
-          colors: theme.palette.text.disabled,
-        },
-      },
       axisBorder: {
         show: false
       },
@@ -73,18 +65,8 @@ const ShiftModule = () => {
       xaxis: [{
         x: new Date().getTime(),
         strokeDashArray: 0,
-        borderColor: theme.palette.grey[900],
         borderWidth: 2,
       }]
-    },
-    tooltip: {
-      x: {
-        format: "yyyy",
-      },
-      fixed: {
-        enabled: false,
-        position: 'topRight'
-      }
     },
     grid: {
       yaxis: {
@@ -101,21 +83,17 @@ const ShiftModule = () => {
     stroke: {
       width: 3
     },
-    fill: {
-      type: 'solid',
-      opacity: 0.6
-    },
     legend: {
       show: false,
     }
-  }
+  })
 
   return (
     <Card>
       <CardHeader title="Dine vakter" />
       <Box sx={{ mx: 3, pb: 2 }}>
         <div id="chart">
-          <Chart options={chartOptions} series={chartSeries} type="rangeBar" height={100} />
+          <Chart options={chartOptions} series={chartSeries} type="rangeBar" height={130} />
         </div>
         <Table size="small" sx={{ mb: 2 }}>
           <TableHead>

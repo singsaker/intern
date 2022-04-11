@@ -4,7 +4,6 @@ import Loading from '@components/Loading';
 import AdminLayout from '@layouts/admin';
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import useResponsive from '@utils/useResponsive';
 import { useState } from 'react';
 //
 import DashboardNavbar from './DashboardNavbar';
@@ -43,7 +42,6 @@ interface Props {
 
 export default function DashboardLayout({ children, admin, title, back }: Props) {
   const [open, setOpen] = useState(false);
-  const isDesktop = useResponsive("up", "lg")
   const { userDetails } = useAuthentication();
 
   if (!userDetails) {
@@ -51,7 +49,7 @@ export default function DashboardLayout({ children, admin, title, back }: Props)
   }
 
   return (
-    <Box sx={{ minHeight: "100vh", pb: 8, bgcolor: "grey.100" }}>
+    <Box sx={{ minHeight: "100vh", pb: 8, bgcolor: (theme) => theme.palette.mode == "dark" ? "grey.900" : "grey.100" }}>
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} admin={admin} title={title} back={back} />
       {admin && (<AdminLayout />)}
       <Box display="flex">

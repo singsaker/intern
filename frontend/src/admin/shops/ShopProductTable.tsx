@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { CREATE_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } from "@graphql/shops/mutations";
 import { GET_SHOP } from "@graphql/shops/queries";
-import { AppBar, Box, Button, Chip, Dialog, DialogActions, FormControl, IconButton, InputBase, InputLabel, MenuItem, OutlinedInput, Select, SelectChangeEvent, Stack, TextField, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, CardHeader, Chip, Dialog, DialogActions, FormControl, IconButton, InputBase, InputLabel, MenuItem, OutlinedInput, Select, SelectChangeEvent, Stack, TextField, Toolbar, Typography } from "@mui/material";
 import { DataGrid, GridActionsCellItem, GridRenderCellParams, GridRenderEditCellParams, GridRowParams, GridRowsProp, GridValueSetterParams, useGridApiContext } from "@mui/x-data-grid";
 import { ProductCategoryType } from "@src/types/product";
 import { ShopType } from "@src/types/shop";
@@ -95,7 +95,7 @@ const ShopProductTable = ({ shop }: Props) => {
             renderCell: (params: GridRenderCellParams<any>) => (
                 <Stack spacing={0.5} direction="row">
                     {params.row.productCategories.map((productCategory: ProductCategoryType) => (
-                        <Chip key={productCategory.id} label={productCategory.name} />
+                        <Chip key={productCategory.id} label={productCategory.name} size="small" color="primary" />
                     ))}
                 </Stack>
             ),
@@ -111,24 +111,26 @@ const ShopProductTable = ({ shop }: Props) => {
 
     return (
         <>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ my: 3 }}>
-                <Typography variant="h4" >Produkter</Typography>
-                <Button variant="outlined" color="inherit" onClick={() => setOpen(true)}>Nytt produkt</Button>
+            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
+                <CardHeader title="Produkter" />
+                <Button variant="outlined" color="inherit" onClick={() => setOpen(true)} sx={{ mr: 3, mt: 1.5 }}>Nytt produkt</Button>
             </Stack>
-
-            {(rows.length != 0) && (
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    autoHeight
-                    rowsPerPageOptions={[15, 50]}
-                    initialState={{
-                        sorting: {
-                            sortModel: [{ field: 'name', sort: 'asc' }],
-                        },
-                    }}
-                />
-            )}
+            <Box mx={2}>
+                {(rows.length != 0) && (
+                    <DataGrid
+                        sx={{ borderRadius: 0, borderLeft: "none", borderRight: "none" }}
+                        rows={rows}
+                        columns={columns}
+                        autoHeight
+                        rowsPerPageOptions={[15, 50]}
+                        initialState={{
+                            sorting: {
+                                sortModel: [{ field: 'name', sort: 'asc' }],
+                            },
+                        }}
+                    />
+                )}
+            </Box>
             <ProductProductDialog open={open} handleClose={() => setOpen(false)} shop={shop} />
         </>
     )
@@ -169,7 +171,11 @@ function CategoryEditInputCell(props: CategoryEditInputCellProps) {
             renderValue={(selected) => (
                 <Box sx={{ display: 'flex', gap: 0.5 }}>
                     {selected.map((value) => (
-                        <Chip key={value} label={shop.productCategories.find(productCategory => productCategory.id == value)?.name} />
+                        <Chip
+                            key={value}
+                            label={shop.productCategories.find(productCategory => productCategory.id == value)?.name}
+                            size="small"
+                            color="primary" />
                     ))}
                 </Box>
             )}

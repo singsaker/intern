@@ -26,8 +26,16 @@ const RootStyle = styled(AppBar, {
   // backdropFilter: 'blur(6px)',
   // WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
   transition: "0.2s all ease",
-  backgroundColor: (admin ? theme.palette.grey[900] : theme.palette.common.white),
-  color: (admin ? theme.palette.common.white : theme.palette.grey[900]),
+  backgroundColor: (admin ?
+    theme.palette.grey[900] : (
+      theme.palette.mode === "dark" ? theme.palette.grey[800] : theme.palette.common.white
+    )
+  ),
+  color: (admin ?
+    theme.palette.common.white : (
+      theme.palette.mode === "dark" ? theme.palette.common.white : theme.palette.grey[900]
+    )
+  ),
   [theme.breakpoints.up('lg')]: {
     width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
     marginLeft: DRAWER_WIDTH

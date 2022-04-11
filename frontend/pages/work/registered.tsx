@@ -2,7 +2,7 @@ import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECT, GET_WORK } from "@graphql/projects/queries";
 import DashboardLayout from "@layouts/dashboard";
-import { Container, Stack, Typography } from "@mui/material";
+import { Card, Chip, Container, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import parseDuration from "@utils/parseDuration";
 import dateFormat from "dateformat";
 import { useRouter } from "next/router";
@@ -33,17 +33,40 @@ const RegisteredWorkPage = () => {
 
   return (
     <Container>
-      <Stack spacing={2}>
-        {!workLoading && workData?.allWork.map((work: WorkProps) => (
-          <Stack key={work.id} spacing={2} direction="row">
-            <Typography>{dateFormat(work.registerDate, "dd.mm.yy")}</Typography>
-            <Typography>{dateFormat(work.executionDate, "dd.mm.yy")}</Typography>
-            <Typography>{work.description}</Typography>
-            <Typography>{work.status}</Typography>
-            <Typography>{parseDuration(work.duration)}</Typography>
-          </Stack>
-        ))}
-      </Stack>
+      <Card>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Dato registrert</TableCell>
+              <TableCell>Dato utført</TableCell>
+              <TableCell>Beskrivelse</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Tid</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {!workLoading && workData?.allWork.map((work: WorkProps) => (
+              <TableRow key={work.id}>
+                <TableCell>{dateFormat(work.registerDate, "dd.mm.yy")}</TableCell>
+                <TableCell>{dateFormat(work.executionDate, "dd.mm.yy")}</TableCell>
+                <TableCell>{work.description}</TableCell>
+                <TableCell>
+                  {work.status == 1 && (
+                    <Chip label="Ubehandlet" />
+                  )}
+                  {work.status == 2 && (
+                    <Chip color="success" label="Godkjent" />
+                  )}
+                  {work.status == 3 && (
+                    <Chip color="error" label="Underkjent" />
+                  )}
+                </TableCell>
+                <TableCell>{parseDuration(work.duration)}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Card>
     </Container>
   )
 }

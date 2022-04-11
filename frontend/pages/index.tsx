@@ -33,7 +33,7 @@ const HomePage = () => {
 
   return (
     <Container>
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
         <Grid item xs={12} lg={6}>
           <CardStyle>
             <Typography variant="h4" sx={{ mb: 2 }}>Melding</Typography>

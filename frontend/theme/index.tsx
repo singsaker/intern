@@ -14,13 +14,16 @@ type ThemeConfigProps = {
 };
 
 export default function ThemeConfig({ children }: ThemeConfigProps) {
+  const themeMode = "light"
+
   const themeOptions: ThemeOptions = useMemo(
     () => ({
-      palette: palette.light,
+      palette: palette[themeMode],
       shape,
+      mode: themeMode,
       typography,
-      shadows: shadows.light,
-      customShadows: customShadows.light,
+      shadows: shadows[themeMode],
+      customShadows: customShadows[themeMode],
     }),
     []
   );

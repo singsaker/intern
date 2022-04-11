@@ -26,7 +26,7 @@ const AccountStyle = styled('div')(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(2, 2.5),
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: theme.palette.grey[200]
+  backgroundColor: theme.palette.mode === "dark" ? theme.palette.grey[800] : theme.palette.grey[200]
 }));
 
 const ListItemStyle = styled((props: ListItemButtonProps) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
@@ -101,7 +101,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
     const path = "/" + router.pathname.split("/")[1]
 
     setValue(path)
-  }, [router])
+  })
 
   const renderContent = (
     <Box
@@ -139,7 +139,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }: Dash
               key={index}
               onClick={() => handleChange(path)}
               sx={{
-                ...(router.pathname === path && activeRootStyle),
+                ...(value === path && activeRootStyle),
               }}
             >
               <ListItemIconStyle>{icon}</ListItemIconStyle>

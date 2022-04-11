@@ -9,7 +9,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: "none",
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-  backgroundColor: theme.palette.grey[100],
+  backgroundColor: theme.palette.mode === "dark" ? theme.palette.grey[800] : theme.palette.grey[100],
   "& .MuiTab-root": {
     // color: theme.palette.grey[300],
   },
@@ -47,9 +47,9 @@ const AdminLayout = ({ children }: Props) => {
         <Tabs
           textColor="secondary"
           indicatorColor="secondary"
-          variant="scrollable"
           value={value}
           onChange={handleChange}
+          centered
         >
           <Tab value={"/admin/rooms"} label="Romsjef" />
           <Tab value={"/admin/projects"} label="Regi" />
