@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "downlevelIteration": true, // Spread operator on sets
+    "target": "es5",
+    "lib": ["es6", "dom", "dom.iterable", "esnext"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@graphql/*": ["graphql/*"],
+      "@api/*": ["api/*"],
+      "@theme/*": ["theme/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@utils/*": ["utils/*"],
+      "@src/*": ["src/*"],
+      "@views/*": ["src/views/*"],
+      "@admin/*": ["src/admin/*"]
+    },
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "theme/index.js"],
+  "exclude": ["node_modules"]
+}
