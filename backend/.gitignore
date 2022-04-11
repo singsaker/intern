@@ -1,2 +1,3 @@
 .env.development
 .vscode
+__pycache__/
