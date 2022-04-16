@@ -1,4 +1,5 @@
-import { Container, Divider, Grid } from '@mui/material';
+import { Container, Divider, Grid, Stack } from '@mui/material';
+import CurrentShiftModule from '@src/views/work/CurrentShiftModule';
 import DashboardLayout from "src/layouts/dashboard";
 import ShiftModule from "src/views/work/ShiftModule";
 import WorkModule from "src/views/work/WorkModule";
@@ -8,11 +9,14 @@ const WorkPage = () => {
     <Container>
       <Grid container spacing={2}>
         <Grid xs={12} md={6} item >
-          <WorkModule />
+          <Stack spacing={2}>
+            <CurrentShiftModule />
+            <ShiftModule />
+          </Stack>
         </Grid>
         <Divider />
         <Grid xs={12} md={6} item>
-          <ShiftModule />
+          <WorkModule />
         </Grid>
       </Grid>
     </Container>

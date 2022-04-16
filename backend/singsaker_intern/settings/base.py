@@ -56,6 +56,13 @@ GRAPHQL_JWT = {
     "JWT_EXPIRATION_DELTA": timedelta(days=2),
 }
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+
 INSTALLED_APPS = [
     "graphene_django",
     "corsheaders",
@@ -93,7 +100,11 @@ ROOT_URLCONF = "singsaker_intern.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            # ADD YOUR DIRECTORY HERE LIKE SO:
+            BASE_DIR
+            / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

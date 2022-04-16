@@ -12,6 +12,7 @@ class MemberQueries(graphene.ObjectType, MemberResolvers):
     all_active_members = graphene.List(MemberType)
     user = graphene.Field(UserType)
     user_details = graphene.Field(UserType)
+    send_email = graphene.Field(UserType)
 
 
 class UserMutations(graphene.ObjectType):

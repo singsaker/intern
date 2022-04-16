@@ -1,7 +1,7 @@
 import { useAuthentication } from "@api/authentication";
 import { useQuery } from "@apollo/client";
 import { GET_SHIFT_DATES } from "@graphql/reception/queries";
-import { Box, Button, Card, CardHeader, Chip, LinearProgress, Stack, Table, TableBody, TableCell, TableHead, TableRow, useTheme } from "@mui/material";
+import { Box, Button, Card, CardHeader, Chip, LinearProgress, Stack, styled, Table, TableBody, TableCell, TableHead, TableRow, useTheme } from "@mui/material";
 import { ShiftDateProps, ShiftProps } from "@src/types/shift";
 import BaseOptionChart from "@theme/charts";
 import { ApexOptions } from "apexcharts";
@@ -12,6 +12,12 @@ import NextLink from "next/link";
 
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+const MainCardStyle = styled(Card)(({ theme }) => ({
+  boxShadow: 'none',
+  // color: theme.palette.grey[900],
+  // backgroundColor: theme.palette.secondary.lighter
+}));
 
 // VAKTER: Oversiktblokk
 const ShiftModule = () => {
@@ -31,7 +37,7 @@ const ShiftModule = () => {
     }
   ]
 
-  const chartOptions: ApexOptions = deepmerge(BaseOptionChart(), {
+  const chartOptions: ApexOptions = deepmerge({
     chart: {
       type: 'rangeBar',
     },
@@ -41,6 +47,7 @@ const ShiftModule = () => {
         barHeight: '100%'
       }
     },
+    colors: [theme.palette.secondary.main],
     yaxis: {
       labels: {
         show: false,
@@ -86,11 +93,11 @@ const ShiftModule = () => {
     legend: {
       show: false,
     }
-  })
+  }, BaseOptionChart())
 
   return (
-    <Card>
-      <CardHeader title="Dine vakter" />
+    <MainCardStyle>
+      <CardHeader title="Dine vakter" subheader="Her kan du se en oversikt over dine vakter" />
       <Box sx={{ mx: 3, pb: 2 }}>
         <div id="chart">
           <Chart options={chartOptions} series={chartSeries} type="rangeBar" height={130} />
@@ -116,7 +123,7 @@ const ShiftModule = () => {
                   {new Date(shift[0]) < new Date() ? (
                     <Chip color="success" size="small" label="Fullført" />
                   ) : (
-                    <Chip color="warning" size="small" label="Ikke fullført" />
+                    <Chip color="error" size="small" label="Ikke fullført" />
                   )}
                 </TableCell>
               </TableRow>
@@ -124,13 +131,13 @@ const ShiftModule = () => {
           </TableBody>
         </Table>
         <Stack spacing={2} direction="row" my={1}>
-          <Button variant="contained" color="primary" fullWidth>Bytt vakt</Button>
+          <Button variant="contained" fullWidth>Bytt vakt</Button>
           <NextLink href={"/work/shifts"} passHref>
             <Button variant="outlined" color="inherit" fullWidth>Se alle vakter</Button>
           </NextLink>
         </Stack>
       </Box>
-    </Card>
+    </MainCardStyle>
   )
 }
 
