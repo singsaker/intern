@@ -1,7 +1,7 @@
 import { useAuthentication } from "@api/authentication";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_PROJECTS, GET_PROJECT_MEMBER, GET_TOTAL_TIME_SPENT } from "@graphql/projects/queries";
-import { Box, Button, Card, CardHeader, Chip, FormControl, LinearProgress, MenuItem, Select, SelectChangeEvent, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Button, Card, CardHeader, FormControl, LinearProgress, MenuItem, Select, SelectChangeEvent, Stack, styled, Typography, useTheme } from "@mui/material";
 import BaseOptionChart from "@theme/charts";
 import parseDuration from "@utils/parseDuration";
 import { ApexOptions } from "apexcharts";
@@ -12,6 +12,23 @@ import { useEffect, useState } from "react";
 import ProjectType from "src/types/project";
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+const CardStyle = styled(Card)(({ theme }) => ({
+  boxShadow: 'none',
+  textAlign: 'center',
+  padding: theme.spacing(1, 2),
+  color: theme.palette.common.white,
+  backgroundColor: theme.palette.primary.dark
+}));
+
+const MainCardStyle = styled(Card)(({ theme }) => ({
+  boxShadow: 'none',
+  color: theme.palette.grey[900],
+  [theme.breakpoints.up("lg")]: {
+    padding: theme.spacing(1),
+  },
+  backgroundColor: theme.palette.primary.lighter
+}));
 
 
 // REGI: Oversiktblokk
@@ -54,79 +71,53 @@ const WorkModule = () => {
     return <LinearProgress variant="indeterminate" />
   }
 
-  const chartSeries = [
-    parseInt(timeData.totalTimeSpent),
-    (projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent),
+  const chartSeries: ApexNonAxisChartSeries = [
+    parseFloat((100 * parseInt(timeData.totalTimeSpent) / ((projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60)).toFixed(1)),
   ]
 
   const chartOptions: ApexOptions = deepmerge(BaseOptionChart(), {
     chart: {
-      type: 'donut',
+      type: 'radialBar',
       selection: {
         enabled: false,
       }
     },
-    stroke: {
-      colors: ['transparent']
-    },
-    tooltip: {
-      y: {
-        formatter: (val: any) => parseDuration(val),
-      },
-    },
     plotOptions: {
-      pie: {
-        expandOnClick: false,
-        donut: {
-          size: '85%',
+      radialBar: {
+        dataLabels: {
+          name: {
+            show: false,
+          },
+          value: {
+            fontSize: "15px",
+            color: "white"
+          }
+        },
+        hollow: {
+          size: '60%',
           labels: {
             show: true,
-            value: {
-              show: true,
-              formatter: function (val: any) {
-                return parseDuration(val)
-              },
-              ...(theme.typography.h4 as any),
-              color: theme.palette.text.primary,
-            },
-            name: {
-              show: true
-            },
-            total: {
-              color: theme.palette.text.secondary,
-              ...(theme.typography.subtitle1 as any),
-              show: true,
-              label: 'Totale timer',
-              formatter: function (val: any) {
-                if (projectMemberData?.projectMember) {
-                  return parseDuration((projectMemberData.projectMember.allocatedTime * 60 * 60))
-                } else {
-                  return ""
-                }
-              }
-            }
           }
         }
       }
     },
-    labels: ['Utførte timer', "Gjenstående timer"],
+    labels: ["awd"],
     legend: {
       show: false,
     }
   })
 
   return (
-    <Card>
-      <CardHeader title="Din regi" />
+    <MainCardStyle>
+      <CardHeader title="Din regi" subheader="Her kan du se en oversikt over din regi" />
       <Box sx={{ mx: 3, pb: 2 }}>
-        <Stack sx={{ mb: 3 }} spacing={3}>
-
+        <Stack sx={{ mb: 2, mt: 2 }} spacing={3}>
           {!loading && (
-            <FormControl color="info" variant="standard" fullWidth>
+            <FormControl color="primary" fullWidth>
               <Select
+                sx={{ color: "grey.900" }}
                 defaultValue={data.allProjects[0].id}
                 value={project}
-                label="Velg prosjekt"
                 onChange={handleChange}
               >
                 {!loading && data.allProjects.map((project: ProjectType) => (
@@ -141,7 +132,7 @@ const WorkModule = () => {
         ) : (
           projectMemberData?.projectMember ? (
             <>
-              <Stack direction="row" spacing={2} justifyContent="center">
+              {/* <Stack direction="row" spacing={2} justifyContent="center">
                 <Chip
                   avatar={
                     <Chip
@@ -168,9 +159,17 @@ const WorkModule = () => {
                   label={<Typography fontWeight={600} variant="caption">Gjenstående</Typography>}
                   variant="outlined"
                 />
-              </Stack>
+              </Stack> */}
               <Box my={2} id="chart">
-                <Chart options={chartOptions} series={chartSeries} type="donut" height={250} />
+                <CardStyle>
+                  <Stack direction="row" spacing={2} alignItems="center" textAlign="left">
+                    <Chart options={chartOptions} series={chartSeries} type="radialBar" height={140} width={90} />
+                    <div>
+                      <Typography variant="h4">{parseDuration((projectMemberData.projectMember?.allocatedTime | 0) * 60 * 60 - parseInt(timeData.totalTimeSpent))}</Typography>
+                      <Typography color="primary.light" variant="body3">Gjenstående regi</Typography>
+                    </div>
+                  </Stack>
+                </CardStyle>
               </Box>
               <Stack spacing={2} direction="row" sx={{ my: 1 }}>
                 <NextLink href={"/work/register?project=" + project} passHref>
@@ -182,10 +181,10 @@ const WorkModule = () => {
               </Stack>
             </>
           ) : (
-            <Typography sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
+            <Typography variant="body1" sx={{ my: 2 }}>Du deltar ikke i dette regiprosjektet</Typography>
           ))}
       </Box>
-    </Card>
+    </MainCardStyle>
   )
 }
 

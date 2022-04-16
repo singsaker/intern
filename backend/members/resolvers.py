@@ -1,7 +1,13 @@
+from utils.email import email
+
 from .models import Member, User
 
 
 class MemberResolvers:
+    def resolve_send_email(self, info):
+        email(info.context.user)
+        return info.context.user
+
     def resolve_all_users(self, info):
         return User.objects.all()
 
