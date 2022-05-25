@@ -8,7 +8,7 @@ graphql-core==2.3.2
 graphql-relay==2.0.1
 django-guardian==2.4.0
 promise==2.3
-pyJWT==1.7.1
+pyJWT==2.4.0
 PyYAML==5.4.1
 django-environ==0.8.1
 postgres==4.0
